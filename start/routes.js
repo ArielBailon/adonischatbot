@@ -24,3 +24,5 @@ Route.group(() =>{
   Route.delete('task/:id', 'TaskController.delete')
 
 }).prefix('api')
+
+Route.get('chatbot', 'ChatController.onMessage')
