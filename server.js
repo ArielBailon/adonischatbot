@@ -17,10 +17,39 @@
 |     Make sure to pass relative path from the project root.
 */
 
-const { Ignitor } = require('@adonisjs/ignitor')
+const {
+  Ignitor
+} = require('@adonisjs/ignitor')
 
 new Ignitor(require('@adonisjs/fold'))
   .appRoot(__dirname)
   .wsServer() // boot the WebSocket server
   .fireHttpServer()
   .catch(console.error)
+
+// const startChat = require('./public/chat')
+
+const RiveScript = require('rivescript');
+const Chalk = require('chalk');
+const bot = new RiveScript();
+
+// let ask = () => {
+//   bot.sortReplies()
+//       socket.on('message', (message) => {
+//         bot.reply('local-user', message).then((reply) => {
+//           console.log(Chalk.green('Bot: ' + reply));
+//         $('.messages').append(`
+//               <div class="message"><h3> ${message.username} </h3> <p> ${message.body} </p> </div>
+//             `)
+//       })
+
+//       ask();
+//     })
+//     .catch((error) => console.log(error));
+// }
+
+// // Leer el archivo rive
+// bot.loadFile("./config/rivescripts/training_data.rive")
+//   .then(ask)
+//   .catch((error) => console.log(error));
+

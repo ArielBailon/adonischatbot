@@ -25,4 +25,7 @@ Route.group(() =>{
 
 }).prefix('api')
 
-Route.get('chatbot', 'ChatController.onMessage')
+
+Route.get('/', ({ view }) =>{
+  return view.render('chat')
+})

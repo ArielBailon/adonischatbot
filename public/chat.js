@@ -7,7 +7,7 @@ $(function () {
   }
 })
 
-function startChat () {
+function startChat() {
   ws = adonis.Ws().connect()
 
   ws.on('open', () => {
@@ -20,7 +20,8 @@ function startChat () {
   })
 }
 
-function subscribeToChannel () {
+
+function subscribeToChannel() {
   const chat = ws.subscribe('chat')
 
   chat.on('error', () => {
