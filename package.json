@@ -27,10 +27,13 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "@adonisjs/websocket": "^1.0.12",
+    "babel-core": "^6.26.3",
     "lucid-mongo": "^3.1.2",
+    "mongodb-core": "~1.0",
     "nodemon": "^1.19.4",
     "rivescript": "^2.0.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "webpack": "^4.41.2"
   },
   "devDependencies": {},
   "autoload": {
