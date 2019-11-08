@@ -1,5 +1,6 @@
 let ws = null
 
+
 $(function () {
   // Only connect when username is available
   if (window.username) {
@@ -8,8 +9,7 @@ $(function () {
 })
 
 function startChat() {
-  ws = adonis.Ws().connect()
-
+  ws = adonis.Ws().connect()      
   ws.on('open', () => {
     $('.connection-status').addClass('connected')
     subscribeToChannel()
@@ -29,8 +29,8 @@ function subscribeToChannel() {
   })
 
   chat.on('message', (message) => {
-    $('.messages').append(`
-      <div class="message"><h3> ${message.username} </h3> <p> ${message.body} </p> </div>
+    $('.messages').append(`      
+      <p class="userEnteredText">${message.body}</p><div class="clearfix"></div><p class="botResult">${message.body}</p><div class="clearfix"></div>
     `)
   })
 }

@@ -27,8 +27,8 @@ class RidenController {
         data['configuracion'] = await ChatConfiguracion.where({ id_empresa: id_empresa }).fetch()        
         //console.log(chatConfiguracion.updatedAtColumn())
 
-        return response.json(data['configuracion'])
-        //return view.render('configuracion', {data: data})
+        //return response.json(data['configuracion'])
+        return view.render('configuracion', {data: data})
     }
 
     async configuracion_post({request, view}){
@@ -39,6 +39,13 @@ class RidenController {
         data['titulo'] = 'Configuración'     
         chatConfiguracion.guardar_configuracion(body)                          
         return view.render('configuracion', {data: data})        
+    }
+
+    async chat({request, view}){
+        const data = []
+        data['titulo'] = 'Configuración'
+        data['nombre_chat'] = 'Travel Agent'
+        return view.render('chat/chat2', {data: data})   
     }
 
 }

@@ -36,7 +36,9 @@ Route.group(() =>{
   Route.get('login', 'RidenController.login')  
 }).prefix('chatb')
 
+Route.get('chat', 'RidenController.chat')
 
 Route.get('/', ({ view }) =>{
   return view.render('chat')
 })
+

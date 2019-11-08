@@ -84,7 +84,127 @@
                 </div>
               </form>
             </div>
-            <!-- /.card -->            
+            <!-- /.card --> 
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Quick Example</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form action="/chatb/configuracion" method="POST">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="txt_nombre">Nombre del ChatBot</label>
+                      <input type="text" class="form-control" id="txt_nombre" name="txt_nombre" placeholder="Ingrese el nombre del ChatBot">
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de industria</label>
+                        <select id="slt_tipo_industria" name="slt_tipo_industria" class="form-control">
+                          <option value="1">option 1</option>
+                          <option value="2">option 2</option>
+                          <option value="3">option 3</option>
+                          <option value="4">option 4</option>
+                          <option value="5">option 5</option>
+                        </select>
+                    </div>
+                    <label>Idioma</label>
+                    <div class="row">                      
+                        <div class="col-sm-6">
+                            <!-- radio -->                          
+                            <div class="form-group">                            
+                              <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="rdo_idioma_es" name="rdo_idioma" value="es" checked="">
+                                <label for="rdo_idioma_es" class="custom-control-label">Español</label>
+                              </div>                        
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- radio -->                          
+                            <div class="form-group">                            
+                              <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="rdo_idioma_en" name="rdo_idioma" value="en">
+                                <label for="rdo_idioma_en" class="custom-control-label">Ingles</label>
+                              </div>                        
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                          <input type="checkbox" class="custom-control-input" id="cbx_activar" name="cbx_activar">
+                          <label class="custom-control-label" for="cbx_activar">Activar Chatbot</label>
+                        </div>
+                    </div>               
+                  </div>
+                  <!-- /.card-body -->
+  
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card --> 
+              <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Quick Example</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form action="/chatb/configuracion" method="POST">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="txt_nombre">Nombre del ChatBot</label>
+                      <input type="text" class="form-control" id="txt_nombre" name="txt_nombre" placeholder="Ingrese el nombre del ChatBot">
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de industria</label>
+                        <select id="slt_tipo_industria" name="slt_tipo_industria" class="form-control">
+                          <option value="1">option 1</option>
+                          <option value="2">option 2</option>
+                          <option value="3">option 3</option>
+                          <option value="4">option 4</option>
+                          <option value="5">option 5</option>
+                        </select>
+                    </div>
+                    <label>Idioma</label>
+                    <div class="row">                      
+                        <div class="col-sm-6">
+                            <!-- radio -->                          
+                            <div class="form-group">                            
+                              <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="rdo_idioma_es" name="rdo_idioma" value="es" checked="">
+                                <label for="rdo_idioma_es" class="custom-control-label">Español</label>
+                              </div>                        
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- radio -->                          
+                            <div class="form-group">                            
+                              <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="rdo_idioma_en" name="rdo_idioma" value="en">
+                                <label for="rdo_idioma_en" class="custom-control-label">Ingles</label>
+                              </div>                        
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="form-group">
+                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                          <input type="checkbox" class="custom-control-input" id="cbx_activar" name="cbx_activar">
+                          <label class="custom-control-label" for="cbx_activar">Activar Chatbot</label>
+                        </div>
+                    </div>               
+                  </div>
+                  <!-- /.card-body -->
+  
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card -->            
           </div>
           <!--/.col (left) -->
           <!-- right column -->
@@ -100,3 +220,15 @@
   <!-- /.content-wrapper -->
 
 @include('global/footer')
+<div id="ad54"></div> 
+<script>
+    var link = "http://127.0.0.1:3333/chat" 
+    var iframe = document.createElement('iframe'); 
+    iframe.frameBorder=0;
+    iframe.id="randomid"; 
+    iframe.setAttribute("src", link); 
+    iframe.setAttribute("style", 'z-index: 1999999;background-color: transparent;border: none;width: 93px;height: 86px;max-width: 360px;position: fixed;right: 15px;bottom: 0px;'); 
+    document.getElementById("ad54").appendChild(iframe);     
+</script>
+
+<!-- Código de instalación Cliengo para solcaribe.com.ec --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5a664c30e4b0e832ea495820/5a664c33e4b0e832ea49582e.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
