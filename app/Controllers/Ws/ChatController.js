@@ -33,7 +33,7 @@ class ChatController {
   }
 
   cargar(){
-    this.bot.loadFile('C:/Users/Ondina/Desktop/chatbot/adonisbot/public/training_data.rive')
+    this.bot.loadFile('public/training_data.rive')
     .then()
     .catch((error) => console.log(error));
   }
