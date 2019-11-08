@@ -49,7 +49,9 @@ const aceProviders = [
 |   { Route: 'Adonis/Src/Route' }
 |
 */
-const aliases = {}
+const aliases = {
+  Ws: 'Adonis/Addons/Ws'
+}
 
 /*
 |--------------------------------------------------------------------------

@@ -27,7 +27,13 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "@adonisjs/websocket": "^1.0.12",
+<<<<<<< HEAD
     "babel-core": "^6.26.3",
+=======
+    "chalk": "^2.4.2",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.2.1",
+>>>>>>> 5dade00041826b975c472abbe3d9472e3c107a1b
     "lucid-mongo": "^3.1.2",
     "mongodb-core": "~1.0",
     "nodemon": "^1.19.4",
