@@ -43,3 +43,6 @@ Route.get('/', ({ view }) =>{
   return view.render('chat')
 })
 
+Route.get('/respuestas', ({ view }) =>{
+  return view.render('respuestas')
+})
