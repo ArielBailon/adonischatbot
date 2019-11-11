@@ -1,15 +1,15 @@
 
-    <h2>{{ data }}</h2>      
-    @set('items', ['Recorrer array A', 'Recorrer array B', 'Recorrer array C'])       
+    <h2>{{ data }}</h2>
+    @set('items', ['Recorrer array A', 'Recorrer array B', 'Recorrer array C'])
     @each(item in items)
         <option value="{{item.toLowerCase()}}">{{item}}</option>
     @endeach
 
     @set('ab', 'Definir variables')
-    {{ab}}    
+    {{ab}}
     <br>
-    @if('hola' == 'hola')    
-      Metodo logico 
+    @if('hola' == 'hola')
+      Metodo logico
     @else
       Hola
     @endif

@@ -31,12 +31,17 @@ Route.get('chatbot', 'ChatController.onMessage')
 //Riden Cedeño
 Route.get('ejemplo-view', 'RidenController.ejemplo_view')
 Route.group(() =>{
-  Route.get('configuracion', 'RidenController.configuracion')  
-  Route.post('configuracion', 'RidenController.configuracion_post')  
-  Route.get('login', 'RidenController.login')  
+  Route.get('configuracion', 'RidenController.configuracion')
+  Route.post('configuracion', 'RidenController.configuracion_post')
+  Route.get('login', 'RidenController.login')
 }).prefix('chatb')
 
 
+// Ariel Bailón
 Route.get('/', ({ view }) =>{
   return view.render('chat')
+})
+
+Route.get('respuestas', ({ view }) =>{
+  return view.render('respuestas')
 })
