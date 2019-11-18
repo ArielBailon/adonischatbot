@@ -45,3 +45,9 @@ Route.get('/', ({ view }) =>{
 Route.get('respuestas', ({ view }) =>{
   return view.render('respuestas')
 })
+
+Route.post('guardar_respuestas', 'RespuestaChatController.guardar_post')
+Route.get('conversacion', 'RespuestaChatController.conversacion')
+Route.get('leer_respuestas', 'RespuestaChatController.indice')
+
+

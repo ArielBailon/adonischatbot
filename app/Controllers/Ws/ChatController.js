@@ -1,7 +1,7 @@
 'use strict'
 const RiveScript = require('rivescript');
 const Chalk = require('chalk');
-const bot = new RiveScript();
+const bot = new RiveScript({utf8: true});
 
 class ChatController {
   constructor({
@@ -12,7 +12,7 @@ class ChatController {
     this.request = request
     this.bot = bot
     this.cargar()
-    console.log('socket connectado')
+    console.log('socket conectado')
   }
 
   onMessage(message) {
@@ -33,8 +33,8 @@ class ChatController {
   }
 
   cargar(){
-    this.bot.loadFile('public/training_data.rive')
-    .then()
+    this.bot.loadDirectory('config/rivescripts')
+    .then(console.log('El bot leyó los archivos rive correctamente'))
     .catch((error) => console.log(error));
   }
 }
