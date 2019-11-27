@@ -57,7 +57,7 @@ jwt: {
 },
 
 api: {
-  serializer: 'LucidMongo',
+  serializer: 'mongoose',
   scheme: 'api',
   model: 'App/Models/User',
   token: 'App/Models/Token',

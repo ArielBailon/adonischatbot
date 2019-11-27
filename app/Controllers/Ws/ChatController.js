@@ -1,6 +1,5 @@
 'use strict'
 const RiveScript = require('rivescript');
-const Chalk = require('chalk');
 const bot = new RiveScript({utf8: true});
 
 class ChatController {

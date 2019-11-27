@@ -28,7 +28,7 @@ Route.group(() =>{
 Route.get('chatbot', 'ChatController.onMessage')
 
 
-//Riden Cedeño
+// Riden Cedeño
 Route.get('ejemplo-view', 'RidenController.ejemplo_view')
 Route.group(() =>{
   Route.get('configuracion', 'RidenController.configuracion')
@@ -38,9 +38,27 @@ Route.group(() =>{
 
 
 // Ariel Bailón
-Route.get('/', ({ view }) =>{
+Route.get('/dashboard', ({ view }) =>{
+  return view.render('dashboard')
+})
+
+Route.get('/chat', ({ view }) =>{
   return view.render('chat')
 })
+
+// Registrarse
+
+Route.get('/registro', ({ view }) =>{
+  return view.render('registro')
+})
+Route.post('/registro', 'RegistroController.crear_usuario')
+
+// Iniciar sesión
+
+Route.get('/iniciars', ({ view }) =>{
+  return view.render('iniciarsesion')
+})
+Route.post('/iniciars', 'IniciarSesionController.iniciar_sesion')
 
 Route.get('respuestas', ({ view }) =>{
   return view.render('respuestas')
@@ -50,4 +68,5 @@ Route.post('guardar_respuestas', 'RespuestaChatController.guardar_post')
 Route.get('conversacion', 'RespuestaChatController.conversacion')
 Route.get('leer_respuestas', 'RespuestaChatController.indice')
 
+Route.post('crear', 'BotController.crear_bot')
 

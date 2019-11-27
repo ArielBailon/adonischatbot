@@ -1,0 +1,238 @@
+@include('global.header')
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Info boxes -->
+      <div class="row">
+        <!-- /.col -->
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">CLIENTES</span>
+              <span class="info-box-number">2,000</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="far fa-clock"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">POR CONTACTAR</span>
+              <span class="info-box-number">41,410</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix hidden-md-up"></div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">VENTAS</span>
+              <span class="info-box-number">760</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.col -->
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Clientes disponibles</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <h2>300 de 1000</h2>
+
+              <div class="progress progress-sm mb-3">
+                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 20%">
+                  <span class="sr-only">20% Complete</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+        <div class="col-md-6">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+
+                      <button type="button" class="btn dropdown-toggle unstyled-button mt-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Todos los chatbots
+                      </button>
+
+                      <button type="button" class="btn btn-primary float-right">Agregar un nuevo chatbot</button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Ariel Travel</a>
+                        <a class="dropdown-item" href="#">Jean Travel</a>
+                        <a class="dropdown-item" href="#">Riden Travel</a>
+                      </div>
+
+
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Estadísticas generales</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                    class="fas fa-times"></i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart">
+                <div class="chartjs-size-monitor">
+                  <div class="chartjs-size-monitor-expand">
+                    <div class=""></div>
+                  </div>
+                  <div class="chartjs-size-monitor-shrink">
+                    <div class=""></div>
+                  </div>
+                </div>
+                <canvas id="areaChart" style="height: 250px; min-height: 250px; display: block; width: 604px;"
+                  width="604" height="250" class="chartjs-render-monitor"></canvas>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Últimos clientes</h3>
+
+                  <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0" style="height: 300px;">
+                  <table class="table table-head-fixed">
+                    <thead>
+                      <tr>
+                        <th>Nombres</th>
+                        <th>Estado</th>
+                        <th>Datos</th>
+                        <th>Fecha</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>John Doe</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-success">Approved</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                      <tr>
+                        <td>Alexander Pierce</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-warning">Pending</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                      <tr>
+                        <td>Bob Doe</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-primary">Approved</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                      <tr>
+                        <td>Mike Doe</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-danger">Denied</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                      <tr>
+                        <td>Jim Doe</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-success">Approved</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                      <tr>
+                        <td>Victoria Doe</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-warning">Pending</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                      <tr>
+                        <td>Michael Doe</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-primary">Approved</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                      <tr>
+                        <td>Rocky Doe</td>
+                        <td>11-7-2014</td>
+                        <td><span class="tag tag-danger">Denied</span></td>
+                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+
+      </div>
+    </div>
+
+    <!-- /.row -->
+</div>
+<!--/. container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+
+
+@include('global.footer')

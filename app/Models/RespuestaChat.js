@@ -4,12 +4,10 @@
 const Model = use('Model')
 
 class RespuestaChat extends Model {
-  async guardar_respuesta(arrayPreguntas, respuesta){
+  async guardar_respuesta(arregloPreguntas, respuesta){
     const respuestaChat = new RespuestaChat()
-    // arrayPreguntas.forEach(function(pregunta, index) {
-      respuestaChat.arrayPreguntas = arrayPreguntas
+      respuestaChat.arregloPreguntas = arregloPreguntas
       respuestaChat.respuesta = respuesta[0]
-    // });
     await respuestaChat.save()
 }
 

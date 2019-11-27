@@ -2,6 +2,8 @@
 const fs = use('fs');
 
 const RespuestaChat = use('App/Models/RespuestaChat')
+const Bot = use('App/Models/Bot')
+
 class RespuestaChatController {
   async indice ({ response }) {
     let respuesta = await RespuestaChat.all()
@@ -78,16 +80,42 @@ class RespuestaChatController {
     });
 
     // Crear o reemplazar el archivo rive
-    fs.writeFileSync('config/rivescripts/bot1_empresa1_socket1.rive', contenidoRive, function (err) {
+    fs.appendFile('config/rivescripts/bot1_empresa1_socket1.rive', contenidoRive, function (err) {
       if (err) throw err;
       console.log('Se creó el archivo rive correctamente');
     });
+
+    // Reemplazar usando regex el archivo rive
+
+    // fs.readFile('config/rivescripts/bot1_empresa1_socket1.rive', 'utf8', (err, data) => {
+    //   if (err) {
+    //     console.log(err);
+    //   }
+    //     var result = data.replace(/+ pregunta 3/g, '+ pregunta 4 reemplazada');
+
+    //   fs.appendTo('config/rivescripts/bot1_empresa1_socket1.rive', result, 'utf8', function (err) {
+    //      if (err) return console.log(err);
+    //   });
+
+    // });
+
+    //   var fs = require('fs')
+    //    fs.readFile(someFile, 'utf8', function (err,data) {
+    //   if (err) {
+    //     return console.log(err);
+    //   }
+    //   var result = data.replace(/string to be replaced/g, 'replacement');
+
+    //   fs.writeFile(someFile, result, 'utf8', function (err) {
+    //      if (err) return console.log(err);
+    //   });
+    // });
 
     // respuestaChat.guardar_respuesta(arrayPreguntas, respuesta)
     return view.render('respuestas')
 }
 
-  async conversacion ( { view } ) {
+  async conversacion ({ view }) {
     return view.render('conversacion')
   }
 
