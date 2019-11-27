@@ -25,9 +25,6 @@ Route.group(() =>{
 
 }).prefix('api')
 
-Route.get('chatbot', 'ChatController.onMessage')
-
-
 // Riden Cedeño
 Route.get('ejemplo-view', 'RidenController.ejemplo_view')
 Route.group(() =>{
@@ -42,7 +39,7 @@ Route.get('/dashboard', ({ view }) =>{
   return view.render('dashboard')
 })
 
-Route.get('/chat', ({ view }) =>{
+Route.get('/chatbot', ({ view }) =>{
   return view.render('chat')
 })
 
