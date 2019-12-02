@@ -15,4 +15,6 @@
 
 const Ws = use('Ws')
 
-Ws.channel('chat', 'ChatController')
+Ws.channel('chatbot', 'ChatbotController')
+Ws.channel('chat', 'ChatController', 'roomid')
+

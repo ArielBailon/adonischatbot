@@ -59,10 +59,10 @@ jwt: {
 api: {
   serializer: 'mongoose',
   scheme: 'api',
-  model: 'App/Models/User',
+  model: 'App/Models/Usuario',
   token: 'App/Models/Token',
-  uid: 'username',
-  password: '',
+  uid: 'email', //Correo o id
+  password: 'password',
   expiry: '30d',
 }
 }

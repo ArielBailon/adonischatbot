@@ -6,6 +6,16 @@
   padding: 0;
   background: none;
 }
+
+.unstyled-button-border {
+  border: 2px solid #555555;
+  padding: 0;
+  background: none;
+}
 .outlinenone-button:focus {
   outline:none;
+}
+
+.chat-height{
+  height: 520px;
 }

@@ -1,9 +1,13 @@
 'use strict'
 
-
 const Bot = use('App/Models/Bot')
 
 class BotController {
+
+  async inicio ({ view }) {
+    return view.render('chatbot')
+  }
+
   async crear_bot ({request, view}) {
     const body = request.post()
     const nuevoBot = new Bot({

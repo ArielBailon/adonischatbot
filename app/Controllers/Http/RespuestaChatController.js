@@ -5,54 +5,13 @@ const RespuestaChat = use('App/Models/RespuestaChat')
 const Bot = use('App/Models/Bot')
 
 class RespuestaChatController {
-  async indice ({ response }) {
-    let respuesta = await RespuestaChat.all()
 
-    return response.json(respuesta)
+  async inicio ({ view }) {
+    return view.render('respuestas')
   }
 
-  async mostrar({ params, response}) {
-    const respuesta = await RespuestaChat.find(params.id)
-
-    return response.json(respuesta)
-  }
-
-  async guardar ({response, request}) {
-    const infoRespuesta = request.only(['respuesta_chat'])
-
-    const respuesta = new RespuestaChat()
-    respuesta.respuesta_chat = infoRespuesta.respuesta_chat
-
-    await respuesta.save()
-    return response.status(201).json(respuesta)
-  }
-
-
-  async actualizar({ params, request, response}) {
-    const infoRespuesta = request.only(['respuesta_chat'])
-
-    const respuesta = await RespuestaChat.find(params.id)
-    if (!respuesta) {
-      return response.status(404).json({ data:'No se encontraron datos'})
-    }
-
-    respuesta.respuesta_chat = infoRespuesta.respuesta_chat
-
-    await respuesta.save()
-
-    return response.status(200).json(respuesta)
-  }
-
-  async eliminar({ params, response}) {
-    const respuesta = await RespuestaChat.find(params.id)
-    if (!respuesta) {
-      return response.status(404).json({ data:'No se encontraron datos'})
-    }
-
-    await respuesta.delete()
-
-    return response.status(204).json(null)
-
+  async conversacion ({ view }) {
+    return view.render('conversacion')
   }
 
   async guardar_post({request, view}){
@@ -114,11 +73,6 @@ class RespuestaChatController {
     // respuestaChat.guardar_respuesta(arrayPreguntas, respuesta)
     return view.render('respuestas')
 }
-
-  async conversacion ({ view }) {
-    return view.render('conversacion')
-  }
-
 
 }
 

@@ -16,15 +16,6 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.group(() =>{
-  Route.get('chatbot', 'RespuestaChatController.indice')
-  Route.get('chatbot/:id', 'RespuestaChatController.mostrar')
-  Route.post('chatbot', 'RespuestaChatController.guardar')
-  Route.put('chatbot/:id', 'RespuestaChatController.actualizar')
-  Route.delete('chatbot/:id', 'RespuestaChatController.eliminar')
-
-}).prefix('api')
-
 // Riden Cedeño
 Route.get('ejemplo-view', 'RidenController.ejemplo_view')
 Route.group(() =>{
@@ -35,35 +26,28 @@ Route.group(() =>{
 
 
 // Ariel Bailón
-Route.get('/dashboard', ({ view }) =>{
-  return view.render('dashboard')
-})
-
-Route.get('/chatbot', ({ view }) =>{
-  return view.render('chat')
-})
+// Dashboard
+Route.get('/dashboard', 'DashboardController.inicio')
 
 // Registrarse
-
-Route.get('/registro', ({ view }) =>{
-  return view.render('registro')
-})
-Route.post('/registro', 'RegistroController.crear_usuario')
+Route.get('/registro', 'UsuarioController.inicio')
+Route.post('/registro', 'UsuarioController.crear_usuario')
 
 // Iniciar sesión
+Route.get('/iniciars', 'UsuarioController.inicios')
+Route.post('/iniciars', 'UsuarioController.iniciar_sesion')
 
-Route.get('/iniciars', ({ view }) =>{
-  return view.render('iniciarsesion')
-})
-Route.post('/iniciars', 'IniciarSesionController.iniciar_sesion')
+// Chatbot - Chat con bot
+Route.get('/chatbot', 'BotController.inicio')
+Route.post('/crear', 'BotController.crear_bot')
 
-Route.get('respuestas', ({ view }) =>{
-  return view.render('respuestas')
-})
-
+// Sección de respuestas
+Route.get('/respuestas', 'RespuestaChatController.inicio')
 Route.post('guardar_respuestas', 'RespuestaChatController.guardar_post')
-Route.get('conversacion', 'RespuestaChatController.conversacion')
-Route.get('leer_respuestas', 'RespuestaChatController.indice')
+Route.get('/conversacion', 'RespuestaChatController.conversacion')
+Route.get('/leer_respuestas', 'RespuestaChatController.indice')
 
-Route.post('crear', 'BotController.crear_bot')
+
+// Chat - Chat simple
+Route.get('/chat', 'ChatController.inicio')
 

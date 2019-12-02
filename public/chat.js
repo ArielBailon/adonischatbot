@@ -1,20 +1,15 @@
 let ws = null
 
 $(function () {
-  // Only connect when username is available
-  if (window.username) {
+//  Empezar el chat
     startChat()
-  }
 })
 
 function startChat() {
   ws = adonis.Ws().connect()
 
-  ws.on('open', (datos) => {
+  ws.on('open', () => {
     $('.connection-status').addClass('connected')
-    $('.messages').append(`
-      <div class="message"><h3> ${datos.nombre} </h3> <p> ${datos.saludo_inicial} </p> </div>
-    `)
     subscribeToChannel()
   })
 
@@ -25,7 +20,7 @@ function startChat() {
 
 
 function subscribeToChannel() {
-  const chat = ws.subscribe('chatbot')
+  const chat = ws.subscribe('chat')
 
   chat.on('error', () => {
     $('.connection-status').removeClass('connected')
@@ -33,7 +28,7 @@ function subscribeToChannel() {
 
   chat.on('message', (message) => {
     $('.messages').append(`
-      <div class="message"><h3> ${message.username} </h3> <p> ${message.body} </p> </div>
+      <div class="message"><h4> Riden </h4> <p> ${message.body} </p> </div>
     `)
   })
 }
@@ -45,8 +40,7 @@ $('#message').keyup(function (e) {
     const message = $(this).val()
     $(this).val('')
 
-    ws.getSubscription('chatbot').emit('message', {
-      username: window.username,
+    ws.getSubscription('chat').emit('message', {
       body: message
     })
     return

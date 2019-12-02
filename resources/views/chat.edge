@@ -1,46 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-  {{ style('style') }}
-</head>
-<body>
+@include('global.header')
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
 
-  @set('username', request.input('username'))
-
-  <div class="chat-container">
-    <div class="chat-wrapper">
-      @if(username)
-        <div class="header">
-          <h2>
-            <span>Hello {{ username }}!</span>
-            <span class="connected-users"></span>
-            <span class="connection-status"></span>
-          </h2>
-        </div>
-        <div class="messages">
-        </div>
-        <div class="input-wrapper">
-          <input type="text" id="message" placeholder="Enter message" autofocus=1>
-        </div>
-      @else
-        <div class="onboard">
-          <form action="/" method="GET">
-            <input type="text" id="name" name="username" placeholder="Enter your name" autofocus=1>
-          </form>
-        </div>
-      @endif
-    </div>
   </div>
+  <!-- /.content-header -->
 
-  <script>
-    window.username = '{{ username }}'
-  </script>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Info boxes -->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Chats pendientes </h3> <span class="float-right"> 6 </span>
+            </div>
+            <!-- /.card-header -->
+            <ul class="list-group list-group-flush">
+              <button class="btn"><li class="list-group-item">Cliente 1</li></button>
+            </ul>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
 
-  {{ script('https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js') }}
-  {{ script('https://unpkg.com/@adonisjs/websocket-client@1.0.9/dist/Ws.browser.js') }}
-  {{ script('https://unpkg.com/jquery@3.3.1/dist/jquery.js') }}
-  {{ script('chat.js') }}
-</body>
-</html>
+        <div class="col-md-9">
+          <div class="card">
+            <!-- /.card-header -->
+            <div class="card-header">
+              <h3 class="card-title">Jean </h3>
+            </div>
+            <div class="card-body chat-height">
+                <div class="messages">
+                </div>
+            </div>
+
+            <div class="card-footer text-muted">
+                <input type="text" id="message" class="form-control" placeholder="Escribe una respuesta">
+              </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </div>
+    </div>
+
+    <!-- /.row -->
+</div>
+<!--/. container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+
+{{ script('https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js') }}
+{{ script('https://unpkg.com/@adonisjs/websocket-client@1.0.9/dist/Ws.browser.js') }}
+{{ script('https://unpkg.com/jquery@3.3.1/dist/jquery.js') }}
+{{ script('chat.js') }}
+@include('global.footer')

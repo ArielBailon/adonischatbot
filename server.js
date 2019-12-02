@@ -1,4 +1,5 @@
 'use strict'
+const mongoose = require('mongoose')
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,9 @@
 |     Also you can preload files by calling `preLoad('path/to/file')` method.
 |     Make sure to pass relative path from the project root.
 */
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useUnifiedTopology', true);
 
 const {
   Ignitor
