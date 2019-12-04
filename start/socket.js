@@ -16,5 +16,7 @@
 const Ws = use('Ws')
 
 Ws.channel('chatbot', 'ChatbotController')
-Ws.channel('chat', 'ChatController', 'roomid')
+Ws.channel('chat:*', 'ChatController', ({ socket }) => {
+  console.log(socket.topic)
+})
 

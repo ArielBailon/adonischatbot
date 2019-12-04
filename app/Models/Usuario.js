@@ -45,10 +45,12 @@ class Usuario extends BaseModel {
       },
       config: {
         nombre_empresa: {
-          type: String
+          type: String,
+          default: "Telandweb"
         },
         telefono: {
-          type: Number
+          type: Number,
+          default: "065217855"
         },
         zona_horaria: {
           type: String

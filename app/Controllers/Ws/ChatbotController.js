@@ -23,7 +23,7 @@ class ChatController {
     this.bot.sortReplies()
     this.bot.reply('chat', message.body).then((reply) => {
       //console.log(Chalk.green('Bot: ' + reply));
-      this.socket.emitTo('message', {body:reply, username:'Chatbot'}, [this.socket.id])
+      this.socket.emitTo('message', { body:reply, username:'Chatbot' }, [this.socket.id])
     });
   }
 

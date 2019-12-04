@@ -5,16 +5,30 @@ const Hash = use('Hash')
 
 class UsuarioController {
 
-  async inicio ({ view }) {
+  async inicio ({ view, response, session}) {
+    if(session.get('id_usuario')){response.redirect('/dashboard', false, 301)}
     return view.render('registro')
   }
 
-  async inicios ({ view }) {
+  async inicios ({ view, response, session }) {
+    if(session.get('id_usuario')){response.redirect('/dashboard', false, 301)}
     return view.render('iniciarsesion')
   }
 
-  async crear_usuario ({ request, response, auth, view }) {
+  async cerrar_sesion({ session }){
+    session.clear()
+  }
+
+  async crear_usuario ({ request, response, view }) {
+
     const body = request.only(['nombres', 'correo', 'contrasena'])
+
+    const usuario =  await Usuario.findOne({ correo: body.correo })
+
+    if (usuario) {
+      return console.log('usuario ya existe');
+    }
+
     try {
       const nuevoUsuario = new Usuario({
         nombres: body.nombres,
@@ -30,33 +44,18 @@ class UsuarioController {
     return view.render('/dashboard')
   }
 
-  async iniciar_sesion ({ request, response, view, session, auth }) {
-    const body = request.post()
-    try {
-      Usuario.find({ correo: body.correo } , async (err, usuario) => {
-        let { id, contrasena } = usuario[0]
+  async iniciar_sesion({ request, response, session }){
+      const body = request.post()
 
-        const verificar = await Hash.verify(body.contrasena, contrasena)
-          try {
-            if (verificar == true) {
-              session.put('id', id)
-              console.log('Logeado')
+      const data =  await Usuario.findOne({ correo: body.correo })
 
-              response.redirect('/dashboard')
-
-            } else {
-              console.log('El correo o contraseña no coinciden')
-            }
-          } catch (err) {
-            console.error(err)
-          }
-
-        console.log(session.all())
-      })
-    } catch (err) {
-      console.error(err)
-    }
-
+      const verificar = await Hash.verify(body.contrasena, data.contrasena)
+      if(verificar){
+        session.put('id_usuario', data.id)
+        response.redirect('/dashboard', false, 301)
+      } else {
+        console.log("Err");
+      }
   }
 
 }

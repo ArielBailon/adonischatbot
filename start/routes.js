@@ -37,6 +37,8 @@ Route.post('/registro', 'UsuarioController.crear_usuario')
 Route.get('/iniciars', 'UsuarioController.inicios')
 Route.post('/iniciars', 'UsuarioController.iniciar_sesion')
 
+Route.get('cerrar', 'UsuarioController.cerrar_sesion')
+
 // Chatbot - Chat con bot
 Route.get('/chatbot', 'BotController.inicio')
 Route.post('/crear', 'BotController.crear_bot')
@@ -47,7 +49,11 @@ Route.post('guardar_respuestas', 'RespuestaChatController.guardar_post')
 Route.get('/conversacion', 'RespuestaChatController.conversacion')
 Route.get('/leer_respuestas', 'RespuestaChatController.indice')
 
-
 // Chat - Chat simple
-Route.get('/chat', 'ChatController.inicio')
+Route.get('/chats', 'ChatController.inicio')
+Route.get('/crearchat', 'ChatController.crear_chat')
+Route.get('/getidchat', 'ChatController.getid_chat')
+
+
+
 
