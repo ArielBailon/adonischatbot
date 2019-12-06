@@ -1,9 +1,5 @@
 let ws = null
 
-// $(function () {
-//  Empezar el chat
-//     startChat()
-// })
 
 function crearChat() {
   let xhr = new XMLHttpRequest();
@@ -21,19 +17,21 @@ function crearChat() {
 
 }
 
-function startChat(chatId) {
+
+
+function startChat() {
   ws = adonis.Ws().connect()
 
   ws.on('open', () => {
     $('.connection-status').addClass('connected')
-    console.log(chatId)
-    subscribeToChannel(chatId)
+    crearChat()
   })
 
   ws.on('error', () => {
     $('.connection-status').removeClass('connected')
   })
 }
+
 
 function subscribeToChannel(id) {
   const chat = ws.subscribe('chat:'+id)
@@ -56,6 +54,8 @@ $('#message').keyup(function (e) {
 
     const message = $(this).val()
     $(this).val('')
+
+    e.preventDefault()
 
     // id
       let xhr = new XMLHttpRequest();

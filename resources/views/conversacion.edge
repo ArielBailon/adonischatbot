@@ -2,209 +2,96 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-12">
-            <div class="margin text-center">
-              <div class="btn-group">
-                <div class="pagination-centered">
-                  <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon unstyled-button" data-toggle="dropdown">
-                    <h1>Sol Caribe</h1>
-                    <span class="sr-only">Toggle Dropdown</span>
-                    <div class="dropdown-menu" role="menu">
-                      <a class="dropdown-item" href="#">Metal Hierro</a>
-                      <a class="dropdown-item" href="#">Ariel Travel</a>
-                      <a class="dropdown-item" href="#">Ridens travel</a>
-                    </div>
-                  </button>
-                </div>
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <div class="margin text-center">
+            <div class="btn-group">
+              <div class="pagination-centered">
+                <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon unstyled-button"
+                  data-toggle="dropdown">
+                  <h1>Sol Caribe</h1>
+                  <span class="sr-only">Toggle Dropdown</span>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="#">Metal Hierro</a>
+                    <a class="dropdown-item" href="#">Ariel Travel</a>
+                    <a class="dropdown-item" href="#">Ridens travel</a>
+                  </div>
+                </button>
               </div>
-              <button class="unstyled-button outlinenone-button" data-toggle="modal" data-target="#modal-default"><i class="fas fa-plus-square fa-2x ml-4"></i></button>
-
             </div>
+            <button class="unstyled-button outlinenone-button" data-toggle="modal" data-target="#modal-default"><i
+                class="fas fa-plus-square fa-2x ml-4"></i></button>
+
           </div>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
 
   <!-- Main content -->
   <section class="content">
-      <div class="col-sm-12">
-          <div class="col-sm-12">
-            <h2 class="text-center">Conversación</h2>
-
-            <!-- SUBTITULO PARA CHATBOT NORMAL -->
-            <div class="col-md-12">
-              <h5 class="text-center ">Desde aquí puedes cambiar la forma en la que el robot conversará con los clientes.</h5>
+    <div class="col-sm-6 mx-auto">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Conversación</h3><br>
+          <p>Configure por favor, la forma en la que el bot conversará con los clientes</p>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Saludo Inicial</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Hola soy tu asesor...">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Forma de solicitar el nombre</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Preguntar email?</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Preguntar télefono?</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Forma de solicitar los datos de contacto</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Solicitar horario deseado de llamada?</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Preguntar número de documento?</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Agregar más preguntas</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Cierre de conversación</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Saludo final</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
             </div>
 
-            <div class="col-md-12">
-              <h6 class="text-center">Para cambiar el nombre y los colores del robot lo puedes hacer desde <a ui-sref="app.chatbot.design" href="/chatbot/5a664c33e4b0e832ea49582e/design">Configuración</a></h6>
-            </div>
-
-            <!--SALUDO INICIAL - CON VALIDACION-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="mensajeInicial" class="h5">Saludo inicial</label>
-                <input id="mensajeInicial" class="form-control" type="text" required="" name="mensajeInicial" placeholder="Hola, estoy conectada, cómo puedo ayudarte?" >
-              </div>
-            </div>
-
-            <!--PEDIDO DE NOMBRE-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="preguntarNombre" class="h5">Forma de solicitar el nombre</label>
-                <input required="" id="preguntarNombre" class="form-control" type="text" name="preguntarNombre" placeholder="Cuál es tu nombre?">
-              </div>
-
-            </div>
-
-            <!--ASK EMAIL v2.0-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="preguntarCorreo" class="h5">¿Preguntar correo?</label>
-                <select id="preguntarCorreo" class="form-control" required="">
-                  <option value="REQUIRED">Si, requerido</option>
-                  <option value="OPTIONAL">Si, opcional</option>
-                  <option value="NOTREQUIRED">No preguntar</option>
-                </select>
-              </div>
-            </div>
-
-            <!--ASK PHONE v2.0-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="ask-telephone" class="h5">¿Preguntar télefono?</label>
-                <select id="ask-telephone" class="form-control ng-valid-required" data-ng-model="chatbot.askTelephone" required="">
-                  <option value="REQUIRED">Si, requerido</option>
-                  <option value="OPTIONAL">Si, opcional</option>
-                  <option value="NOTREQUIRED">No preguntar</option>
-                </select>
-              </div>
-            </div>
-
-            <!--PEDIDO DE DATOS DE CONTACTO-->
-            <div class="col-md-12">
-
-              <div class="form-group" >
-                <label for="askContactInfo" class="h5">Forma de solicitar los datos de contacto</label>
-                <input id="askContactInfo" class="form-control" type="text" name="askContactInfo" placeholder="Podrías pasarme tu email y teléfono con código de área?" required="required">
-              </div>
-            </div>
-
-            <!--ASK TIME TO CALL v2.0-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="ask-time-to-call" class="h5">Solicitar horario deseado de llamada?</label>
-                <select id="ask-time-to-call" class="form-control" required="" ng-change="changeFn()">
-                  <option value="true">Si</option>
-                  <option value="false">No</option>
-                </select>
-              </div>
-            </div>
-
-            <!--FORMA DE PEDIR HORARIO-->
-            <div class="col-md-12"">
-              <div class="form-group">
-                <label for="askTimeToCallWay" class="h5">Forma de solicitar el horario deseado de llamada</label>
-                <input id="askTimeToCallWay" class="form-control" type="text" name="askTimeToCallWay" placeholder="En qué horario preferís que te llamemos?">
-              </div>
-            </div>
-
-            <!--ASK ID v2.0-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="ask-id" class="h5">¿Preguntar número de documento?</label>
-                <select id="ask-id" class="form-control" required="">
-                  <option value="REQUIRED">Si, requerido</option>
-                  <option value="OPTIONAL">Si, opcional</option>
-                  <option value="NOTREQUIRED">No preguntar</option>
-                </select>
-              </div>
-            </div>
-
-            <!--FORMA DE PEDIR ID-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label class="h5"> Forma de solicitar el documento nacional de identidad </label>
-                <input id="askIdWay" class="form-control" type="text" name="askIdWay" placeholder="Podrias pasarme tu DNI por favor?" required="required">
-              </div>
-            </div>
-
-            <!--ADD MORE QUESTIONS v2.0-->
-            <div class="col-md-12">
-              <label class="h5"> Agregar más preguntas </label>
-
-              <!----><div class="form-group">
-                <div class="input-group">
-                    <textarea id="quesstion0" class="form-control" rows="2""></textarea>
-                  <div class="input-group-addon btn btn-danger">
-                    <i class="fa fa-trash"></i>
-                  </div>
-                </div>
-              </div><!----><div class="form-group"">
-                <div class="input-group">
-                    <textarea id="quesstion1" class="form-control" rows="2""></textarea>
-                  <div class="input-group-addon btn btn-danger">
-                    <i class="fa fa-trash"></i>
-                  </div>
-                </div>
-              </div><!----><div class="form-group"">
-                <div class="input-group">
-                    <textarea id="quesstion2" class="form-control" rows="2""></textarea>
-                  <div class="input-group-addon btn btn-danger">
-                    <i class="fa fa-trash"></i>
-                  </div>
-                </div>
-              </div><!---->
-
-              <div class="row">
-                <div class="col-md-12">
-                    <!---->
-                  <button type="button" class="clBtRnd green mt-lg ng-hide" ><i class="icon-candado"></i>
-                    Agregar pregunta
-                  </button>
-                </div>
-              </div>
-              <hr>
-            </div>
-
-            <!--CIERRE DE CONVERSACION-->
-            <div class="col-md-12">
-              <div class="form-group">
-                <label class="h5">Cierre de conversación</label>
-                <textarea required="" rows="2" id="chatClosure" class="form-control" type="text" name="chatClosure" placeholder="Gracias por la información, yo me encargo de pasársela a un asesor." style="resize:none;"></textarea>
-
-              </div>
-
-
-            </div>
-
-            <!--SALUDO FINAL-->
-            <div class="col-md-12">
-              <div class="form-group"">
-                <label class="h5">Saludo final</label>
-                <input  required="" ng-minlength="3" id="finalMessage" class="form-control" type="text" name="finalMessage" placeholder="Gracias por contactarte.">
-              </div>
-
-            </div>
-
-            <!--SAVE BUTTON-->
-            <br>
-            <div class="col-sm-12">
-              <input class="btn btn-primary btn-block col-md-12 mt-lg" type="submit" value="Guardar">
-            </div>
-            <div class="col-sm-12 margintop20">
-              <!----><h6 data-ng-click="restoreDefaultMsgs()" data-ng-if="canEdit"><a>Reestablecer mensajes predeterminados</a></h6><!---->
-            </div>
-
-            <!--<bot-config-form chatbot="chatbot" uploader="uploader" callback="updateSuccessfull()"-->
-            <!--showadv="'true'"></bot-config-form>-->
-
-            </fieldset>
 
           </div>
-        </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
   <!-- /.content -->
 </div>

@@ -3,7 +3,6 @@
 const Usuario = use('App/Models/Usuario')
 const Chat = use('App/Models/Chat')
 
-
 class ChatController {
 
   async inicio ({ response, request, view, session}) {
@@ -11,7 +10,13 @@ class ChatController {
 
     const data =  await Usuario.findById( session.get('id_usuario') )
 
-    return view.render('/chat', {data: data})
+    const results = await Chat.find({ id_usuario: data.id })
+
+    // results.push(data.nombres)
+
+    // console.log(data.nombres)
+
+    return view.render('/chat', {results: results})
   }
 
   async crear_chat ({ response, session }) {
@@ -40,7 +45,7 @@ class ChatController {
 
     try {
       const data = await Usuario.findById( session.get('id_usuario'))
-        // Usar para retornar el número de chats creado según usuario para crear chats dinámicos cuando se realize una subscripción a un chat nuevo
+      // Usar para retornar el número de chats creado según usuario para crear chats dinámicos cuando se realize una subscripción a un chat nuevo
       const results = await Chat.find({ id_usuario: data.id })
 
       const dataRetornar = [ data.id, results.length]
@@ -49,14 +54,16 @@ class ChatController {
 
       return dataRetornar
 
-
     } catch (err) {
       console.error(err.message)
     }
 
   }
 
+  async chat_cliente ({ response, request, view, session}) {
 
+    return view.render('/chatcliente', )
+  }
 
 }
 

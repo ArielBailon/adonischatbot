@@ -14,12 +14,14 @@
         <div class="col-md-3">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Chats pendientes </h3> <span class="float-right"> 6 </span>
+              <h3 class="card-title">Hola, solicita un chat </h3> <span class="float-right"> 6 </span>
             </div>
             <!-- /.card-header -->
-                @each(result in results)
-                  <button onCLick="startChat({{result.id_chat}})" class="btn"><li class="list-group-item hover-list">Cliente {{result.id_chat}}</li></button>
-                @endeach
+            <ul class="list-group list-group-flush">
+              <form action="/chats">
+              </form>
+              <button onClick="startChat()" class="btn"><li class="list-group-item">Solicitar Chat</li></button>
+            </ul>
           </div>
           <!-- /.card-body -->
         </div>
@@ -29,7 +31,7 @@
           <div class="card">
             <!-- /.card-header -->
             <div class="card-header">
-              <h3 class="card-title"> Ariel </h3>
+              <h3 class="card-title"> Tú </h3>
             </div>
             <div class="card-body chat-height">
                 <div class="messages">
@@ -63,5 +65,5 @@
 {{ script('https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js') }}
 {{ script('https://unpkg.com/@adonisjs/websocket-client@1.0.9/dist/Ws.browser.js') }}
 {{ script('https://unpkg.com/jquery@3.3.1/dist/jquery.js') }}
-{{ script('chat.js') }}
+{{ script('chatCliente.js') }}
 @include('global.footer')
