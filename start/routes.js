@@ -30,7 +30,7 @@ Route.group(() =>{
 Route.get('/dashboard', 'DashboardController.inicio')
 
 // Registrarse
-Route.get('/registro', 'UsuarioController.inicio')
+Route.get('/registros', 'UsuarioController.inicio')
 Route.post('/registro', 'UsuarioController.crear_usuario')
 
 // Iniciar sesión

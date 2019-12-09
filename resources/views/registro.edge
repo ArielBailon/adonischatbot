@@ -45,7 +45,8 @@
 
       <form action="/registro" method="post">
         <div class="input-group mb-3">
-          <input type="text" name="nombres" class="form-control" placeholder="Nombre y Apellido">
+          <input type="text" name="nombres" class="form-control" value="{{ old('nombres', '') }}" placeholder="Nombre y Apellido">
+          {{ elIf('<span>$self</span>', getErrorFor('nombres'), hasErrorFor('nombres')) }}
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -53,7 +54,8 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" name="correo" class="form-control" placeholder="Correo">
+          <input name="correo" class="form-control" value="{{ old('correo', '') }}" placeholder="Correo">
+          {{ elIf('<span>$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -62,6 +64,8 @@
         </div>
         <div class="input-group mb-3">
           <input type="password" name="contrasena" class="form-control" placeholder="Contraseña">
+          {{ elIf('<span>$self</span>', getErrorFor('contrasena'), hasErrorFor('contrasena')) }}
+
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

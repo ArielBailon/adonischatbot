@@ -2,6 +2,7 @@
 const Bot = use('App/Models/Bot')
 const Usuario = use('App/Models/Usuario')
 const Hash = use('Hash')
+const { validate } = use('Validator')
 
 class UsuarioController {
 
@@ -15,15 +16,41 @@ class UsuarioController {
     return view.render('iniciarsesion')
   }
 
-  async cerrar_sesion({ session }){
+  async cerrar_sesion({ session, view }){
     session.clear()
+    return view.render('iniciarsesion')
   }
 
-  async crear_usuario ({ request, response, view }) {
+  async crear_usuario ({ request, response, view, session }) {
 
     const body = request.only(['nombres', 'correo', 'contrasena'])
 
     const usuario =  await Usuario.findOne({ correo: body.correo })
+
+    const reglas = {
+      nombres: 'required|alpha',
+      correo: 'required|email',
+      contrasena: 'required|min:5'
+    }
+
+    const mensajes = {
+      required: 'Por favor, llenar el campo',
+      alpha: 'Ingresar nombres sin carácteres especiales o números',
+      email: 'Ingrese un correo válido, por favor',
+      min: 'La contraseña es muy corta',
+    }
+
+    const validation = await validate(body, reglas, mensajes)
+
+    if (validation.fails()) {
+      session
+        .withErrors(validation.messages())
+        .flashExcept(['contrasena'])
+        // console.log('didnt work')
+
+      return response.redirect('registros')
+    }
+
 
     if (usuario) {
       return console.log('usuario ya existe');
@@ -41,7 +68,7 @@ class UsuarioController {
     } catch (err) {
       console.error(err.message);
     }
-    return view.render('/dashboard')
+    return view.render('/iniciars')
   }
 
   async iniciar_sesion({ request, response, session }){
