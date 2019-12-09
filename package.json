@@ -31,7 +31,6 @@
     "adonis-mongoose-model": "^3.2.0",
     "jquery": "^3.4.1",
     "lucid-mongo": "^3.1.2",
-    "mongodb-core": "~1.0",
     "mongoose": "^5.7.12",
     "nodemon": "^1.19.4",
     "rivescript": "^2.0.0",

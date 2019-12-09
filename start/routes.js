@@ -31,8 +31,11 @@ Route.get('chat', 'RidenController.chat')
 Route.get('/dashboard', 'DashboardController.inicio')
 
 // Registrarse
-Route.get('/registros', 'UsuarioController.inicio')
+Route.get('/registro', 'UsuarioController.inicio')
 Route.post('/registro', 'UsuarioController.crear_usuario')
+Route.get('/registroBot', 'UsuarioController.registro_bot')
+Route.put('/registro', 'UsuarioController.registro_bot')
+
 
 // Iniciar sesión
 Route.get('/iniciars', 'UsuarioController.inicios')
@@ -55,6 +58,7 @@ Route.get('/chats', 'ChatController.inicio')
 Route.get('/chatcliente', 'ChatController.chat_cliente')
 Route.get('/crearchat', 'ChatController.crear_chat')
 Route.get('/getidchat', 'ChatController.getid_chat')
+<<<<<<< HEAD
 
 
 
@@ -63,5 +67,7 @@ Route.get('/getidchat', 'ChatController.getid_chat')
 Route.get('/respuestas', ({ view }) =>{
   return view.render('respuestas')
 })
+=======
+>>>>>>> arielbranch
 =======
 >>>>>>> arielbranch
