@@ -16,6 +16,10 @@ class UsuarioController {
     return view.render('iniciarsesion')
   }
 
+  async registro_bot ({ view, response, session }) {
+    return view.render('registroConfigurarBot')
+  }
+
   async cerrar_sesion({ session, view }){
     session.clear()
     return view.render('iniciarsesion')
@@ -53,7 +57,8 @@ class UsuarioController {
 
 
     if (usuario) {
-      return console.log('usuario ya existe');
+      console.log('Ya existe una cuenta asociada con ese correo')
+      return response.redirect('registros')
     }
 
     try {
@@ -68,7 +73,7 @@ class UsuarioController {
     } catch (err) {
       console.error(err.message);
     }
-    return view.render('/iniciars')
+    return response.redirect('registroBot')
   }
 
   async iniciar_sesion({ request, response, session }){
@@ -86,5 +91,4 @@ class UsuarioController {
   }
 
 }
-
 module.exports = UsuarioController
