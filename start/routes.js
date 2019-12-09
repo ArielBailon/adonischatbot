@@ -58,16 +58,3 @@ Route.get('/chats', 'ChatController.inicio')
 Route.get('/chatcliente', 'ChatController.chat_cliente')
 Route.get('/crearchat', 'ChatController.crear_chat')
 Route.get('/getidchat', 'ChatController.getid_chat')
-<<<<<<< HEAD
-
-
-
-
-<<<<<<< HEAD
-Route.get('/respuestas', ({ view }) =>{
-  return view.render('respuestas')
-})
-=======
->>>>>>> arielbranch
-=======
->>>>>>> arielbranch
