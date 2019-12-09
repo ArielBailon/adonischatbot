@@ -1,0 +1,100 @@
+@include('global.header')
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <div class="margin text-center">
+            <div class="btn-group">
+              <div class="pagination-centered">
+                <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon unstyled-button"
+                  data-toggle="dropdown">
+                  <h1>Sol Caribe</h1>
+                  <span class="sr-only">Toggle Dropdown</span>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="#">Metal Hierro</a>
+                    <a class="dropdown-item" href="#">Ariel Travel</a>
+                    <a class="dropdown-item" href="#">Ridens travel</a>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <button class="unstyled-button outlinenone-button" data-toggle="modal" data-target="#modal-default"><i
+                class="fas fa-plus-square fa-2x ml-4"></i></button>
+
+          </div>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="col-sm-6 mx-auto">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Conversación</h3><br>
+          <p>Configure por favor, la forma en la que el bot conversará con los clientes</p>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Saludo Inicial</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Hola soy tu asesor...">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Forma de solicitar el nombre</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Preguntar email?</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Preguntar télefono?</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Forma de solicitar los datos de contacto</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Solicitar horario deseado de llamada?</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Preguntar número de documento?</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Agregar más preguntas</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Cierre de conversación</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Saludo final</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Para poder ayudarte necesito tu Nombre?">
+            </div>
+
+
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+
+
+@include('global.footer')

@@ -1,4 +1,5 @@
 'use strict'
+const mongoose = require('mongoose')
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,11 @@
 |     Make sure to pass relative path from the project root.
 */
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useUnifiedTopology', true);
+mongoose.set('useFindAndModify', false);
+
+
 const {
   Ignitor
 } = require('@adonisjs/ignitor')
@@ -26,30 +32,3 @@ new Ignitor(require('@adonisjs/fold'))
   .wsServer() // boot the WebSocket server
   .fireHttpServer()
   .catch(console.error)
-
-// const startChat = require('./public/chat')
-
-const RiveScript = require('rivescript');
-const Chalk = require('chalk');
-const bot = new RiveScript();
-
-// let ask = () => {
-//   bot.sortReplies()
-//       socket.on('message', (message) => {
-//         bot.reply('local-user', message).then((reply) => {
-//           console.log(Chalk.green('Bot: ' + reply));
-//         $('.messages').append(`
-//               <div class="message"><h3> ${message.username} </h3> <p> ${message.body} </p> </div>
-//             `)
-//       })
-
-//       ask();
-//     })
-//     .catch((error) => console.log(error));
-// }
-
-// // Leer el archivo rive
-// bot.loadFile("./config/rivescripts/training_data.rive")
-//   .then(ask)
-//   .catch((error) => console.log(error));
-

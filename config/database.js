@@ -67,6 +67,8 @@ module.exports = {
       password: Env.get('DB_PASSWORD', 'adonis'),
       database: Env.get('DB_DATABASE', 'adonisdb'),
       options: {
+
+
         // replicaSet: Env.get('DB_REPLICA_SET', '')
         // ssl: Env.get('DB_SSL, '')
         // connectTimeoutMS: Env.get('DB_CONNECT_TIMEOUT_MS', 15000),

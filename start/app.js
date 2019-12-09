@@ -20,7 +20,9 @@ const providers = [
   '@adonisjs/session/providers/SessionProvider',
   '@adonisjs/auth/providers/AuthProvider',
   'lucid-mongo/providers/LucidMongoProvider',
-  '@adonisjs/websocket/providers/WsProvider'  
+  'adonis-mongoose-model/providers/MongooseProvider',
+  '@adonisjs/websocket/providers/WsProvider',
+  '@adonisjs/validator/providers/ValidatorProvider'
 ]
 
 /*

@@ -11,8 +11,8 @@ class ChatConfiguracion extends Model {
         chat.idioma = body.rdo_idioma
         chat.isActivar = body.cbx_activar
         await chat.save()
-    }    
-    async obtener_configuracion(){        
+    }
+    async obtener_configuracion(){
         //const dato = await ChatConfiguracion.all()
         return "Hola mundo"
     }

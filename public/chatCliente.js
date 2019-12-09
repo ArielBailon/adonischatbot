@@ -1,16 +1,5 @@
 let ws = null
 
-<<<<<<< HEAD
-
-$(function () {
-  // Only connect when username is available
-  if (window.username) {
-    startChat()
-=======
-// $(function () {
-//  Empezar el chat
-//     startChat()
-// })
 
 function crearChat() {
   let xhr = new XMLHttpRequest();
@@ -22,31 +11,27 @@ function crearChat() {
       // var id = this.responseText;
       subscribeToChannel(this.responseText)
     }
->>>>>>> arielbranch
   }
 
-<<<<<<< HEAD
-function startChat() {
-  ws = adonis.Ws().connect()      
-=======
   xhr.send()
 
 }
 
-function startChat(chatId) {
+
+
+function startChat() {
   ws = adonis.Ws().connect()
 
->>>>>>> arielbranch
   ws.on('open', () => {
     $('.connection-status').addClass('connected')
-    console.log(chatId)
-    subscribeToChannel(chatId)
+    crearChat()
   })
 
   ws.on('error', () => {
     $('.connection-status').removeClass('connected')
   })
 }
+
 
 function subscribeToChannel(id) {
   const chat = ws.subscribe('chat:'+id)
@@ -57,13 +42,8 @@ function subscribeToChannel(id) {
   })
 
   chat.on('message', (message) => {
-<<<<<<< HEAD
-    $('.messages').append(`      
-      <p class="userEnteredText">${message.body}</p><div class="clearfix"></div><p class="botResult">${message.body}</p><div class="clearfix"></div>
-=======
     $('.messages').append(`
       <div class="message"><h4> Usuario </h4> <p> ${message.body} </p> </div>
->>>>>>> arielbranch
     `)
   })
 }
@@ -74,6 +54,8 @@ $('#message').keyup(function (e) {
 
     const message = $(this).val()
     $(this).val('')
+
+    e.preventDefault()
 
     // id
       let xhr = new XMLHttpRequest();

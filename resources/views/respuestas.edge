@@ -4,15 +4,27 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-sm-9">
-          <h1>Empresa x y z.</h1>
+        <div class="col-sm-12">
+          <div class="margin text-center">
+            <div class="btn-group">
+              <div class="pagination-centered">
+                <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon unstyled-button" data-toggle="dropdown">
+                  <h1>Sol Caribe</h1>
+                  <span class="sr-only">Toggle Dropdown</span>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="#">Metal Hierro</a>
+                    <a class="dropdown-item" href="#">Ariel Travel</a>
+                    <a class="dropdown-item" href="#">Ridens travel</a>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <button class="unstyled-button outlinenone-button" data-toggle="modal" data-target="#modal-default"><i class="fas fa-plus-square fa-2x ml-4"></i></button>
+
+          </div>
         </div>
-        <div class="col-sm-3">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">General Form</li>
-          </ol>
-        </div>
+
+
       </div>
     </div><!-- /.container-fluid -->
   </section>
@@ -22,147 +34,35 @@
     <div class="container-fluid">
       <div class="row">
         <!-- left column -->
-        <div class="col-md-12">
+        <div class="col-md-11 mx-auto">
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">respuestas automáticas a las preguntas de tus clientes.</h3>
+              <h3 class="card-title">Configura respuestas automáticas a las preguntas de tus clientes.</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form">
               <div class="card-body">
                 <div id="accordion">
                   <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
-                  <div class="card card-primary">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                          atender horario : El horario de atención es de 9 a 6 de Lunes a Viernes. Sábados de 10 a 3
-                          hrs.
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            <!-- text input -->
-                            <div class="form-group">
-                              <label>Nombre de la respuesta</label>
-                            </div>
-                          </div>
-                          <div class="col-sm-5">
-                            <!-- text input -->
-                            <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Enter ...">
-                            </div>
-                          </div>
-                          <div class="col-sm-5">
-                            <div class="form-group">
-                              <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                                <label class="custom-control-label" for="customSwitch1">Activar</label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <label>Agrega diferentes formas de preguntar lo mismo. Así el robot entenderá mejor cuál es
-                              la respuesta asociada para ese tópico:</label>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-9">
-                            <label>Te recomendamos que agregues al menos 3 formas de preguntar lo mismo</label>
-                          </div>
-                          <div class="col-sm-3">
-                            <label>Tipo de Concordancia</label>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-9">
-                            <!-- text input -->
-                            <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Forma de preguntar">
-                            </div>
-                          </div>
-                          <div class="col-sm-3">
-                              <!-- select -->
-                              <div class="form-group">
-                                <select class="form-control">
-                                  <option>Inteligente</option>
-                                  <option>Contiene</option>
-                                  <option>Exacta</option>
-                                  <option>Regex (Avanzada)</option>
-                                </select>
-                              </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-sm-3">
-                              <label>Entonces el bot responderá</label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Enter ...">
-                              </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <button type="button" class="btn btn-block btn-outline-primary btn-flat">Guardar</button>
-                            </div>
-                          </div>
+                  <div class="card card-primary cursor-pointer" id="anadir">
+                    {{--  <button class="btn-block btn-flat">  --}}
+                      <div class="card-header" id="otraRespuesta">
+                        <h4 class="card-title">
+                          <a href="#" id="aggRespuesta">
+                            Agregar respuesta automática <i class="fas fa-plus-square"></i>
+                          </a>
+                        </h4>
                       </div>
-                    </div>
-                  </div>
-                  <div class="card card-danger">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                          formas pago : Aceptamos efectivo, cheque, depósito, transferencia, y todas las tarjetas de
-                          crédito.
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                      <div class="card-body">
-                        lorem ipsum
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card card-success">
-                    <div class="card-header">
-                      <h4 class="card-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                          estan ubicados : En el siguiente enlace puedes encontrar nuestras direcciones y teléfonos
-                      </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                      <div class="card-body">
-                        lorem ipsum
-                      </div>
-                    </div>
+                    {{--  </button>  --}}
                   </div>
                 </div>
               </div>
               <!-- /.card-body -->
-
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
           </div>
           <!-- /.card -->
 
-          <!-- Horizontal Form -->
-          <div class="card card-info">
-            <div class="card-header">
-              <h3 class="card-title">Horizontal Form</h3>
-            </div>
-            <!-- /.card-header -->
-          </div>
           <!--/.col (left) -->
           <!-- right column -->
           <div class="col-md-6">
@@ -175,4 +75,182 @@
   </section>
   <!-- /.content -->
 </div>
+
+{{{ <script>
+
+var contadorRespuesta = 1;
+
+$("#anadir").on("click" ,function () {
+
+    var nuevaRespuestaDiv = $("<div></div>").attr("class", 'card card-primary');
+
+      nuevaRespuestaDiv.html([
+      "<form role='form' action='/guardar_respuestas' method='POST'>",
+        "<div class='card-header'>",
+          "<h4 class='card-title'>",
+            "<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+ contadorRespuesta +"' ><input id='respuestaAuto' value='Respuesta automática' class='unstyled-button'></input></a>",
+          "</h4>",
+        "</div>",
+        "<div id='collapse"+ contadorRespuesta +"' class='panel-collapse collapse in show'",
+          "<div class='card-body'>",
+            "<div class='card-body'>",
+              "<div class='row'>",
+                "<div class='col-sm-2'>",
+                  "<div class='form-group'>",
+                    "<label>Nombre de la respuesta</label>",
+                  "</div>",
+                "</div>",
+
+                "<div class='col-sm-5'>",
+                  "<div class='form-group'>",
+                    "<input type='text' class='form-control' placeholder='Ingresar...' value='' id='nombreRespuesta'>",
+                  "</div>",
+                "</div>",
+                "<div class='col-sm-5'>",
+                  "<div class='form-group'>",
+                    "<div class='custom-control custom-switch'>",
+                      "<label class='custom-control-label' for='customSwitch1'>Activar</label>",
+                      "<input type='checkbox' class='custom-control-input' id='customSwitch1'>",
+
+                      // "<div class='card-body'>",
+                      //   "<input type='checkbox' name='my-checkbox' checked data-bootstrap-switch>",
+                      //   "<input type='checkbox' name='my-checkbox' checked data-bootstrap-switch data-off-color='danger' data-on-color='success'>",
+                      // "</div>",
+                    "</div>",
+                  "</div>",
+                "</div>",
+              "</div>",
+              "<div class='row'>",
+                "<div class='col-sm-12'>",
+                  "<h6>Agrega diferentes formas de preguntar lo mismo. Así el robot entenderá mejor cuál es la respuesta asociada para ese tópico:</h6>",
+                "</div>",
+              "</div>",
+              "<div class='row'>",
+                "<div class='col-sm-9'>",
+                  "<label>Te recomendamos que agregues al menos 3 formas de preguntar lo mismo</label>",
+                "</div>",
+                "<div class='col-sm-3'>",
+                  "<label>Tipo de Concordancia</label>",
+                "</div>",
+              "</div>",
+              "<div id='preguntasDiv'>",
+                "<div class='row'>",
+                  "<div class='col-sm-9'>",
+                    "<div class='form-group'>",
+                      "<input type='text' class='form-control' name='pregunta" + contadorRespuesta + "_1' placeholder='Forma de preguntar'>",
+                    "</div>",
+                  "</div>",
+                  "<div class='col-sm-3'>",
+                    "<div class='form-group'>",
+                      "<select class='form-control'>",
+                        "<option>Inteligente</option>",
+                        "<option>Contiene</option>",
+                        "<option>Exacta</option>",
+                        "<option>Regex (Avanzada)</option>",
+                      "</select>",
+                    "</div>",
+                  "</div>",
+                "</div>",
+                "<div class='row'>",
+                  "<div class='col-sm-9'>",
+                    "<div class='form-group'>",
+                      "<input type='text' class='form-control' name='pregunta" + contadorRespuesta + "_2' placeholder='Forma de preguntar'>",
+                    "</div>",
+                  "</div>",
+                  "<div class='col-sm-3'>",
+                    "<div class='form-group'>",
+                      "<select class='form-control'>",
+                        "<option>Inteligente</option>",
+                        "<option>Contiene</option>",
+                        "<option>Exacta</option>",
+                        "<option>Regex (Avanzada)</option>",
+                      "</select>",
+                    "</div>",
+                  "</div>",
+                "</div>",
+                "<div class='row'>",
+                  "<div class='col-sm-9'>",
+                    "<div class='form-group'>",
+                      "<input type='text' class='form-control' name='pregunta" + contadorRespuesta + "_3' placeholder='Forma de preguntar'>",
+                    "</div>",
+                  "</div>",
+                  "<div class='col-sm-3'>",
+                    "<div class='form-group'>",
+                      "<select class='form-control'>",
+                        "<option>Inteligente</option>",
+                        "<option>Contiene</option>",
+                        "<option>Exacta</option>",
+                        "<option>Regex (Avanzada)</option>",
+                      "</select>",
+                    "</div>",
+                  "</div>",
+                "</div>",
+                "<div class='row'>",
+                  "<div class='col-sm-2'>",
+                    "<button type='button' class='btn btn-block btn-outline-primary btn-flat otraPregunta'>Otra pregunta +</button>",
+                  "</div>",
+                "</div>",
+                "<div class='row'>",
+                  "<div class='col-sm-3'>",
+                    "<label>Entonces el bot responderá</label>",
+                  "</div>",
+                  "<div class='col-sm-9'>",
+                    "<input type='text' class='form-control' name='respuesta' placeholder='Lo que dirá el bot'>",
+                  "</div>",
+                "</div>",
+                "<div class='row'>",
+                  "<div class='col-sm-2'>",
+                    "<button type='submit' class='btn btn-block btn-outline-primary btn-flat'>Guardar</button>",
+                  "</div>",
+                "</div>",
+              "</div>",
+            "</div>",
+          "</div>",
+        "</div>",
+      "</form>"].join(""));
+      nuevaRespuestaDiv.insertBefore("#anadir");
+
+      contadorRespuesta++;
+});
+
+
+var contadorPregunta = 4;
+
+
+$(".otraPregunta").on("click" ,function () {
+
+    var nuevaPreguntaDiv = $("<div></div>").attr("class", 'row');
+
+      nuevaPreguntaDiv.html([
+        "<div class='col-sm-9'>",
+          "<div class='form-group'>",
+            "<input type='text' class='form-control' name='pregunta1_" + contadorPregunta + "'placeholder='Forma de preguntar'>",
+          "</div>",
+        "</div>",
+
+        "<div class='col-sm-3'>",
+          "<div class='form-group'>",
+            "<select class='form-control'>",
+              "<option>Inteligente</option>",
+              "<option>Contiene</option>",
+              "<option>Exacta</option>",
+              "<option>Regex (Avanzada)</option>",
+            "</select>",
+          "</div>",
+        "</div>"].join(""));
+      nuevaPreguntaDiv.appendTo("#preguntasDiv");
+
+      contadorPregunta++;
+});
+
+var $respuestaAuto = $("#respuestaAuto");
+
+$("#nombreRespuesta").keyup(function() {
+    $respuestaAuto.val( this.value );
+});
+
+$respuestaAuto.val( 'test' );
+  </script> }}}
+
 @include('global.footer')
+@include('global.modals.empresaModal')

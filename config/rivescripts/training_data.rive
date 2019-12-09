@@ -19,3 +19,30 @@
 % ahora necesito su correo electronico por favor
 - Listo, con estos datos le enviaremos a su correo en los próximos 5 minutos la información requerida.
 
+<<<<<<< HEAD
+=======
++ *
+- Hola, para ayudarte necesito tu nombre, por favor.{topic=inicio}
+
+> topic inicio
+
++ *
+% hola para ayudarte necesito tu nombre por favor
+- Bien, ahora necesito tu numero de cedula, por favor.
+
++ _
+- test
+
++ [*] sorry [*]
+- It's OK, I'll forgive you!{topic=random}
+
++ *
+- Nope, not until you apologize.
+- Say you're sorry!
+- Apologize!
+
+< topic
+
++ vendo queso
+- ese queso sale malo
+>>>>>>> arielbranch

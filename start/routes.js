@@ -16,19 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.group(() =>{
-  Route.get('chatbot', 'RespuestaChatController.indice')
-  Route.get('chatbot/:id', 'RespuestaChatController.mostrar')
-  Route.post('chatbot', 'RespuestaChatController.guardar')
-  Route.put('chatbot/:id', 'RespuestaChatController.actualizar')
-  Route.delete('chatbot/:id', 'RespuestaChatController.eliminar')
-
-}).prefix('api')
-
-Route.get('chatbot', 'ChatController.onMessage')
-
-
-//Riden Cedeño
+// Riden Cedeño
 Route.get('ejemplo-view', 'RidenController.ejemplo_view')
 Route.group(() =>{
   Route.get('configuracion', 'RidenController.configuracion')
@@ -39,10 +27,41 @@ Route.group(() =>{
 Route.get('chat', 'RidenController.chat')
 
 // Ariel Bailón
-Route.get('/', ({ view }) =>{
-  return view.render('chat')
-})
+// Dashboard
+Route.get('/dashboard', 'DashboardController.inicio')
 
+// Registrarse
+Route.get('/registros', 'UsuarioController.inicio')
+Route.post('/registro', 'UsuarioController.crear_usuario')
+
+// Iniciar sesión
+Route.get('/iniciars', 'UsuarioController.inicios')
+Route.post('/iniciars', 'UsuarioController.iniciar_sesion')
+
+Route.get('cerrar', 'UsuarioController.cerrar_sesion')
+
+// Chatbot - Chat con bot
+Route.get('/chatbot', 'BotController.inicio')
+Route.post('/crear', 'BotController.crear_bot')
+
+// Sección de respuestas
+Route.get('/respuestas', 'RespuestaChatController.inicio')
+Route.post('guardar_respuestas', 'RespuestaChatController.guardar_post')
+Route.get('/conversacion', 'RespuestaChatController.conversacion')
+Route.get('/leer_respuestas', 'RespuestaChatController.indice')
+
+// Chat - Chat simple
+Route.get('/chats', 'ChatController.inicio')
+Route.get('/chatcliente', 'ChatController.chat_cliente')
+Route.get('/crearchat', 'ChatController.crear_chat')
+Route.get('/getidchat', 'ChatController.getid_chat')
+
+
+
+
+<<<<<<< HEAD
 Route.get('/respuestas', ({ view }) =>{
   return view.render('respuestas')
 })
+=======
+>>>>>>> arielbranch

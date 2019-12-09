@@ -1,0 +1,40 @@
+#anadir:hover{
+  cursor: pointer;
+}
+.unstyled-button {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.unstyled-button-border {
+  border: 2px solid #555555;
+  padding: 0;
+  background: none;
+}
+.outlinenone-button:focus {
+  outline:none;
+}
+
+.chat-height{
+  height: 520px;
+}
+
+.hover-list:hover {
+  background-color: #d9d9d9;
+}
+
+.brand-color {
+  color: #1a75ff;
+}
+
+.border-nav:hover {
+  border-bottom: 2px solid #1a75ff;
+
+}
+
+.border-nav-active {
+  border-bottom: 2px solid #1a75ff;
+  /* animation: fadein 2s;
+  -webkit-animation: fadein 2s */
+}
