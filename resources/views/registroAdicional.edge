@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Telandweb | Chatbot</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/assets/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/assets/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  {{--  jquery  --}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  {{--  Custom css  --}}
+  <link rel="stylesheet" href="/assets/dist/css/custom.css">
+
+</head>
+
+<body class="hold-transition register-page">
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="../../index2.html"><b>Clien</b>Went</a>
+    </div>
+
+    <div class="card">
+      <div class="card-body register-card-body">
+        <p class="login-box-msg">Información adicional</p>
+
+        <form action="/registro" method="post">
+          <div class="input-group mb-3">
+            <label class="container" for="industria">Industria</label>
+            <input type="text" name="colorventana" class="form-control">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-palette"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <label class="container" for="nombredelrobot">Cantidad de empleados</label>
+            <input name="nombredelrobot" class="form-control" value="Mi chatbot" placeholder="">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-robot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <label class="container" for="mensajedebienvenida">Su posición en la empresa</label>
+
+            <input type="text" name="mensajedebienvenida" class="form-control"
+              placeholder="">
+
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-comment"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <label class="container" for="mensajedebienvenida">Número de teléfono</label>
+
+            <input type="text" name="mensajedebienvenida" class="form-control"
+              placeholder="+593458754125">
+
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-comment"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <!-- /.col -->
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            </div>
+            <!-- /.col -->
+          </div>
+          <div class="row">
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-block">Saltar</button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+      <!-- /.form-box -->
+    </div><!-- /.card -->
+  </div>
+
+  <!-- /.register-box -->
+
+  <script src="/assets/plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="/assets/plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="/assets/plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="/assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="/assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="/assets/plugins/moment/moment.min.js"></script>
+  <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="/assets/dist/js/adminlte.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="/assets/dist/js/pages/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="/assets/dist/js/demo.js"></script>
+  {{--  Ionic icons  --}}
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+
+
+</body>
+
+</html>

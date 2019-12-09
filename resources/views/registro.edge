@@ -46,31 +46,34 @@
       <form action="/registro" method="post">
         <div class="input-group mb-3">
           <input type="text" name="nombres" class="form-control" value="{{ old('nombres', '') }}" placeholder="Nombre y Apellido">
-          {{ elIf('<span>$self</span>', getErrorFor('nombres'), hasErrorFor('nombres')) }}
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
             </div>
           </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('nombres'), hasErrorFor('nombres')) }}
+
         </div>
         <div class="input-group mb-3">
           <input name="correo" class="form-control" value="{{ old('correo', '') }}" placeholder="Correo">
-          {{ elIf('<span>$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('correo'), hasErrorFor('correo')) }}
+
         </div>
         <div class="input-group mb-3">
           <input type="password" name="contrasena" class="form-control" placeholder="Contraseña">
-          {{ elIf('<span>$self</span>', getErrorFor('contrasena'), hasErrorFor('contrasena')) }}
 
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('contrasena'), hasErrorFor('contrasena')) }}
+
         </div>
         <div class="input-group mb-3">
           <input type="password" name="contrasena_confirmar" class="form-control" placeholder="Vuelva a escribir la contraseña">
@@ -79,6 +82,8 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('contrasena_confirmar'), hasErrorFor('contrasena_confirmar')) }}
+
         </div>
         <div class="row">
           <!-- /.col -->
@@ -88,18 +93,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <div class="social-auth-links text-center">
-        <p>- O -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Regístrese con Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Regístrese con Google+
-        </a>
-      </div>
 
       <a href="/iniciars" class="text-center">Ya poseo con una cuenta</a>
     </div>

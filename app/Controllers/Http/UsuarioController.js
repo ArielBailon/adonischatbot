@@ -20,6 +20,14 @@ class UsuarioController {
     return view.render('registroConfigurarBot')
   }
 
+  async instalar_bot ({ view, response, session }) {
+    return view.render('registroInstalarBot')
+  }
+
+  async registro_adicional ({ view, response, session }) {
+    return view.render('registroAdicional')
+  }
+
   async cerrar_sesion({ session, view }){
     session.clear()
     return view.render('iniciarsesion')
@@ -27,14 +35,15 @@ class UsuarioController {
 
   async crear_usuario ({ request, response, view, session }) {
 
-    const body = request.only(['nombres', 'correo', 'contrasena'])
+    const body = request.only(['nombres', 'correo', 'contrasena', 'contrasena_confirmar'])
 
     const usuario =  await Usuario.findOne({ correo: body.correo })
 
     const reglas = {
       nombres: 'required|alpha',
       correo: 'required|email',
-      contrasena: 'required|min:5'
+      contrasena: 'required|min:5',
+      contrasena_confirmar: 'same:contrasena'
     }
 
     const mensajes = {
@@ -42,6 +51,7 @@ class UsuarioController {
       alpha: 'Ingresar nombres sin carácteres especiales o números',
       email: 'Ingrese un correo válido, por favor',
       min: 'La contraseña es muy corta',
+      same: 'La contraseñas deben de ser iguales'
     }
 
     const validation = await validate(body, reglas, mensajes)
@@ -50,15 +60,15 @@ class UsuarioController {
       session
         .withErrors(validation.messages())
         .flashExcept(['contrasena'])
-        // console.log('didnt work')
+        console.log('didnt work')
 
-      return response.redirect('registros')
+      return response.redirect('registro')
     }
 
 
     if (usuario) {
       console.log('Ya existe una cuenta asociada con ese correo')
-      return response.redirect('registros')
+      return response.redirect('registro')
     }
 
     try {

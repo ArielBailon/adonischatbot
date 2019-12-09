@@ -35,6 +35,8 @@ Route.get('/registro', 'UsuarioController.inicio')
 Route.post('/registro', 'UsuarioController.crear_usuario')
 Route.get('/registroBot', 'UsuarioController.registro_bot')
 Route.put('/registro', 'UsuarioController.registro_bot')
+Route.get('/registroInstalar', 'UsuarioController.instalar_bot')
+Route.get('/registroAdicional', 'UsuarioController.registro_adicional')
 
 
 // Iniciar sesión
