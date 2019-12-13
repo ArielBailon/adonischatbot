@@ -1,0 +1,28 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <div class="margin text-center">
+          <div class="btn-group pr-3">
+            <div class="pagination-centered">
+              <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon unstyled-button"
+                data-toggle="dropdown">
+                <h1>{{sitio_web}}</h1>
+                <span class="sr-only">Toggle Dropdown</span>
+                <div class="dropdown-menu" role="menu">
+                  @each(sitio in sitios_web)
+                    <a class="dropdown-item" href="#">{{sitio.sitio_web}}</a>
+                  @endeach
+
+                </div>
+              </button>
+            </div>
+          </div>
+          <button class="unstyled-button outlinenone-button" data-toggle="modal" data-target="#modal-default"><i
+              class="fas fa-plus-square fa-2x"></i></button>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>

@@ -31,13 +31,16 @@ Route.get('chat', 'RidenController.chat')
 Route.get('/dashboard', 'DashboardController.inicio')
 
 // Registrarse
-Route.get('/registro', 'UsuarioController.inicio')
-Route.post('/registro', 'UsuarioController.crear_usuario')
-Route.get('/registroBot', 'UsuarioController.registro_bot')
-Route.put('/registro', 'UsuarioController.registro_bot')
-Route.get('/registroInstalar', 'UsuarioController.instalar_bot')
-Route.get('/registroAdicional', 'UsuarioController.registro_adicional')
+Route.get('/registross', 'UsuarioController.inicio')
+Route.post('/registros', 'UsuarioController.crear_usuario')
 
+Route.get('/registroBot', 'UsuarioController.registro_bot')
+Route.post('/registroBot', 'UsuarioController.crear_bot')
+
+Route.get('/registroInstalar', 'UsuarioController.instalar_bot')
+
+Route.get('/registroAdicional', 'UsuarioController.registro_adicional')
+Route.post('/registroAdicionals', 'UsuarioController.crear_registro_adicional')
 
 // Iniciar sesión
 Route.get('/iniciars', 'UsuarioController.inicios')
@@ -50,9 +53,7 @@ Route.get('/chatbot', 'BotController.inicio')
 Route.post('/crear', 'BotController.crear_bot')
 
 // Sección de respuestas
-Route.get('/respuestas', 'RespuestaChatController.inicio')
 Route.post('guardar_respuestas', 'RespuestaChatController.guardar_post')
-Route.get('/conversacion', 'RespuestaChatController.conversacion')
 Route.get('/leer_respuestas', 'RespuestaChatController.indice')
 
 // Chat - Chat simple
@@ -60,3 +61,14 @@ Route.get('/chats', 'ChatController.inicio')
 Route.get('/chatcliente', 'ChatController.chat_cliente')
 Route.get('/crearchat', 'ChatController.crear_chat')
 Route.get('/getidchat', 'ChatController.getid_chat')
+
+
+// Módulo chatbot
+Route.group(() =>{
+  Route.get('configuracion', 'BotController.configuracion')
+  Route.get('respuestas', 'RespuestaChatController.inicio')
+  Route.get('conversacion', 'RespuestaChatController.conversacion')
+  Route.get('apariencia', 'BotController.apariencia')
+
+
+}).prefix('chatbot')

@@ -34,63 +34,71 @@
 
 </head>
 <body class="hold-transition register-page">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="../../index2.html"><b>Clien</b>Went</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-      <div class="card-body login-card-body">
-        <p class="login-box-msg">Inicie sesión</p>
-
-        <form action="/iniciars" method="post">
-          <div class="input-group mb-3">
-            <input type="email" name="correo" class="form-control" placeholder="Correo">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" name="contrasena" class="form-control" placeholder="Contraseña">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- /.col -->
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
-            </div>
-            <!-- /.col -->
-          </div>
-        </form>
-
-        <div class="social-auth-links text-center mb-3">
-          <p>- O -</p>
-          <a href="#" class="btn btn-block btn-primary">
-            <i class="fab fa-facebook mr-2"></i> Inicie sesión con Facebook
-          </a>
-          <a href="#" class="btn btn-block btn-danger">
-            <i class="fab fa-google-plus mr-2"></i> Inicie sesión con Google+
-          </a>
-        </div>
-        <!-- /.social-auth-links -->
-
-        <p class="mb-1">
-          <a href="forgot-password.html">Olvidé mi contraseña</a>
-        </p>
-        <p class="mb-0">
-          <a href="/registro" class="text-center">Regístrate!</a>
-        </p>
-      </div>
-      <!-- /.login-card-body -->
-    </div>
+<div class="register-box">
+  <div class="register-logo">
+    <a href="../../index2.html"><b>Clien</b>Went</a>
   </div>
-<!-- /.login-box -->
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Registrarse en ClienWent</p>
+
+      <form action="/registros" method="post">
+        <div class="input-group mb-3">
+          <input type="text" name="nombres" class="form-control" value="{{ old('nombres', '') }}" placeholder="Nombre y Apellido">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('nombres'), hasErrorFor('nombres')) }}
+
+        </div>
+        <div class="input-group mb-3">
+          <input name="correo" class="form-control" value="{{ old('correo', '') }}" placeholder="Correo">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('correo'), hasErrorFor('correo')) }}
+
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="contrasena" class="form-control" placeholder="Contraseña">
+
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('contrasena'), hasErrorFor('contrasena')) }}
+
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="contrasena_confirmar" class="form-control" placeholder="Vuelva a escribir la contraseña">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          {{ elIf('<div class="container">$self</div>', getErrorFor('contrasena_confirmar'), hasErrorFor('contrasena_confirmar')) }}
+        </div>
+
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+      <a href="/iniciars" class="text-center">Ya poseo con una cuenta</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
 
 <script src="/assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

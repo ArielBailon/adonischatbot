@@ -8,6 +8,22 @@ class BotController {
     return view.render('chatbot')
   }
 
+  async configuracion ({ view, session }) {
+
+    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
+    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+
+    const sitio_web = querySitio.sitio_web
+    const sitios_web = querySitios
+
+    return view.render('chatbot.configuracion', { sitio_web:sitio_web, sitios_web:sitios_web })
+  }
+
+  async apariencia ({ view, session }) {
+
+    return view.render('chatbot.apariencia')
+  }
+
   async crear_bot ({request, view}) {
     const body = request.post()
     const nuevoBot = new Bot({

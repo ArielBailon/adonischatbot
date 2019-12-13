@@ -27,14 +27,29 @@ class ChatController {
     });
   }
 
-  arreglarbot(){
-    this.bot.sortReplies()
-  }
-
   cargar(){
     this.bot.loadDirectory('config/rivescripts')
     .then(console.log('El bot leyó los archivos rive correctamente'))
     .catch((error) => console.log(error));
   }
+
+  // start_chat({ view }){
+  //   let ws = adonis.Ws().connect()
+
+  //   ws.on('open', (datos) => {
+  //     let clase = 'connected'
+  //     // $('.connection-status').addClass('connected')
+  //     // $('.messages').append(`
+  //     //   <div class="message"><h3> ${datos.nombre} </h3> <p> ${datos.saludo_inicial} </p> </div>
+  //     // `)
+  //      view.render('chatbot', { clase: clase })
+
+  //     subscribeToChannel()
+  //   })
+
+  //   ws.on('error', () => {
+  //     $('.connection-status').removeClass('connected')
+  //   })
+  // }
 }
   module.exports = ChatController

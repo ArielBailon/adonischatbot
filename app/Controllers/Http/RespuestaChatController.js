@@ -7,11 +7,11 @@ const Bot = use('App/Models/Bot')
 class RespuestaChatController {
 
   async inicio ({ view }) {
-    return view.render('respuestas')
+    return view.render('chatbot.respuestas')
   }
 
   async conversacion ({ view }) {
-    return view.render('conversacion')
+    return view.render('chatbot.conversacion')
   }
 
   async guardar_post({request, view}){

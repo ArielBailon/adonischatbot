@@ -41,64 +41,69 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Registrarse en ClienWent</p>
+      <p class="login-box-msg">Configura tu Chatbot</p>
 
-      <form action="/registro" method="post">
+      <form action="/registroBot" method="post">
         <div class="input-group mb-3">
-          <input type="text" name="nombres" class="form-control" value="{{ old('nombres', '') }}" placeholder="Nombre y Apellido">
+          <label class="container" for="sitioWeb">Tu sitio web</label>
+        <input name="sitioWeb" class="form-control" value="" placeholder="www.tusitio.com">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-globe"></span>
+          </div>
+        </div>
+      </div>
+        <div class="input-group mb-3">
+          <label class="container" for="colorVentana">Color de ventana</label>
+          <input type="text" name="colorVentana" class="form-control">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-palette"></span>
             </div>
           </div>
-          {{ elIf('<div class="container">$self</div>', getErrorFor('nombres'), hasErrorFor('nombres')) }}
-
         </div>
         <div class="input-group mb-3">
-          <input name="correo" class="form-control" value="{{ old('correo', '') }}" placeholder="Correo">
+            <label class="container" for="nombreRobot">Nombre del robot</label>
+          <input name="nombreRobot" class="form-control" value="Mi chatbot" placeholder="Mi chatbot">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-robot"></span>
             </div>
           </div>
-          {{ elIf('<div class="container">$self</div>', getErrorFor('correo'), hasErrorFor('correo')) }}
-
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="contrasena" class="form-control" placeholder="Contraseña">
+          <label class="container" for="mensajeBienvenida">Mensaje de bienvenida</label>
+
+          <input type="text" name="mensajeBienvenida" class="form-control" placeholder="Hola, estoy conectada, de qué modo te puedo ayudar?">
 
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-comment"></span>
             </div>
           </div>
-          {{ elIf('<div class="container">$self</div>', getErrorFor('contrasena'), hasErrorFor('contrasena')) }}
-
         </div>
-        <div class="input-group mb-3">
-          <input type="password" name="contrasena_confirmar" class="form-control" placeholder="Vuelva a escribir la contraseña">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-          {{ elIf('<div class="container">$self</div>', getErrorFor('contrasena_confirmar'), hasErrorFor('contrasena_confirmar')) }}
-
-        </div>
-        <div class="row">
+        <div class="row mb-2">
           <!-- /.col -->
           <div class="col-md-12">
-            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
           </div>
           <!-- /.col -->
         </div>
+        <div class="row">
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-block">Saltar</button>
+          </div>
+
+        </div>
+
       </form>
 
-      <a href="/iniciars" class="text-center">Ya poseo con una cuenta</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
+
 <!-- /.register-box -->
 
 <script src="/assets/plugins/jquery/jquery.min.js"></script>
@@ -136,6 +141,9 @@
 <script src="/assets/dist/js/demo.js"></script>
 {{--  Ionic icons  --}}
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+
+
 </body>
 </html>
 

@@ -1,0 +1,48 @@
+@include('global.chatbot.header')
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  @include('global.chatbot.botInfo')
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="col-sm-6 mx-auto">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Apariencia</h3><br>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre de ventana</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Mi chatbot">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Color de ventana</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mi chatbot">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Tiempo de saludo automático</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mi chatbot">
+
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Subir Logo</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Horario de atención">
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+
+@include('global.footer')
+@include('global.modals.empresaModal')

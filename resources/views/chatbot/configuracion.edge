@@ -1,0 +1,82 @@
+@include('global.chatbot.header')
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  @include('global.chatbot.botInfo')
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="col-sm-6 mx-auto">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Configuración</h3><br>
+          <h5>Activar</h5>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre del robot</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Mi chatbot">
+            </div>
+            <div class="form-group">
+                <label for="industria">Industria</label>
+                <div class="form-group">
+                  <select name="industria" class="form-control">
+                    {{--  if class tipo no guardar  --}}
+                    <option class="noTipo">Seleccionar tipo</option>
+                    <option>Alimentos y Bebidas</option>
+                    <option>Bienes Raíces</option>
+                    <option>Consultoría y Servicios profesionales</option>
+                    <option>Deportes</option>
+                    <option>Diseño y Fotografía</option>
+                    <option>Educación</option>
+                    <option>Eventos y Entretenimiento</option>
+                    <option>Finanzas</option>
+                    <option>Hogar y Decoración</option>
+                    <option>Indumentaria</option>
+                    <option>Industrial</option>
+                    <option>Legal/Contabilidad</option>
+                    <option>Motores</option>
+                    <option>ONG</option>
+                    <option>Publicidad y Marketing</option>
+                    <option>Salud y Estética</option>
+                    <option>Seguridad</option>
+                    <option>Seguros</option>
+                    <option>Software</option>
+                    <option>Servicios</option>
+                    <option>TICs</option>
+                    <option>TV, Prensa y Radio</option>
+                    <option>Viajes y Turismo</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Idioma</label>
+              <div class="form-group">
+                <select class="form-control">
+                  <option>Español</option>
+                  <option>English</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Horario de atención</label>
+              <input type="password" class="form-control" id="exampleInputPassword1"
+                placeholder="Horario de atención">
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+
+@include('global.footer')
+@include('global.modals.empresaModal')
