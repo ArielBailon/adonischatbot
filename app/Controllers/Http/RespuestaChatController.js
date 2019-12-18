@@ -6,15 +6,28 @@ const Bot = use('App/Models/Bot')
 
 class RespuestaChatController {
 
-  async inicio ({ view }) {
-    return view.render('chatbot.respuestas')
+  async inicio ({ view, session }) {
+
+    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
+    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+
+    const sitio_web = querySitio.sitio_web
+    const sitios_web = querySitios
+
+    return view.render('chatbot.respuestas', { sitio_web:sitio_web, sitios_web:sitios_web })
   }
 
-  async conversacion ({ view }) {
-    return view.render('chatbot.conversacion')
+  async conversacion ({ view, session }) {
+    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
+    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+
+    const sitio_web = querySitio.sitio_web
+    const sitios_web = querySitios
+
+    return view.render('chatbot.conversacion', { sitio_web:sitio_web, sitios_web:sitios_web })
   }
 
-  async guardar_post({request, view}){
+  async guardar_post({request, response, view}){
     const body = request.post()
     const respuestaChat = new RespuestaChat()
 
@@ -23,6 +36,7 @@ class RespuestaChatController {
 
     // Del body separar las preguntas de la respuesta transformando de objeto a array
     const arrayPreguntas = Object.values(body);
+    // Obtener el último valor del array, pues el último siempre es la respuesta
     const respuesta = arrayPreguntas.splice(-1,1)
 
     // Variable para ejecutar en la creación del archivo rive
@@ -71,7 +85,7 @@ class RespuestaChatController {
     // });
 
     // respuestaChat.guardar_respuesta(arrayPreguntas, respuesta)
-    return view.render('respuestas')
+    return response.redirect('/chatbot/respuestas')
 }
 
 }

@@ -32,6 +32,7 @@
   {{--  Custom css  --}}
   <link rel="stylesheet" href="/assets/dist/css/custom.css">
 
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -45,10 +46,10 @@
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/dashboard" class="nav-link active border-nav border-nav-active">Dashboard</a>
+          <a href="/dashboard" class="nav-link border-nav">Dashboard</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
-          <a href="/chatbot/configuracion" class="nav-link border-nav">Chatbot</a>
+          <a href="chatbot/configuracion" class="nav-link border-nav {{ (menu == 'configuracion') ? 'border-nav-active active' : '' }} ">Chatbot</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
           <a href="#" class="nav-link border-nav">Clientes</a>
@@ -58,6 +59,9 @@
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
           <a href="#" class="nav-link border-nav">Chatbot live</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block ">
+          <a href="chatr" class="nav-link border-nav float-right">Probar Chat</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
           <a href="/cerrar" class="nav-link border-nav float-right">Cerrar Sesión</a>
@@ -148,7 +152,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a class="nav-link active" href="configuracion">
+              <a class="nav-link {{ (nav == 'configuracion') ? 'active' : '' }}" href="configuracion">
                 <i class="nav-icon fas fa-cog"></i>
                 <p>
                   Configuración
@@ -156,7 +160,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="apariencia">
+              <a class="nav-link {{ (nav == 'apariencia') ? 'active' : '' }}" href="apariencia">
                 <i class="nav-icon fas fa-pencil-alt"></i>
                 <p>
                   Apariencia
@@ -164,7 +168,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="conversacion">
+              <a class="nav-link {{ (nav == 'conversacion') ? 'active' : '' }}" href="/chatbot/conversacion">
                 <i class="nav-icon far fa-comments"></i>
                 <p>
                   Conversación
@@ -172,7 +176,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/chatbot/respuestas">
+              <a class="nav-link {{ (nav == 'respuestas') ? 'active' : '' }}" href="/chatbot/respuestas">
                 <i class="nav-icon far fa-comment-dots"></i>
                 <p>
                   Respuestas

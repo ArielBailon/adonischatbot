@@ -1,3 +1,4 @@
+
 <section class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
@@ -11,7 +12,9 @@
                 <span class="sr-only">Toggle Dropdown</span>
                 <div class="dropdown-menu" role="menu">
                   @each(sitio in sitios_web)
-                    <a class="dropdown-item" href="#">{{sitio.sitio_web}}</a>
+                  {{--  <form id="infoBot{{$loop.index}}" action="/dashboard" method="get">  --}}
+                      <a onclick="window.location.href = '/chatbot/conversacion/{{sitio._id}}';"  class="dropdown-item">{{sitio.sitio_web}}</a>
+                  {{--  </form>  --}}
                   @endeach
 
                 </div>

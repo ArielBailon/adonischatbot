@@ -1,7 +1,12 @@
 'use strict'
 
 const Usuario = use('App/Models/Usuario')
+const Bot = use('App/Models/Bot')
 const Chat = use('App/Models/Chat')
+const GlobalFunc = use('App/Common')
+const Helper = use('App/Controllers/Http/HelperController')
+
+
 
 class ChatController {
 
@@ -57,6 +62,32 @@ class ChatController {
     } catch (err) {
       console.error(err.message)
     }
+
+  }
+
+  async saludo_inicial ({ response, request, session }) {
+    if(!session.get('id_usuario')){response.redirect('/iniciars', false, 301)}
+
+    // let id_bot = session.get('id_bot')
+
+    // const helper = new Helper()
+
+    // helper.helper_saludo(id_bot)
+
+    // Esta función se necesita llamar en otro controlador, buscar manera de tener funciones globales
+
+      try {
+        let id_bot = session.get('id_bot')
+
+        const dataBot = await Bot.findById(id_bot)
+
+        let saludo = dataBot.conversacion.saludo_inicial
+
+        return saludo
+
+      } catch (err) {
+        console.error(err.message)
+      }
 
   }
 

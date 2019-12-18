@@ -12,6 +12,7 @@ function startChat() {
 
   ws.on('open', (datos) => {
     $('.connection-status').addClass('connected')
+    
     $('.messages').append(`
       <div class="message"><h3> ${datos.nombre} </h3> <p> ${datos.saludo_inicial} </p> </div>
     `)

@@ -1,101 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Satisfy);
-
-
-/* General */
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
-}
-
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-img {
-  -webkit-user-drag: none;
-  -moz-user-drag: none;
-  -khtml-user-drag: none;
-}
-
-a,
-a:hover,
-a:focus {
-  text-decoration: none;
-  outline: none;
-}
-
-.width100 {
-  width: 100%;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-.form-control {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  outline: none;
-  font-family: 'Open Sans', sans-serif;
-}
-
-/* General end*/
-
-
-/* Demo */
-.hd1 {
-  margin-top: 15vh;
-  font-size: 50px;
-  font-weight: 100;
-}
-
-.powered {
-  font-size: 17px;
-  margin-top: 20px;
-}
-
-.powered img {
-  width: 110px;
-  position: relative;
-  top: 8px;
-}
-
-.footer {
-  margin-top: 50px;
-  position: absolute;
-  bottom: 40px;
-  width: auto;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-}
-
-.foo-txt {
-  font-size: 15px;
-  font-weight: 400;
-  font-family: 'Satisfy', cursive;
-  text-shadow: none;
-  color: #272727;
-}
-
-.fa-heart {
-  color: #fb2323;
-}
-/* Demo end */
-
 
 
 /* MyBot */
@@ -201,7 +103,7 @@ mybot .resultDiv .botResult:before {
 }
 
 mybot .resultDiv .userEnteredText {
-  background: #9C27B0;
+  background: #2884e0;
   float: right;
   color: #ffffff;
   border-radius: 3px;
@@ -225,7 +127,7 @@ mybot .resultDiv .userEnteredText:before {
   height: 0;
   border-top: 0px solid rgba(0, 0, 0, 0);
   border-bottom: 15px solid rgba(0, 0, 0, 0);
-  border-left: 15px solid #9C27B0;
+  border-left: 15px solid #2884e0;
   position: absolute;
   right: -15px;
   margin-top: -12px;
@@ -262,7 +164,7 @@ mybot .chat-txt {
 
 /* Spinner start */
 mybot .spinner {
-  background: #9C27B0;
+  background: #2884e0;
   width: 70px;
   text-align: center;
   display: none;
@@ -281,7 +183,7 @@ mybot .spinner:before {
   height: 0;
   border-top: 0px solid rgba(0, 0, 0, 0);
   border-bottom: 15px solid rgba(0, 0, 0, 0);
-  border-right: 15px solid #9C27B0;
+  border-right: 15px solid #2884e0;
   left: -15px;
   margin-top: -7px;
 }
@@ -356,7 +258,7 @@ mybot .suggestion:before {
 
 mybot .suggestion .sugg-options {
   display: block;
-  background: #9c27b0;
+  background: #2884e0;
   color: #fff;
   text-align: center;
   padding: 5px;

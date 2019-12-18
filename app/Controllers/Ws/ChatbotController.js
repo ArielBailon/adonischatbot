@@ -31,6 +31,7 @@ class ChatController {
     this.bot.loadDirectory('config/rivescripts')
     .then(console.log('El bot leyó los archivos rive correctamente'))
     .catch((error) => console.log(error));
+
   }
 
   // start_chat({ view }){

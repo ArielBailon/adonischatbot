@@ -1,34 +1,10 @@
+@set('menu', 'configuracion')
+@set('nav', 'conversacion')
+
 @include('global.chatbot.header')
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-12">
-          <div class="margin text-center">
-            <div class="btn-group">
-              <div class="pagination-centered">
-                <button type="button" class="btn btn-default btn-flat dropdown-toggle dropdown-icon unstyled-button"
-                  data-toggle="dropdown">
-                  <h1>Sol Caribe</h1>
-                  <span class="sr-only">Toggle Dropdown</span>
-                  <div class="dropdown-menu" role="menu">
-                    <a class="dropdown-item" href="#">Metal Hierro</a>
-                    <a class="dropdown-item" href="#">Ariel Travel</a>
-                    <a class="dropdown-item" href="#">Ridens travel</a>
-                  </div>
-                </button>
-              </div>
-            </div>
-            <button class="unstyled-button outlinenone-button" data-toggle="modal" data-target="#modal-default"><i
-                class="fas fa-plus-square fa-2x ml-4"></i></button>
-
-          </div>
-        </div>
-      </div>
-    </div><!-- /.container-fluid -->
-  </section>
-
+  @include('global.chatbot.botInfo')
   <!-- Main content -->
   <section class="content">
     <div class="col-sm-6 mx-auto">
@@ -39,59 +15,109 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form">
+        <form action="/guardarConversacion" method="post" role="form">
           <div class="card-body">
             <div class="form-group">
-              <label for="exampleInputEmail1">Saludo Inicial</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Hola soy tu asesor...">
+              <label for="saludo_inicial">Saludo Inicial</label>
+              <input  name="saludo_inicial" value="{{conversacion.saludo_inicial}}" type="text"
+              class="form-control" placeholder="Hola soy tu asesor...">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Forma de solicitar el nombre</label>
-              <input type="password" class="form-control" id="exampleInputPassword1"
+              <label for="forma_solicitar_nombre">Forma de solicitar el nombre</label>
+              <input name="forma_solicitar_nombre" type="text" class="form-control" value="{{conversacion.forma_solicitar_nombre}}"
                 placeholder="Para poder ayudarte necesito tu Nombre?">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Preguntar email?</label>
+              <label for="preguntar_correo">Preguntar email?</label>
               <div class="form-group">
-                <select class="form-control">
-                  <option>Sí, requerido</option>
-                  <option>Sí, opcional</option>
-                  <option>No preguntar </option>
+                @if(conversacion.preguntar_correo == 1)
+                <select name="preguntar_correo" class="form-control">
+                  <option value="1" selected="selected" >Sí, requerido</option>
+                  <option value="2">Sí, opcional</option>
+                  <option value="3">No preguntar </option>
                 </select>
+                @elseif(conversacion.preguntar_correo == 2)
+                <select name="preguntar_correo" class="form-control">
+                    <option value="1">Sí, requerido</option>
+                    <option value="2" selected="selected" >Sí, opcional</option>
+                    <option value="3">No preguntar </option>
+                </select>
+                @elseif(conversacion.preguntar_correo == 3)
+                <select name="preguntar_correo" class="form-control">
+                    <option value="1">Sí, requerido</option>
+                    <option value="2">Sí, opcional</option>
+                    <option value="3" selected="selected" >No preguntar </option>
+                </select>
+                @endif
               </div>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Preguntar télefono?</label>
               <div class="form-group">
-                <select class="form-control">
-                  <option>Sí, requerido</option>
-                  <option>Sí, opcional</option>
-                  <option>No preguntar </option>
-                </select>
+                @if(conversacion.preguntar_telefono == 1)
+                <select name="preguntar_telefono" class="form-control">
+                    <option value="1" selected="selected" >Sí, requerido</option>
+                    <option value="2">Sí, opcional</option>
+                    <option value="3">No preguntar </option>
+                  </select>
+                  @elseif(conversacion.preguntar_telefono == 2)
+                  <select name="preguntar_telefono" class="form-control">
+                      <option value="1">Sí, requerido</option>
+                      <option value="2" selected="selected" >Sí, opcional</option>
+                      <option value="3">No preguntar </option>
+                  </select>
+                  @elseif(conversacion.preguntar_telefono == 3)
+                  <select name="preguntar_telefono" class="form-control">
+                      <option value="1">Sí, requerido</option>
+                      <option value="2">Sí, opcional</option>
+                      <option value="3" selected="selected" >No preguntar </option>
+                  </select>
+                  @endif
               </div>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Forma de solicitar los datos de contacto</label>
-              <input type="password" class="form-control" id="exampleInputPassword1"
+              <label for="forma_solicitar_datos">Forma de solicitar los datos de contacto</label>
+              <input name="forma_solicitar_datos" type="text" class="form-control" value="{{conversacion.forma_solicitar_datos_contacto}}"
                 placeholder="Necesitaremos tu número de teléfono y correo por favor">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Solicitar horario deseado de llamada?</label>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Sí</option>
-                    <option>No</option>
+                  @if(conversacion.preguntar_horario_llamada == 1)
+                  <select name="preguntar_horario_llamada" class="form-control">
+                    <option value="1" selected="selected">Sí</option>
+                    <option value="2">No</option>
                   </select>
+                  @elseif(conversacion.preguntar_horario_llamada == 2)
+                  <select name="preguntar_horario_llamada" class="form-control">
+                    <option value="1">Sí</option>
+                    <option value="2" selected="selected">No</option>
+                  </select>
+                  @endif
                 </div>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Preguntar número de documento?</label>
+              <label for="preguntar_num_documento">Preguntar número de documento?</label>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Sí, requerido</option>
-                    <option>Sí, opcional</option>
-                    <option>No preguntar </option>
+                  @if(conversacion.preguntar_num_documento == 1)
+                  <select name="preguntar_num_documento" class="form-control">
+                    <option value="1" selected="selected">Sí, requerido</option>
+                    <option value="2">Sí, opcional</option>
+                    <option value="3">No preguntar </option>
                   </select>
+                  @elseif(conversacion.preguntar_num_documento == 2)
+                  <select name="preguntar_num_documento" class="form-control">
+                      <option value="1">Sí, requerido</option>
+                      <option value="2" selected="selected">Sí, opcional</option>
+                      <option value="3">No preguntar </option>
+                  </select>
+                  @elseif(conversacion.preguntar_num_documento == 3)
+                  <select name="preguntar_num_documento" class="form-control">
+                      <option value="1">Sí, requerido</option>
+                      <option value="2">Sí, opcional</option>
+                      <option value="3" selected="selected">No preguntar </option>
+                  </select>
+                  @endif
                 </div>
             </div>
             <div class="form-group">
@@ -99,22 +125,20 @@
               <div class="form-group">
                   <button class="btn btn-primary">Agregar preguntas</button>
             </div>
-          </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Cierre de conversación</label>
-              <textarea type="password" class="form-control" id="exampleInputPassword1"
-                placeholder="Gracias por la información brindada, un asesor se comunicará contigo en brevedad"></textarea>
+              <label for="cierre_conversacion">Cierre de conversación</label>
+              <textarea name="cierre_conversacion" type="text" class="form-control"
+                placeholder="Gracias por la información brindada, un asesor se comunicará contigo en brevedad">{{conversacion.cierre_conversacion}}</textarea>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Saludo final</label>
-              <input type="password" class="form-control" id="exampleInputPassword1"
+              <label for="saludo_final">Saludo final</label>
+              <input value="{{conversacion.saludo_final}}" name="saludo_final" type="text" class="form-control"
                 placeholder="Bien, muchas gracias">
             </div>
 
 
           </div>
           <!-- /.card-body -->
-
           <div class="card-footer">
             <button type="submit" class="btn btn-primary">Guardar</button>
           </div>
@@ -127,3 +151,5 @@
 
 
 @include('global.footer')
+@include('global.modals.empresaModal')
+

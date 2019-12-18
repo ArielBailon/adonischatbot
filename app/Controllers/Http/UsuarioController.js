@@ -33,8 +33,8 @@ class UsuarioController {
         sitio_web: body.sitioWeb,
         empresa: data.id,
         nombre: body.nombreRobot,
-        apariencia: [ { color_ventana: body.colorVentana, } ],
-        conversacion: [ { saludo_inicial: body.mensajeBienvenida, } ],
+        apariencia: { color_ventana: body.colorVentana, },
+        conversacion: { saludo_inicial: body.mensajeBienvenida, }
       })
 
       await nuevoBot.save()
@@ -45,7 +45,7 @@ class UsuarioController {
       console.error(err.message);
     }
 
-    return response.redirect('registro.registroInstalar')
+    return response.redirect('registroInstalar')
   }
 
   async instalar_bot ({ view, response, session }) {
@@ -63,12 +63,12 @@ class UsuarioController {
     try {
       await Usuario.findByIdAndUpdate(session.get('id_usuario'),
       {
-        config: [{
+        config: {
           industria: body.industria,
           cant_empresa: body.cantidadEmpleados,
           posicion_empresa: body.posicionEmpresa,
           num_telefono: body.numeroTelefono
-        }]
+        }
       }
       )
     } catch (err) {
@@ -129,7 +129,6 @@ class UsuarioController {
         contrasena: await Hash.make(body.contrasena, 15)
       })
 
-
       await nuevoUsuario.save()
 
     } catch (err) {
@@ -141,15 +140,20 @@ class UsuarioController {
     const data = await Usuario.findOne({ correo: body.correo })
 
     try {
+
       session.put('id_usuario', data.id)
 
+      // console.log(session.all())
+
     } catch (err) {
-      console.error(err.message);
+      console.error(err.message)
+      console.log(session.all())
+
     }
 
     // console.log(session.all())
 
-    return response.redirect('registro.registroBot')
+    return response.redirect('registroBot')
   }
 
   async iniciar_sesion({ request, response, session }){
@@ -163,6 +167,8 @@ class UsuarioController {
       if(verificar){
         session.put('id_usuario', data.id)
         session.put('id_bot', dataBot.id)
+        session.put('sitio_bot', dataBot.sitio_web)
+
         response.redirect('/dashboard', false, 301)
       } else {
         console.log("Err");

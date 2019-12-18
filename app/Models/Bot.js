@@ -7,6 +7,7 @@ const mongoose = use('mongoose')
  * @class Bot
  */
 class Bot extends BaseModel {
+
   static boot ({ schema }) {
     // Hooks:
     // this.addHook('preSave', () => {})
@@ -30,7 +31,7 @@ class Bot extends BaseModel {
       sitio_web: {
         type: String
       },
-      configuracion: [
+      configuracion:
         {
           tipo_industria: {
             type: String,
@@ -38,9 +39,8 @@ class Bot extends BaseModel {
           idioma: {
             type: String
           }
-        }
-      ],
-      apariencia: [
+        },
+      apariencia:
         {
           nombre_ventana: {
             type: String,
@@ -64,9 +64,8 @@ class Bot extends BaseModel {
             type: String,
             default: 'Burbuja'
           }
-        }
-      ],
-      conversacion: [
+        },
+      conversacion:
         {
           saludo_inicial: {
             type: String,
@@ -84,6 +83,15 @@ class Bot extends BaseModel {
             type: Number,
             default: 1
           },
+
+          forma_solicitar_datos_contacto: {
+            type: String,
+            default: "Para que recibas información, necesitaré de tu correo y número de teléfono"
+          },
+          preguntar_horario_llamada: {
+            type: Number,
+            default: 1
+          },
           forma_solicitar_horario_llamada: {
             type: String,
             default: "¿En qué horario del día prefiere que te llamemos?"
@@ -93,8 +101,7 @@ class Bot extends BaseModel {
             default: 2
           },
           preguntas_adicionales: {
-            type: [String],
-            default: ["¿a qué lugares te gustaría viajar?", "¿en qué fecha?"]
+            type: [String]
           },
           cierre_conversacion: {
             type: String,
@@ -104,8 +111,7 @@ class Bot extends BaseModel {
             type: String,
             default: "Bien, me contacto con el asesor y le doy toda esta información. Muchas gracias por comunicarte!"
           }
-        }
-      ],
+        },
       respuestas: [
         {
           nombre: {
@@ -138,7 +144,7 @@ class Bot extends BaseModel {
           ]
         }
       ],
-      instalacion: [
+      instalacion:
         {
           script: {
             type: String,
@@ -148,8 +154,7 @@ class Bot extends BaseModel {
             type: String,
             default: "Toekn de instalacion de plugins en wordpress"
           }
-        }
-      ],
+        },
       analisis_conversacion: [
         {
           frases: {

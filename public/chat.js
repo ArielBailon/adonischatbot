@@ -7,6 +7,7 @@ $(function () {
     startChat()
   }
 
+
 function startChat() {
   ws = adonis.Ws().connect()
   ws.on('open', () => {
@@ -63,4 +64,5 @@ $('#message').keyup(function (e) {
 
     return
   }
+})
 })
