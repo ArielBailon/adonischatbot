@@ -43,7 +43,7 @@ function subscribeToChannel(id) {
 
   chat.on('message', (message) => {
     $('.messages').append(`
-      <div class="message"><h4> Usuario </h4> <p> ${message.body} </p> </div>
+     <p class="userEnteredText font-weight-bold">Usuario</p><div class="clearfix"></div><p class="botResult">${message.body}</p><div class="clearfix"></div>
     `)
   })
 }
@@ -59,11 +59,11 @@ $('#message').keyup(function (e) {
 
     // id
       let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'http://127.0.0.1:3333/getidchat', true);
+      xhr.open('GET', 'http://127.0.0.1:3333/getid_chat', true);
 
       xhr.onload = function() {
         if (this.status == 200) {
-          // console.log(JSON.parse(this.responseText)[1]);
+          // console.log(this.responseText[1]);
           var id = JSON.parse(this.responseText)[1]
           // var id = this.responseText;
           // return this.responseText

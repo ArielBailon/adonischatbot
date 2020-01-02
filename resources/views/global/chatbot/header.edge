@@ -29,6 +29,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   {{--  jquery  --}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  {{--  Color picker  --}}
+  <script src="/assets/js/jscolor.js"></script>
   {{--  Custom css  --}}
   <link rel="stylesheet" href="/assets/dist/css/custom.css">
 
@@ -49,7 +51,7 @@
           <a href="/dashboard" class="nav-link border-nav">Dashboard</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
-          <a href="chatbot/configuracion" class="nav-link border-nav {{ (menu == 'configuracion') ? 'border-nav-active active' : '' }} ">Chatbot</a>
+          <a onclick="window.location.href = '/chatbot/configuracion/{{id_bot}}';" class="nav-link border-nav pointer {{ (menu == 'configuracion') ? 'border-nav-active active' : '' }} ">Chatbot</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
           <a href="#" class="nav-link border-nav">Clientes</a>
@@ -152,7 +154,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a class="nav-link {{ (nav == 'configuracion') ? 'active' : '' }}" href="configuracion">
+              <a class="nav-link pointer {{ (nav == 'configuracion') ? 'active' : '' }}" onclick="window.location.href = '/chatbot/configuracion/{{id_bot}}';">
                 <i class="nav-icon fas fa-cog"></i>
                 <p>
                   Configuración
@@ -160,7 +162,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ (nav == 'apariencia') ? 'active' : '' }}" href="apariencia">
+              <a class="nav-link pointer {{ (nav == 'apariencia') ? 'active' : '' }}" onclick="window.location.href = '/chatbot/apariencia/{{id_bot}}';">
                 <i class="nav-icon fas fa-pencil-alt"></i>
                 <p>
                   Apariencia
@@ -168,7 +170,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ (nav == 'conversacion') ? 'active' : '' }}" href="/chatbot/conversacion">
+              <a class="nav-link pointer {{ (nav == 'conversacion') ? 'active' : '' }}" onclick="window.location.href = '/chatbot/conversacion/{{id_bot}}';">
                 <i class="nav-icon far fa-comments"></i>
                 <p>
                   Conversación
@@ -176,7 +178,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ (nav == 'respuestas') ? 'active' : '' }}" href="/chatbot/respuestas">
+              <a class="nav-link pointer {{ (nav == 'respuestas') ? 'active' : '' }}" onclick="window.location.href = '/chatbot/respuestas/{{id_bot}}';">
                 <i class="nav-icon far fa-comment-dots"></i>
                 <p>
                   Respuestas

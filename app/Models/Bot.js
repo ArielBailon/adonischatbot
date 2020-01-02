@@ -24,6 +24,10 @@ class Bot extends BaseModel {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'usuario'
       },
+      activado: {
+        type: Boolean,
+        default: true
+      },
       nombre: {
         type: String,
         default: "Mi chatbot"
@@ -35,10 +39,12 @@ class Bot extends BaseModel {
         {
           tipo_industria: {
             type: String,
+            default: 'Seleccionar Tipo'
           },
           idioma: {
-            type: String
-          }
+            type: String,
+            default: 'Español'
+          },
         },
       apariencia:
         {
@@ -166,11 +172,7 @@ class Bot extends BaseModel {
             default: ' ["tres ninos", "dos adultos", "fin ano"] '
           }
         }
-      ],
-      fecha : {
-        type: Date,
-        default: Date.now
-      }
+      ]
     }
   }
 }

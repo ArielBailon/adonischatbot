@@ -13,10 +13,9 @@
                 <div class="dropdown-menu" role="menu">
                   @each(sitio in sitios_web)
                   {{--  <form id="infoBot{{$loop.index}}" action="/dashboard" method="get">  --}}
-                      <a onclick="window.location.href = '/chatbot/conversacion/{{sitio._id}}';"  class="dropdown-item">{{sitio.sitio_web}}</a>
+                      <a onclick="window.location.href = '/chatbot/configuracion/{{sitio.id}}';"  class="dropdown-item">{{sitio.sitio_web}}</a>
                   {{--  </form>  --}}
                   @endeach
-
                 </div>
               </button>
             </div>

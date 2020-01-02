@@ -5,8 +5,10 @@ $(document).ready(function() {
 									'<div class="close">'+
 										'<i class="fa fa-times" aria-hidden="true"></i>'+
 									'</div>'+
-								'</div><!--bot_profile end-->'+
-								'<div id="result_div" class="resultDiv messages"></div>'+
+                '</div><!--bot_profile end-->'+
+                '<form id="guardarChatForm" action="/guardarChatCliente" method="POST" >'+
+                 '<div id="result_div" class="resultDiv messages"></div>'+
+								'</form>'+
 								'<div class="chatForm" id="chat-div">'+
 									'<div class="spinner">'+
 										'<div class="bounce1"></div>'+
@@ -46,7 +48,8 @@ $(document).ready(function() {
 		$('.profile_div').toggle();
 		$('.chatCont').toggle();
 		$('.bot_profile').toggle();
-		$('.chatForm').toggle();
+    $('.chatForm').toggle();
+    $('#guardarChatForm').submit();
 	});
 
 
@@ -111,9 +114,9 @@ $(document).ready(function() {
       setTimeout(function(){
 
         if(message.username == 'Chatbot'){
-        $('.messages').append(`<p class="botResult">${message.body}</p><div class="clearfix"></div>`)
+        $('.messages').append(`<input type="hidden" name="mensajes[]" value="${message.body}"></input><p class="botResult">${message.body}</p><div class="clearfix"></div>`)
         }else{
-        $('.messages').append(`<p class="userEnteredText">${message.body}</p><div class="clearfix"></div>`)
+        $('.messages').append(`<input type="hidden" name="mensajes[]" value="${message.body}"></input><p class="userEnteredText">${message.body}</p><div class="clearfix"></div>`)
         }
         scrollToBottomOfResults();
 		  	hideSpinner();
@@ -124,6 +127,8 @@ $(document).ready(function() {
 		ws = adonis.Ws().connect()
 		ws.on('open', (datos) => {
       $('.connection-status').addClass('connected')
+
+
       let xhr = new XMLHttpRequest();
         xhr.open('GET', 'http://127.0.0.1:3333/saludoInicial', true);
 
@@ -146,7 +151,19 @@ $(document).ready(function() {
 		ws.on('error', () => {
 		  $('.connection-status').removeClass('connected')
 		})
-	}
+  }
+
+      // Llamar con ajax el tiempo automático de saludo, en funcion setTimeout
+
+      // if ($('#chatCont').css('display') == 'none'){
+      //   setTimeout(function(){
+      //     $('.profile_div').toggle();
+      //     $('.chatCont').toggle();
+      //     $('.bot_profile').toggle();
+      //     $('.chatForm').toggle();
+      //     document.getElementById('message').focus();
+      //   }, 2000)
+      // }
 	if (window.username) {
 		startChat()
 	}

@@ -27,6 +27,8 @@ Route.group(() =>{
 // Ariel Bailón
 // Dashboard
 Route.get('/dashboard', 'DashboardController.inicio')
+Route.get('/empresa', 'DashboardController.empresa')
+
 
 // Registrarse
 Route.get('/registro', 'UsuarioController.inicio')
@@ -46,10 +48,11 @@ Route.post('/iniciars', 'UsuarioController.iniciar_sesion')
 
 Route.get('cerrar', 'UsuarioController.cerrar_sesion')
 
-// Chatbot - Chat con bot
+// Chatbot
 Route.get('/chatbot', 'BotController.inicio')
 Route.post('/crear', 'BotController.crear_bot')
 Route.get('chatr', 'BotController.probar_chat')
+
 Route.post('/guardarConversacion', 'BotController.guardar_conversacion')
 
 
@@ -61,17 +64,19 @@ Route.get('/leer_respuestas', 'RespuestaChatController.indice')
 Route.get('/chats', 'ChatController.inicio')
 Route.get('/chatcliente', 'ChatController.chat_cliente')
 Route.get('/crearchat', 'ChatController.crear_chat')
-Route.get('/getidchat', 'ChatController.getid_chat')
+Route.get('/getid_chat', 'ChatController.getid_chat')
 Route.get('/saludoInicial', 'ChatController.saludo_inicial')
 
+// CLiente
+Route.post('guardarChatCliente', 'ClienteController.guardar_chat_cliente')
 
 
 // Módulo chatbot
 Route.group(() =>{
-  Route.get('configuracion', 'BotController.configuracion')
-  Route.get('respuestas', 'BotController.respuestas')
-  Route.get('conversacion', 'BotController.conversacion')
+  Route.get('configuracion/:id_bot', 'BotController.configuracion')
+  Route.get('apariencia/:id_bot', 'BotController.apariencia')
   Route.get('conversacion/:id_bot', 'BotController.conversacion')
-  Route.get('apariencia', 'BotController.apariencia')
+  Route.get('respuestas/:id_bot', 'BotController.respuestas')
+
 
 }).prefix('chatbot')

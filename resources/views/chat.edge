@@ -18,7 +18,7 @@
             </div>
             <!-- /.card-header -->
                 @each(result in results)
-                  <button onCLick="" class="btn"><li class="list-group-item hover-list">Cliente {{result.id_chat}}</li></button>
+                  <button onCLick="startChat({{result.id_chat}})" class="btn"><li class="list-group-item hover-list">Cliente {{result.id_chat}}</li></button>
                 @endeach
           </div>
           <!-- /.card-body -->

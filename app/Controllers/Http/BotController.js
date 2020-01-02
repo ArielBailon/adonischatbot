@@ -10,37 +10,96 @@ class BotController {
     return view.render('chatbot')
   }
 
-  async configuracion ({ view, session }) {
+  async configuracion ({ params, view, session }) {
 
-    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
-    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+    try {
 
-    const sitio_web = querySitio.sitio_web
-    const sitios_web = querySitios
+      if(params.id_bot){
+        // console.log(params.id_bot)
+        session.put('id_bot', params.id_bot)
 
-    return view.render('chatbot.configuracion', { sitio_web:sitio_web, sitios_web:sitios_web })
+        const querySitio = await Bot.findById( params.id_bot )
+
+        session.put('sitio_bot', querySitio.sitio_web)
+      }
+
+      const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+      const dataBot = await Bot.findOne( {_id: session.get('id_bot')})
+
+      const sitio_web = session.get('sitio_bot')
+      const sitios_web = querySitios
+      const nombre_bot = dataBot.nombre
+      const configuracion = dataBot.configuracion
+      const id_bot = dataBot.id
+
+      // console.log(dataBot.configuracion.tipo_industria)
+
+
+      return view.render('chatbot.configuracion', { sitio_web, sitios_web, nombre_bot, configuracion, id_bot })
+
+    } catch (err) {
+      console.error(err.message)
+    }
   }
 
-  async apariencia ({ view, session }) {
+  async apariencia ({ params, view, session }) {
 
-    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
-    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+    try {
 
-    const sitio_web = querySitio.sitio_web
-    const sitios_web = querySitios
+      if(params.id_bot){
+        // console.log(params.id_bot)
+        session.put('id_bot', params.id_bot)
 
-    return view.render('chatbot.apariencia', { sitio_web:sitio_web, sitios_web:sitios_web })
+        const querySitio = await Bot.findById( params.id_bot )
+
+        session.put('sitio_bot', querySitio.sitio_web)
+      }
+
+      const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+      const dataBot = await Bot.findById( session.get('id_bot'))
+
+      // console.log(dataBot);
+
+      const sitio_web = session.get('sitio_bot')
+      const sitios_web = querySitios
+      const apariencia = dataBot.apariencia
+      const id_bot = dataBot.id
+
+      return view.render('chatbot.apariencia', { sitio_web, sitios_web, apariencia, id_bot })
+
+    } catch (err) {
+      console.error(err.message)
+    }
+
+
   }
 
-  async respuestas ({ view, session }) {
+  async respuestas ({ params, view, session }) {
 
-    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
-    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+    try {
 
-    const sitio_web = querySitio.sitio_web
-    const sitios_web = querySitios
+      if(params.id_bot){
+        // console.log(params.id_bot)
+        session.put('id_bot', params.id_bot)
 
-    return view.render('chatbot.respuestas', { sitio_web:sitio_web, sitios_web:sitios_web })
+        const querySitio = await Bot.findById( params.id_bot )
+
+        session.put('sitio_bot', querySitio.sitio_web)
+      }
+
+      const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+      const dataBot = await Bot.findOne( {_id: session.get('id_bot')})
+
+      const sitio_web = session.get('sitio_bot')
+      const sitios_web = querySitios
+      const respuestas = dataBot.respuestas
+      const id_bot = dataBot.id
+
+      return view.render('chatbot.respuestas', { sitio_web, sitios_web, respuestas, id_bot })
+
+    } catch (err) {
+      console.error(err.message)
+    }
   }
 
   async conversacion ({ params, view, session }) {
@@ -54,7 +113,6 @@ class BotController {
         const querySitio = await Bot.findById( params.id_bot )
 
         session.put('sitio_bot', querySitio.sitio_web)
-
       }
 
       const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
@@ -134,7 +192,7 @@ class BotController {
     return response.redirect('/chatbot/respuestas')
 }
 
-  async crear_bot ({request, view, session}) {
+  async crear_bot ({request, response, view, session}) {
     const data = await Usuario.findById(session.get('id_usuario')).populate('usuario', ['id'])
 
     const dataBot = await Bot.findOne({ empresa: data.id })
@@ -142,7 +200,7 @@ class BotController {
     session.put('id_bot', dataBot.id)
     session.put('sitio_bot', dataBot.sitio_web)
 
-    console.log(session.all())
+    // console.log(session.all())
 
     const body = request.post(['nombreBot', 'sitioWeb'])
 
@@ -152,8 +210,9 @@ class BotController {
       nombre: body.nombreBot
     })
     await nuevoBot.save()
-    return view.render('chatbot.conversacion')
+    return response.redirect('/chatbot/configuracion/'+dataBot.id)
   }
+
 
   async guardar_conversacion ({request, response, view, session}) {
 
@@ -185,16 +244,15 @@ class BotController {
     }
 
     // console.log(session.get('id_bot'))
+    const id_bot = session.get('id_bot')
 
-    return response.redirect('/chatbot/conversacion')
+    return response.redirect('/chatbot/conversacion/'+id_bot)
   }
 
-  async probar_chat ({ request, view }){
+  async probar_chat ({ request, view }) {
 
     return view.render('chatbot.probarChat')
   }
-
-
 }
 
 module.exports = BotController

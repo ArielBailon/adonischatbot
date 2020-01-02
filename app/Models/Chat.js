@@ -1,6 +1,7 @@
 'use strict'
 
 const BaseModel = use('MongooseModel')
+const mongoose = use('mongoose')
 
 /**
  * @class Chat
@@ -21,7 +22,8 @@ class Chat extends BaseModel {
   static get schema() {
     return {
       id_usuario :{
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'usuario'
       },
       id_chat: {
         type: Number,

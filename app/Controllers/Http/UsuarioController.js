@@ -60,15 +60,19 @@ class UsuarioController {
 
     const body = request.only(['industria', 'cantidadEmpleados', 'posicionEmpresa', 'numeroTelefono'])
 
+    console.log(body.posicionEmpresa);
+
     try {
       await Usuario.findByIdAndUpdate(session.get('id_usuario'),
       {
-        config: {
-          industria: body.industria,
-          cant_empresa: body.cantidadEmpleados,
-          posicion_empresa: body.posicionEmpresa,
-          num_telefono: body.numeroTelefono
-        }
+        $set:{
+            config: {
+              industria: body.industria,
+              cant_empresa: body.cantidadEmpleados,
+              posicion_empresa: body.posicionEmpresa,
+              num_telefono: body.numeroTelefono
+            }
+          }
       }
       )
     } catch (err) {
