@@ -1,0 +1,93 @@
+@set('menu', 'dashboard')
+@set('nav', 'empresa')
+@include('global.header')
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+
+  </div>
+  <!-- Main content -->
+  <section class="content">
+    <div class="col-sm-6 mx-auto">
+      <div class="card card-primary">
+        <div class="card-header text-center">
+          <h4 class="mb-2">Configuración de cuenta</h4>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre de tu empresa</label>
+              <input type="email" class="form-control" placeholder="Mi Empresa">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Teléfono</label>
+              <input type="text" class="form-control" placeholder="+59369696969">
+            </div>
+            <div class="form-group">
+              <div class="form-group">
+                <label for="industria">Industria</label>
+                <div class="form-group">
+                  <select name="industria" class="form-control">
+                    {{--  if class tipo no guardar  --}}
+                    <option class="noTipo">Seleccionar tipo</option>
+                    <option>Alimentos y Bebidas</option>
+                    <option>Bienes Raíces</option>
+                    <option>Consultoría y Servicios profesionales</option>
+                    <option>Deportes</option>
+                    <option>Diseño y Fotografía</option>
+                    <option>Educación</option>
+                    <option>Eventos y Entretenimiento</option>
+                    <option>Finanzas</option>
+                    <option>Hogar y Decoración</option>
+                    <option>Indumentaria</option>
+                    <option>Industrial</option>
+                    <option>Legal/Contabilidad</option>
+                    <option>Motores</option>
+                    <option>ONG</option>
+                    <option>Publicidad y Marketing</option>
+                    <option>Salud y Estética</option>
+                    <option>Seguridad</option>
+                    <option>Seguros</option>
+                    <option>Software</option>
+                    <option>Servicios</option>
+                    <option>TICs</option>
+                    <option>TV, Prensa y Radio</option>
+                    <option>Viajes y Turismo</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cantidadEmpleados">Cantidad de empleados</label>
+              <div class="form-group">
+                <select name="cantidadEmpleados" class="form-control">
+                  {{--  if class tipo no guardar  --}}
+                  <option class="noTipo">Seleccionar tipo</option>
+                  <option>1</option>
+                  <option>2 - 5</option>
+                  <option>6 - 20</option>
+                  <option>21 - 50</option>
+                  <option>51 - 250</option>
+                  <option>251 - 1000</option>
+                  <option>+1000</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+
+@include('global.footer')
+@include('global.modals.empresaModal')

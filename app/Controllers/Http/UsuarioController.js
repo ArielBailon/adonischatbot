@@ -167,6 +167,8 @@ class UsuarioController {
       // Encontrar bot mediante id con la relación de campo empresa, empresa = id de cuenta
       const dataBot = await Bot.findOne({ empresa: data.id })
 
+      // console.log(data.id);
+
       const verificar = await Hash.verify(body.contrasena, data.contrasena)
       if(verificar){
         session.put('id_usuario', data.id)

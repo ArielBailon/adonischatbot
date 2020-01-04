@@ -130,7 +130,7 @@ $(document).ready(function() {
 
 
       let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://127.0.0.1:3333/saludoInicial', true);
+        xhr.open('GET', 'http://127.0.0.1:3333/saludoInicials', true);
 
         xhr.onload = function() {
           if (this.status == 200) {

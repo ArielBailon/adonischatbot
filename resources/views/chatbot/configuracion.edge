@@ -7,16 +7,20 @@
 
   <!-- Main content -->
   <section class="content">
+    <form role="form" action="/chatbot/actualizarConfiguracion/{{id_bot}}" method="POST">
     <div class="col-sm-6 mx-auto">
       <div class="card card-primary">
         <div class="card-header text-center">
           <h4 class="mb-2">Configuración</h4>
-
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <label class="float-left mt-1 ml-5"> <h5>Activar Bot</h5></label>
               <label class="switch mr-5">
-                <input type="checkbox" class="primary">
+
+                {{--  Revisar  --}}
+                {{ configuracion.activado==true ? "@set('activado','true')":"@set('activado','false')"}}
+                <input name="activado" value="{{ activado==true ? 'true':'false'}}"
+                 type="checkbox" class="primary" {{ configuracion.activado==true ? 'checked':''}}>
                 <span class="slider round"></span>
               </label>
             </li>
@@ -25,51 +29,50 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form">
           <div class="card-body">
             <div class="form-group">
               <label for="nombre_robot">Nombre del robot</label>
-              <input type="text" value="{{nombre_bot}}" class="form-control" placeholder="Mi chatbot">
+              <input name="nombre_robot" type="text" value="{{configuracion.nombre}}" class="form-control" placeholder="Mi chatbot">
             </div>
             <div class="form-group">
               <label for="industria">Industria</label>
               <div class="form-group">
                 <select name="industria" class="form-control">
                   {{--  if class tipo no guardar  --}}
-                  <option @if(configuracion.tipo_industria==='Seleccionar Tipo') selected @endif>Seleccionar Tipo</option>
-                  <option @if(configuracion.tipo_industria=='2') selected @endif>Alimentos y Bebidas</option>
-                  <option @if(configuracion.tipo_industria==='xd') selected @endif>Bienes Raíces</option>
-                  <option>Consultoría y Servicios profesionales</option>
-                  <option>Deportes</option>
-                  <option>Diseño y Fotografía</option>
-                  <option>Educación</option>
-                  <option>Eventos y Entretenimiento</option>
-                  <option>Finanzas</option>
-                  <option>Hogar y Decoración</option>
-                  <option>Indumentaria</option>
-                  <option>Industrial</option>
-                  <option>Legal/Contabilidad</option>
-                  <option>Motores</option>
-                  <option>ONG</option>
-                  <option>Publicidad y Marketing</option>
-                  <option>Salud y Estética</option>
-                  <option>Seguridad</option>
-                  <option>Seguros</option>
-                  <option>Software</option>
-                  <option>Servicios</option>
-                  <option>TICs</option>
-                  <option>TV, Prensa y Radio</option>
-                  <option>Viajes y Turismo</option>
-                  <option>Otro</option>
+                  <option {{ (configuracion.tipo_industria == 'Seleccionar Tipo') ? 'selected' : '' }}>Seleccionar Tipo</option>
+                  <option {{ (configuracion.tipo_industria == 'Alimentos y Bebidas') ? 'selected' : '' }}>Alimentos y Bebidas</option>
+                  <option {{ (configuracion.tipo_industria == 'Bienes Raíces') ? 'selected' : '' }}>Bienes Raíces</option>
+                  <option {{ (configuracion.tipo_industria == 'Consultoría y Servicios profesionales') ? 'selected' : '' }}>Consultoría y Servicios profesionales</option>
+                  <option {{ (configuracion.tipo_industria == 'Deportes') ? 'selected' : '' }}>Deportes</option>
+                  <option {{ (configuracion.tipo_industria == 'Diseño y Fotografía') ? 'selected' : '' }}>Diseño y Fotografía</option>
+                  <option {{ (configuracion.tipo_industria == 'Educación') ? 'selected' : '' }}>Educación</option>
+                  <option {{ (configuracion.tipo_industria == 'Eventos y Entretenimiento') ? 'selected' : '' }}>Eventos y Entretenimiento</option>
+                  <option {{ (configuracion.tipo_industria == 'Finanzas') ? 'selected' : '' }}>Finanzas</option>
+                  <option {{ (configuracion.tipo_industria == 'Hogar y Decoración') ? 'selected' : '' }}>Hogar y Decoración</option>
+                  <option {{ (configuracion.tipo_industria == 'Indumentaria') ? 'selected' : '' }}>Indumentaria</option>
+                  <option {{ (configuracion.tipo_industria == 'Industrial') ? 'selected' : '' }}>Industrial</option>
+                  <option {{ (configuracion.tipo_industria == 'Legal/Contabilidad') ? 'selected' : '' }}>Legal/Contabilidad</option>
+                  <option {{ (configuracion.tipo_industria == 'Motores') ? 'selected' : '' }}>Motores</option>
+                  <option {{ (configuracion.tipo_industria == 'ONG') ? 'selected' : '' }}>ONG</option>
+                  <option {{ (configuracion.tipo_industria == 'Publicidad y Marketing') ? 'selected' : '' }}>Publicidad y Marketing</option>
+                  <option {{ (configuracion.tipo_industria == 'Salud y Estética') ? 'selected' : '' }}>Salud y Estética</option>
+                  <option {{ (configuracion.tipo_industria == 'Seguridad') ? 'selected' : '' }}>Seguridad</option>
+                  <option {{ (configuracion.tipo_industria == 'Seguros') ? 'selected' : '' }}>Seguros</option>
+                  <option {{ (configuracion.tipo_industria == 'Software') ? 'selected' : '' }}>Software</option>
+                  <option {{ (configuracion.tipo_industria == 'Servicios') ? 'selected' : '' }}>Servicios</option>
+                  <option {{ (configuracion.tipo_industria == 'TICs') ? 'selected' : '' }}>TICs</option>
+                  <option {{ (configuracion.tipo_industria == 'TV, Prensa y Radio') ? 'selected' : '' }}>TV, Prensa y Radio</option>
+                  <option {{ (configuracion.tipo_industria == 'Viajes y Turismo') ? 'selected' : '' }}>Viajes y Turismo</option>
+                  <option {{ (configuracion.tipo_industria == 'Otro') ? 'selected' : '' }}>Otro</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label for="idioma">Idioma</label>
               <div class="form-group">
-                <select class="form-control">
-                  <option>Español</option>
-                  <option>English</option>
+                <select name="idioma" class="form-control">
+                  <option {{ (configuracion.idioma == 'Español') ? 'selected' : '' }}>Español</option>
+                  <option {{ (configuracion.idioma == 'English') ? 'selected' : '' }}>English</option>
                 </select>
               </div>
             </div>

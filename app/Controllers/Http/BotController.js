@@ -42,6 +42,54 @@ class BotController {
     }
   }
 
+  async actualizar_configuracion ({ request, params, view, session }) {
+
+    const body = request.only(['nombre_robot', 'industria', 'idioma', 'activado'])
+
+    console.log(body);
+
+
+    try {
+
+      if(params.id_bot){
+        // console.log(params.id_bot)
+        session.put('id_bot', params.id_bot)
+
+        const querySitio = await Bot.findById( params.id_bot )
+
+        session.put('sitio_bot', querySitio.sitio_web)
+      }
+
+      // Actualizar solo un field de un subdocumento
+      await Bot.findByIdAndUpdate( session.get('id_bot') , {
+        $set: {
+          'configuracion.nombre': body.nombre_robot,
+          'configuracion.tipo_industria': body.industria,
+          'configuracion.idioma': body.idioma,
+          'configuracion.activado': body.activado
+
+      }
+      })
+
+      const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+      const dataBot = await Bot.findOne( {_id: session.get('id_bot')})
+
+      const sitio_web = session.get('sitio_bot')
+      const sitios_web = querySitios
+      const nombre_bot = dataBot.nombre
+      const configuracion = dataBot.configuracion
+      const id_bot = dataBot.id
+
+      // console.log(dataBot.configuracion.tipo_industria)
+
+
+      return view.render('chatbot.configuracion', { sitio_web, sitios_web, nombre_bot, configuracion, id_bot })
+
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
   async apariencia ({ params, view, session }) {
 
     try {
@@ -249,9 +297,20 @@ class BotController {
     return response.redirect('/chatbot/conversacion/'+id_bot)
   }
 
-  async probar_chat ({ request, view }) {
+  async probar_chat ({ request, session, view }) {
 
-    return view.render('chatbot.probarChat')
+    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+    const dataBot = await Bot.findOne( {_id: session.get('id_bot')})
+
+    const sitio_web = session.get('sitio_bot')
+    const sitios_web = querySitios
+    const nombre_bot = dataBot.nombre
+    const id_bot = dataBot.id
+
+    // console.log(dataBot.configuracion.tipo_industria)
+
+    return view.render('chatbot.probarChat', { sitio_web, sitios_web, nombre_bot, id_bot })
+
   }
 }
 

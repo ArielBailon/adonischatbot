@@ -24,19 +24,15 @@ class Bot extends BaseModel {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'usuario'
       },
-      activado: {
-        type: Boolean,
-        default: true
-      },
-      nombre: {
-        type: String,
-        default: "Mi chatbot"
-      },
       sitio_web: {
         type: String
       },
       configuracion:
         {
+          nombre: {
+            type: String,
+            default: "Mi chatbot"
+          },
           tipo_industria: {
             type: String,
             default: 'Seleccionar Tipo'
@@ -45,6 +41,10 @@ class Bot extends BaseModel {
             type: String,
             default: 'Español'
           },
+          activado: {
+            type: Boolean,
+            default: true
+          }
         },
       apariencia:
         {
@@ -158,7 +158,7 @@ class Bot extends BaseModel {
           },
           token_bot: {
             type: String,
-            default: "Toekn de instalacion de plugins en wordpress"
+            default: "Token de instalacion de plugins en wordpress"
           }
         },
       analisis_conversacion: [
