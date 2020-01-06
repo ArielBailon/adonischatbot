@@ -20,7 +20,8 @@ mybot .chatCont {
   border: 1px solid #dcdcdc;
   bottom: 65px;
   right: 0;
-  background: #efe7dd url(../img/bg2.png) repeat;
+  /* background: #efe7dd url(../img/bg2.png) repeat; */
+  background-color: rgba(233, 230, 230, 0.924);
   border-top-left-radius: 3px;
   z-index: 10000;
 display: none;

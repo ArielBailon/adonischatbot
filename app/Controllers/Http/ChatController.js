@@ -81,9 +81,14 @@ class ChatController {
 
         const dataBot = await Bot.findById(id_bot)
 
-        let saludo = dataBot.conversacion.saludo_inicial
+        let info = []
 
-        return saludo
+        info.push(dataBot.conversacion.saludo_inicial)
+        info.push(dataBot.configuracion.nombre)
+
+        // console.log(info);
+
+        return info
 
       } catch (err) {
         console.error(err.message)

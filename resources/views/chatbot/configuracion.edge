@@ -18,7 +18,7 @@
               <label class="switch mr-5">
 
                 {{--  Revisar  --}}
-                {{ configuracion.activado==true ? "@set('activado','true')":"@set('activado','false')"}}
+                {{--  {{ configuracion.activado==true ? "@set('activado','true')":"@set('activado','false')"}}  --}}
                 <input name="activado" value="{{ activado==true ? 'true':'false'}}"
                  type="checkbox" class="primary" {{ configuracion.activado==true ? 'checked':''}}>
                 <span class="slider round"></span>

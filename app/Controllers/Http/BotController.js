@@ -255,14 +255,14 @@ class BotController {
     const nuevoBot = new Bot({
       empresa: data.id,
       sitio_web: body.sitioWeb,
-      nombre: body.nombreBot
+      "configuracion.nombre": body.nombreBot
     })
     await nuevoBot.save()
     return response.redirect('/chatbot/configuracion/'+dataBot.id)
   }
 
 
-  async guardar_conversacion ({request, response, view, session}) {
+  async actualizar_conversacion ({request, response, view, session}) {
 
     const body = request.post()
 

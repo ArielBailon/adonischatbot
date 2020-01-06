@@ -59,7 +59,6 @@ Route.get('/chatbot', 'BotController.inicio')
 Route.post('/crear', 'BotController.crear_bot')
 Route.get('chatr', 'BotController.probar_chat')
 
-Route.post('/guardarConversacion', 'BotController.guardar_conversacion')
 
 
 // Sección de respuestas
@@ -71,7 +70,7 @@ Route.get('/chats', 'ChatController.inicio')
 Route.get('/chatcliente', 'ChatController.chat_cliente')
 Route.get('/crearchat', 'ChatController.crear_chat')
 Route.get('/getid_chat', 'ChatController.getid_chat')
-Route.get('/saludoInicials', 'ChatController.saludo_inicial')
+Route.get('/saludoInicialss', 'ChatController.saludo_inicial')
 
 // CLiente
 Route.post('guardarChatCliente', 'ClienteController.guardar_chat_cliente')
@@ -83,6 +82,9 @@ Route.group(() =>{
   Route.post('actualizarConfiguracion/:id_bot', 'BotController.actualizar_configuracion')
   Route.get('apariencia/:id_bot', 'BotController.apariencia')
   Route.get('conversacion/:id_bot', 'BotController.conversacion')
+  Route.post('actualizarConversacion', 'BotController.actualizar_conversacion')
+
   Route.get('respuestas/:id_bot', 'BotController.respuestas')
+
 
 }).prefix('chatbot')
