@@ -195,7 +195,7 @@ class BotController {
     let contenidoRive = ``
 
     // Recorrer el array de preguntas y guardar en variable contenidoRive
-    arrayPreguntas.forEach(function(pregunta) {
+    arrayPreguntas.forEach( (pregunta) => {
       let contenido = `
 + ${pregunta.toLowerCase()}
 - ${respuesta}
@@ -205,7 +205,7 @@ class BotController {
     });
 
     // Crear o reemplazar el archivo rive
-    fs.appendFile('config/rivescripts/bot1_empresa1_socket1.rive', contenidoRive, function (err) {
+    fs.appendFile('config/rivescripts/bot1_empresa1_socket1.rive', contenidoRive, (err) => {
       if (err) throw err;
       console.log('Se creó el archivo rive correctamente');
     });
@@ -270,20 +270,47 @@ class BotController {
 
     try {
 
+      console.log(body);
+
+      // Del body separar las preguntas de la respuesta transformando de objeto a array
+      const arrayPreguntas = Object.values(body);
+      // Obtener el último valor del array, pues el último siempre es la respuesta
+      const respuesta = arrayPreguntas.splice(-1,1)
+
+      // Variable para ejecutar en la creación del archivo rive
+      let contenidoRive = ``
+
+      // Recorrer el array de preguntas y guardar en variable contenidoRive
+      arrayPreguntas.forEach( (pregunta) => {
+        let contenido = `
+  + ${pregunta.toLowerCase()}
+  - ${respuesta}
+  `
+        contenidoRive += contenido
+
+      });
+
+      // Crear o reemplazar el archivo rive
+      fs.appendFile('config/rivescripts/bot1_empresa1_socket1.rive', contenidoRive, (err) => {
+        if (err) throw err;
+        console.log('Se creó el archivo rive correctamente');
+      });
+
+
       // Actualizar solo un field de un subdocumento
-      await Bot.updateOne({ _id:session.get('id_bot') } , {
-        $set: {
-          'conversacion.saludo_inicial': body.saludo_inicial,
-          'conversacion.forma_solicitar_nombre': body.forma_solicitar_nombre,
-          'conversacion.preguntar_correo': parseInt(body.preguntar_correo),
-          'conversacion.preguntar_telefono': parseInt(body.preguntar_telefono),
-          'conversacion.forma_solicitar_datos_contacto': body.forma_solicitar_datos,
-          'conversacion.preguntar_horario_llamada': parseInt(body.preguntar_horario_llamada),
-          'conversacion.preguntar_num_documento': parseInt(body.preguntar_num_documento),
-          'conversacion.cierre_conversacion': body.cierre_conversacion,
-          'conversacion.saludo_final': body.saludo_final
-      }
-      })
+      // await Bot.updateOne({ _id:session.get('id_bot') } , {
+      //   $set: {
+      //     'conversacion.saludo_inicial': body.saludo_inicial,
+      //     'conversacion.forma_solicitar_nombre': body.forma_solicitar_nombre,
+      //     'conversacion.preguntar_correo': parseInt(body.preguntar_correo),
+      //     'conversacion.preguntar_telefono': parseInt(body.preguntar_telefono),
+      //     'conversacion.forma_solicitar_datos_contacto': body.forma_solicitar_datos,
+      //     'conversacion.preguntar_horario_llamada': parseInt(body.preguntar_horario_llamada),
+      //     'conversacion.preguntar_num_documento': parseInt(body.preguntar_num_documento),
+      //     'conversacion.cierre_conversacion': body.cierre_conversacion,
+      //     'conversacion.saludo_final': body.saludo_final
+      // }
+      // })
 
       // console.log(data);
 

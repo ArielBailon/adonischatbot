@@ -86,5 +86,4 @@ Route.group(() =>{
 
   Route.get('respuestas/:id_bot', 'BotController.respuestas')
 
-
 }).prefix('chatbot')

@@ -6,8 +6,8 @@ $(document).ready(function () {
     '<i class="fa fa-times" aria-hidden="true"></i>' +
     '</div>' +
     '</div><!--bot_profile end-->' +
-    '<form id="guardarChatForm" action="/guardarChatCliente" method="POST" >' +
-    '<div id="result_div" class="resultDiv messages"></div>' +
+    '<form id="guardarChatForm" class="resultDiv messages" action="/guardarChatCliente" method="POST" >' +
+    '<div id="result_div"></div>' +
     '</form>' +
     '<div class="chatForm" id="chat-div">' +
     '<div class="spinner">' +
@@ -127,16 +127,17 @@ $(document).ready(function () {
 
             if (message.username == 'Chatbot') {
               $('.messages').append(`<input type="hidden" name="mensajes[]" value="${message.body}">
-              <p class="mb-1 small"> ${dataArray[1]}</p>
-              </input><p class="botResult">${message.body}</p><div class="clearfix"></div>`)
+              <p class="mb-1 small"> ${dataArray[1]}</p></input>
+              <p class="botResult">${message.body}</p><div class="clearfix"></div>`)
+              scrollToBottomOfResults()
+
             } else {
               $('.messages').append(`<input type="hidden" name="mensajes[]" value="${message.body}"></input>
               <p class="mb-1 small">Tú</p>
               <p class="userEnteredText">${message.body}</p><div class="clearfix"></div>`)
+              scrollToBottomOfResults()
             }
-            scrollToBottomOfResults();
             hideSpinner();
-
           }
         }
         xhr.send()
@@ -196,7 +197,7 @@ $(document).ready(function () {
 
   //---------------------------------- Scroll to the bottom of the results div -------------------------------
   function scrollToBottomOfResults() {
-    var terminalResultsDiv = document.getElementById('result_div');
+    var terminalResultsDiv = document.getElementById('guardarChatForm');
     terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
   }
 

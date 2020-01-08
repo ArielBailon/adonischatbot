@@ -5,12 +5,17 @@ const bot = new RiveScript({utf8: true});
 class ChatController {
   constructor({
     socket,
-    request
+    request,
+    session
   }) {
     this.socket = socket
     this.request = request
     this.bot = bot
     this.cargar()
+    // Usar sesiones para identificar por id qué archivo de rivescript cargar
+    // this.session = session
+    // console.log(session.get('id_bot'))
+
     console.log('socket conectado')
   }
 
