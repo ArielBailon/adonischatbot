@@ -1,6 +1,7 @@
 'use strict'
 const RiveScript = require('rivescript');
 const bot = new RiveScript({utf8: true});
+bot.unicodePunctuation = new RegExp(/[.,!?;:]/g);
 
 class ChatController {
   constructor({
@@ -30,6 +31,14 @@ class ChatController {
       //console.log(Chalk.green('Bot: ' + reply));
       this.socket.emitTo('message', { body:reply, username:'Chatbot' }, [this.socket.id])
     });
+    // let deparsed = this.bot.deparse()
+    // console.log(deparsed)
+
+    // let uservars = bot.getUservars(bot.currentUser())
+    // uservars.then( function (elem) {
+    //   console.log(elem.nombre);
+    // })
+
   }
 
   cargar(){

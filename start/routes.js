@@ -25,6 +25,9 @@ Route.group(() =>{
 }).prefix('chatb')
 
 // Ariel Bailón
+
+Route.get('/', 'DashboardController.inicio')
+
 // Dashboard
 Route.group(() =>{
 

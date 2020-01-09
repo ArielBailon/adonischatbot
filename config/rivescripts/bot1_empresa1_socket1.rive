@@ -1,11 +1,103 @@
-+ horario
-- El horario de atención es de 9 a 6 de Lunes a Viernes. Sábados de 10 a 3 hrs.
-
-+ horario de atención
-- El horario de atención es de 9 a 6 de Lunes a Viernes. Sábados de 10 a 3 hrs.
-
-+ hasta qué hora atienden
-- El horario de atención es de 9 a 6 de Lunes a Viernes. Sábados de 10 a 3 hrs.
+! version = 2.0
 
 + *
-- Será un placer asistirte, cuál es su nombre?
+- Será un placer asistirle, ¿cuál es su nombre?{topic=nombre}
+
+// > begin
+
+//   // If we don't know their name, set the new_user topic and continue.
+//   + request
+//   * <get nombre> == undefined => <set nombre=true>{topic=getNombre}{ok}
+//   - {ok}
+
+// < begin
+
+> topic nombre
+
+//-- Casos donde se obtiene el nombre inicio --//
+
+  + mi nombre es *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + mi nombre *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + le saluda *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + yo soy *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + soy *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+//-- Casos donde se obtiene el nombre fin--//
+
+  // Si no matchea, volver a pedir nombre
+  + *
+  - ¿Podrías repertirme tu nombre por favor?{topic=nombrefinal}
+
+< topic
+
+> topic nombrefinal
+
+  + *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+< topic
+
+> topic correo
+
+  + mi correo es *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi correo *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi mail *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi email *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi e-mail *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  // Si no matchea, volver a pedir correo
+  + *
+  - ¿Podrías repertirme tu correo por favor?{topic=correofinal}
+
+< topic
+
+> topic correofinal
+
+  + *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?{topic=telefono}
+
+< topic
+
+> topic telefono
+
+  + mi telefono es *
+  - <set telefono=<star>>Su teléfono <get telefono>{topic=telefono}
+
+  + mi telefono *
+  - <set telefono=<star>>Su teléfono <get telefono>{topic=telefono}
+
+  + #
+  - <set telefono=<star>>Su teléfono <get telefono>{topic=telefono}
+
+  // Si no matchea, volver a pedir telefono
+  + *
+  - ¿Podrías repertirme tu teléfono por favor?{topic=telefonofinal}
+
+< topic
+
+> topic telefonofinal
+
+  + *
+  - <set telefono=<star>>Bien <get telefono>, random fin de obtención de datos?{topic=random}
+
+< topic
+
+
