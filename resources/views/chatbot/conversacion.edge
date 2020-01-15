@@ -35,20 +35,12 @@
                 @if(conversacion.preguntar_correo == 1)
                 <select name="preguntar_correo" class="form-control">
                   <option value="1" selected="selected" >Sí, requerido</option>
-                  <option value="2">Sí, opcional</option>
-                  <option value="3">No preguntar </option>
+                  <option value="2">No preguntar</option>
                 </select>
                 @elseif(conversacion.preguntar_correo == 2)
                 <select name="preguntar_correo" class="form-control">
                     <option value="1">Sí, requerido</option>
-                    <option value="2" selected="selected" >Sí, opcional</option>
-                    <option value="3">No preguntar </option>
-                </select>
-                @elseif(conversacion.preguntar_correo == 3)
-                <select name="preguntar_correo" class="form-control">
-                    <option value="1">Sí, requerido</option>
-                    <option value="2">Sí, opcional</option>
-                    <option value="3" selected="selected" >No preguntar </option>
+                    <option value="2" selected="selected" >No preguntar</option>
                 </select>
                 @endif
               </div>
@@ -59,20 +51,12 @@
                 @if(conversacion.preguntar_telefono == 1)
                 <select name="preguntar_telefono" class="form-control">
                     <option value="1" selected="selected" >Sí, requerido</option>
-                    <option value="2">Sí, opcional</option>
-                    <option value="3">No preguntar </option>
+                    <option value="2">No preguntar</option>
                   </select>
                   @elseif(conversacion.preguntar_telefono == 2)
                   <select name="preguntar_telefono" class="form-control">
                       <option value="1">Sí, requerido</option>
-                      <option value="2" selected="selected" >Sí, opcional</option>
-                      <option value="3">No preguntar </option>
-                  </select>
-                  @elseif(conversacion.preguntar_telefono == 3)
-                  <select name="preguntar_telefono" class="form-control">
-                      <option value="1">Sí, requerido</option>
-                      <option value="2">Sí, opcional</option>
-                      <option value="3" selected="selected" >No preguntar </option>
+                      <option value="2" selected="selected" >No preguntar</option>
                   </select>
                   @endif
               </div>
@@ -94,30 +78,6 @@
                   <select name="preguntar_horario_llamada" class="form-control">
                     <option value="1">Sí</option>
                     <option value="2" selected="selected">No</option>
-                  </select>
-                  @endif
-                </div>
-            </div>
-            <div class="form-group">
-              <label for="preguntar_num_documento">Preguntar número de documento?</label>
-              <div class="form-group">
-                  @if(conversacion.preguntar_num_documento == 1)
-                  <select name="preguntar_num_documento" class="form-control">
-                    <option value="1" selected="selected">Sí, requerido</option>
-                    <option value="2">Sí, opcional</option>
-                    <option value="3">No preguntar </option>
-                  </select>
-                  @elseif(conversacion.preguntar_num_documento == 2)
-                  <select name="preguntar_num_documento" class="form-control">
-                      <option value="1">Sí, requerido</option>
-                      <option value="2" selected="selected">Sí, opcional</option>
-                      <option value="3">No preguntar </option>
-                  </select>
-                  @elseif(conversacion.preguntar_num_documento == 3)
-                  <select name="preguntar_num_documento" class="form-control">
-                      <option value="1">Sí, requerido</option>
-                      <option value="2">Sí, opcional</option>
-                      <option value="3" selected="selected">No preguntar </option>
                   </select>
                   @endif
                 </div>

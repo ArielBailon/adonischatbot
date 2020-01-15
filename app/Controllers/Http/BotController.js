@@ -277,11 +277,198 @@ class BotController {
       // Variable para ejecutar en la creación del archivo rive
       let contenidoRive = ``
 
-      // Cuerpo para guardar en contenidoRive
-      let contenido = `
+      let contenidoCorreo =`
+> topic correo
+
+  + mi correo es *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi correo *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi mail *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi email *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  + mi e-mail *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?.{topic=telefono}
+
+  // Si no matchea, volver a pedir correo
+  + *
+  * <get name> != undefined => ${body.forma_solicitar_datos}
+  - ¿Podrías repertirme tu correo por favor?{topic=correofinal}
+
+< topic
+
+> topic correofinal
+
+  + *
+  - <set correo=<star>>Bien, ¿podrías dejarme tu teléfono?{topic=telefono}
+
+< topic
+`
+      let contenidoTelefono =`
+> topic telefono
+
+  + mi telefono es *
+  - <set telefono=<star>>Su teléfono <get telefono>{topic=telefono}
+
+  + mi telefono *
+  - <set telefono=<star>>Su teléfono <get telefono>{topic=telefono}
+
+  + #
+  - <set telefono=<star>>Su teléfono <get telefono>{topic=telefono}
+
+  // Si no matchea, volver a pedir telefono
+  + *
+  - ¿Podrías repertirme tu teléfono por favor?{topic=telefonofinal}
+
+< topic
+
+> topic telefonofinal
+
+  + *
+  - <set telefono=<star>>Bien <get telefono>, random fin de obtención de datos?{topic=random}
+
+< topic
+
+`
+
+if (body.preguntar_correo == '1') {
+
+// Cuerpo para guardar en contenidoRive
+var contenido = `
+! version = 2.0
+
++ *
+- ${body.forma_solicitar_nombre}{topic=nombre}
+
+> topic nombre
+
+//-- Casos donde se obtiene el nombre inicio --//
+  + mi nombre es *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + mi nombre *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + le saluda *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + yo soy *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+  + soy *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+//-- Casos donde se obtiene el nombre fin--//
+
+  // Si no matchea, volver a pedir nombre
+  + *
+  - ¿Podrías repertirme tu nombre por favor?{topic=nombrefinal}
+
+< topic
+
+> topic nombrefinal
+
+  + *
+  - <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu correo?{topic=correo}
+
+< topic
+${contenidoCorreo}
+`
+} if (body.preguntar_correo == '2') {
+
+  if (body.preguntar_telefono == '1') {
+
+// Cuerpo para guardar en contenidoRive
+contenido += `
+! version = 2.0
+
++ *
+- ${body.forma_solicitar_nombre}{topic=nombre}
+
+> topic nombre
+
+//-- Casos donde se obtiene el nombre inicio --//
++ mi nombre es *
+- <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu teléfono?{topic=telefono}
+
++ mi nombre *
+- <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu teléfono?{topic=telefono}
+
++ le saluda *
+- <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu teléfono?{topic=telefono}
+
++ yo soy *
+- <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu teléfono?{topic=telefono}
+
++ soy *
+- <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu teléfono?{topic=telefono}
+
+//-- Casos donde se obtiene el nombre fin--//
+
+// Si no matchea, volver a pedir nombre
++ *
+- ¿Podrías repertirme tu nombre por favor?{topic=nombrefinal}
+
+< topic
+
+> topic nombrefinal
+
++ *
+- <set nombre=<formal>>Bien <get nombre>, ¿podrías dejarme tu teléfono?{topic=telefono}
+
+< topic
+${contenidoTelefono}
+`
+} if (body.preguntar_telefono == '2') {
+  // Cuerpo para guardar en contenidoRive
+contenido += `
+! version = 2.0
+
 + *
 - ${body.forma_solicitar_nombre}
+
+> topic nombre
+
+//-- Casos donde se obtiene el nombre inicio --//
++ mi nombre es *
+- <set nombre=<formal>>Bien <get nombre>, ¿Tiene un horario preferido para contactarlo?{topic=horariollamada}
+
++ mi nombre *
+- <set nombre=<formal>>Bien <get nombre>, ¿Tiene un horario preferido para contactarlo?{topic=horariollamada}
+
++ le saluda *
+- <set nombre=<formal>>Bien <get nombre>, ¿Tiene un horario preferido para contactarlo?{topic=horariollamada}
+
++ yo soy *
+- <set nombre=<formal>>Bien <get nombre>, ¿Tiene un horario preferido para contactarlo?{topic=horariollamada}
+
++ soy *
+- <set nombre=<formal>>Bien <get nombre>, ¿Tiene un horario preferido para contactarlo?{topic=horariollamada}
+
+//-- Casos donde se obtiene el nombre fin--//
+
+// Si no matchea, volver a pedir nombre
++ *
+- ¿Podrías repertirme tu nombre por favor?{topic=nombrefinal}
+
+< topic
+
+> topic nombrefinal
+
++ *
+- <set nombre=<formal>>Bien <get nombre>, ¿tiene un horario preferido para contactarlo?{topic=horariollamada}
+
+< topic
+
 `
+}
+}
+
         contenidoRive += contenido
 
 
@@ -301,7 +488,7 @@ class BotController {
           'conversacion.preguntar_telefono': parseInt(body.preguntar_telefono),
           'conversacion.forma_solicitar_datos_contacto': body.forma_solicitar_datos,
           'conversacion.preguntar_horario_llamada': parseInt(body.preguntar_horario_llamada),
-          'conversacion.preguntar_num_documento': parseInt(body.preguntar_num_documento),
+          // 'conversacion.preguntar_num_documento': parseInt(body.preguntar_num_documento),
           'conversacion.cierre_conversacion': body.cierre_conversacion,
           'conversacion.saludo_final': body.saludo_final
       }
