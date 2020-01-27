@@ -163,16 +163,27 @@ class UsuarioController {
   async iniciar_sesion({ request, response, session }){
       const body = request.post()
 
-      const data = await Usuario.findOne({ correo: body.correo })
+      const usuario = await Usuario.findOne({ correo: body.correo })
       // Encontrar bot mediante id con la relación de campo empresa, empresa = id de cuenta
-      const dataBot = await Bot.findOne({ empresa: data.id })
+      const dataBot = await Bot.findOne({$or: [
+        {empresa: usuario.id},
+        {empresa: usuario.id_cuenta}
+    ]})
 
-      // console.log(data.id);
+      // console.log(dataBot)
 
-      const verificar = await Hash.verify(body.contrasena, data.contrasena)
+      const verificar = await Hash.verify(body.contrasena, usuario.contrasena)
       if(verificar){
-        session.put('id_usuario', data.id)
-        session.put('id_bot', dataBot.id)
+        // console.log(usuario.id_cuenta);
+
+        if (usuario.id_cuenta) {
+          session.put('id_bot', dataBot.id)
+          session.put('id_usuario', usuario.id_cuenta)
+        } else {
+          session.put('id_bot', dataBot.id)
+          session.put('id_usuario', usuario.id)
+        }
+
         session.put('sitio_bot', dataBot.sitio_web)
 
         response.redirect('/dashboard', false, 301)

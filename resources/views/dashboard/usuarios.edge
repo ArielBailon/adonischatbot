@@ -18,7 +18,7 @@
 
               <div class="card-tools mb-2">
                 <div class="input-group input-group-sm" style="width: 150px;">
-                  <button type="button" class="btn btn-primary float-right">Invitar a usuarios</button>
+                  <button class="btn btn-primary float-right" data-toggle="modal" data-target="#usuarioModal">Invitar a usuarios</button>
                 </div>
               </div>
             </div>
@@ -37,35 +37,23 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Ariel Bailón</td>
-                    <td>ariel.1995@hotmail.es</td>
-                    <td>0699658665</td>
-                    <td>Administrador</td>
+                    <td>{{empresa.nombres}}</td>
+                    <td>{{empresa.correo}}</td>
+                    <td>{{empresa.config.num_telefono}}</td>
+                    <td>{{empresa.permisos}}</td>
                     <td>Todos</td>
                     <td><i class="fas fa-edit mr-3"></i> <i class="fas fa-trash-alt ml-3"></i></td>
                   </tr>
+                  @each(usuario in usuarios)
                   <tr>
-                    <td>Riden</td>
-                    <td>riden@hotmail.es</td>
-                    <td>055658665</td>
-                    <td>Administrador</td>
+                    <td>{{usuario.nombres}}</td>
+                    <td>{{usuario.correo}}</td>
+                    <td>{{usuario.telefono}}</td>
+                    <td>{{usuario.permisos}}</td>
                     <td>Todos</td>
                     <td><i class="fas fa-edit mr-3"></i> <i class="fas fa-trash-alt ml-3"></i></td>
                   </tr>
-                  <tr>
-                    <td>657</td>
-                    <td>Bob Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-primary">Approved</span></td>
-                    <td>Bacon ipsum dolor.</td>
-                  </tr>
-                  <tr>
-                    <td>175</td>
-                    <td>Mike Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-danger">Denied</span></td>
-                    <td>Bacon ipsum dolor .</td>
-                  </tr>
+                  @endeach
                 </tbody>
               </table>
             </div>
@@ -81,4 +69,4 @@
 </div>
 
 @include('global.footer')
-@include('global.modals.empresaModal')
+@include('global.modals.usuarioModal')

@@ -45,7 +45,7 @@ class ChatController {
 
   }
 
-  async getid_chat ({ response, request, session }) {
+  async get_id_chat ({ response, request, session }) {
     if(!session.get('id_usuario')){response.redirect('/iniciars', false, 301)}
 
     try {

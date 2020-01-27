@@ -29,6 +29,10 @@ class Chat extends BaseModel {
         type: Number,
         default: 0
       },
+      id_asignado: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'usuario'
+      },
       conversacion: {
         type: String,
         default: "Hola en qué te puedo ayudar"

@@ -1,6 +1,7 @@
 'use strict'
 
 const BaseModel = use('MongooseModel')
+const mongoose = use('mongoose');
 
 /**
  * @class Usuario
@@ -22,7 +23,7 @@ class Usuario extends BaseModel {
       // si es principal no se llena
       // Tal vez sea mejor crear otro modelo de usuarios que administren cuentas, usuarios secundarios, por los campos que hay que llenar
       id_cuenta: {
-        type: String,
+        type: mongoose.Types.ObjectId
       },
       nombres: {
         type: String,
@@ -42,6 +43,12 @@ class Usuario extends BaseModel {
       },
       sitio_web: {
         type: String,
+      },
+      telefono: {
+        type: String
+      },
+      permisos: {
+        type: String
       },
       config: {
         nombre_empresa: {
@@ -73,6 +80,10 @@ class Usuario extends BaseModel {
         dominio: {
           type: String
         }
+      },
+      tipo: {
+        type: String,
+        default: 'Empresa'
       }
     }
   }

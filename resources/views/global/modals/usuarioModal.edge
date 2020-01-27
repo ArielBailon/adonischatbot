@@ -1,0 +1,61 @@
+<div class="modal fade" id="usuarioModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Nuevo usuario</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" role="form" action='nuevoUsuario'>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="nombres">Nombre</label>
+              <input type="text" name="nombres" class="form-control" placeholder="Usuario">
+            </div>
+            <div class="form-group">
+              <label for="correo">Correo</label>
+              <input type="mail" name="correo" class="form-control" placeholder="correo@hotmail.com">
+            </div>
+            <div class="form-group">
+              <label for="contrasena">Contraseña</label>
+              <input type="password" name="contrasena" class="form-control" placeholder="*********">
+            </div>
+            <div class="form-group">
+              <label for="teléfono">Teléfono</label>
+              <input type="text" name="telefono" class="form-control" placeholder="+593">
+            </div>
+          </div>
+          <div class="modal-header">
+            <h4 class="modal-title">Tipo de rol</h4>
+
+            <div class="form-group clearfix">
+              <div class="icheck-primary d-inline mr-4">
+                <input type="radio" id="administrador" name="permisos" value="Administrador" checked>
+                <label for="administrador">
+                  Administrador
+                </label>
+              </div>
+              <div class="icheck-primary d-inline">
+                <input type="radio" id="usuario" name="permisos" value="Usuario">
+                <label for="usuario">
+                  Usuario
+                </label>
+              </div>
+
+            </div>
+          </div>
+          <!-- /.card-body -->
+      </div>
+      <div class="modal-footer justify-content-between ">
+        <button type="submit" class="btn btn-primary col-md-12">Guardar</button>
+
+      </div>
+      </form>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>

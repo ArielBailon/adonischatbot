@@ -33,6 +33,7 @@ Route.group(() =>{
 
 Route.get('/', 'DashboardController.inicio')
 Route.get('/usuarios', 'DashboardController.usuarios')
+Route.post('/nuevoUsuario', 'DashboardController.nuevo_usuario')
 Route.get('/empresa', 'DashboardController.empresa')
 Route.get('/perfil', 'DashboardController.perfil')
 
@@ -71,8 +72,8 @@ Route.get('/leer_respuestas', 'RespuestaChatController.indice')
 // Chat - Chat simple
 Route.get('/chats', 'ChatController.inicio')
 Route.get('/chatcliente', 'ChatController.chat_cliente')
-Route.get('/crearchat', 'ChatController.crear_chat')
-Route.get('/getid_chat', 'ChatController.getid_chat')
+Route.get('/crear_chat', 'ChatController.crear_chat')
+Route.get('/get_id_chat', 'ChatController.get_id_chat')
 Route.get('/saludoInicialss', 'ChatController.saludo_inicial')
 
 // CLiente
