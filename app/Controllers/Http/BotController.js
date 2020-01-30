@@ -518,7 +518,7 @@ contenido += `
 
     // console.log(dataBot.configuracion.tipo_industria)
 
-    return view.render('chatbot.probarChat', { sitio_web, sitios_web, nombre_bot, id_bot })
+    return view.render('chatbot.probarChatbot', { sitio_web, sitios_web, nombre_bot, id_bot })
 
   }
 }

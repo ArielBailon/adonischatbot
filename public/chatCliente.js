@@ -1,6 +1,5 @@
 let ws = null
 
-
 function crearChat() {
   let xhr = new XMLHttpRequest();
   xhr.open('GET', 'http://127.0.0.1:3333/crear_chat', true);
@@ -14,10 +13,7 @@ function crearChat() {
   }
 
   xhr.send()
-
 }
-
-
 
 function startChat() {
   ws = adonis.Ws().connect()
@@ -31,7 +27,6 @@ function startChat() {
     $('.connection-status').removeClass('connected')
   })
 }
-
 
 function subscribeToChannel(id) {
   const chat = ws.subscribe('chat:'+id)
@@ -71,11 +66,9 @@ $('#message').keyup(function (e) {
           ws.getSubscription('chat:'+id).emit('message', {
             body: message
           })
-
         }
       }
       xhr.send()
-
     return
   }
 })

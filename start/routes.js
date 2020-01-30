@@ -35,6 +35,8 @@ Route.get('/', 'DashboardController.inicio')
 Route.get('/usuarios', 'DashboardController.usuarios')
 Route.post('/nuevoUsuario', 'DashboardController.nuevo_usuario')
 Route.get('/empresa', 'DashboardController.empresa')
+Route.post('/actualizarEmpresa', 'DashboardController.actualizar_empresa')
+
 Route.get('/perfil', 'DashboardController.perfil')
 
 }).prefix('dashboard')
@@ -63,8 +65,6 @@ Route.get('/chatbot', 'BotController.inicio')
 Route.post('/crear', 'BotController.crear_bot')
 Route.get('chatr', 'BotController.probar_chat')
 
-
-
 // Sección de respuestas
 Route.post('guardar_respuestas', 'RespuestaChatController.guardar_post')
 Route.get('/leer_respuestas', 'RespuestaChatController.indice')
@@ -72,6 +72,7 @@ Route.get('/leer_respuestas', 'RespuestaChatController.indice')
 // Chat - Chat simple
 Route.get('/chats', 'ChatController.inicio')
 Route.get('/chatcliente', 'ChatController.chat_cliente')
+Route.get('chatclienteprueba', 'ChatController.probar_chat')
 Route.get('/crear_chat', 'ChatController.crear_chat')
 Route.get('/get_id_chat', 'ChatController.get_id_chat')
 Route.post('/asignarUsuario', 'ChatController.asignar_usuario')

@@ -1,19 +1,19 @@
 
 
-/* MyBot */
-mybot.center .chatCont,
-mybot.center .profile_div {
+/* chat */
+chat.center .chatCont,
+chat.center .profile_div {
   left: 0;
   right: 0;
   margin: 0 auto;
 }
 
-mybot.left .chatCont,
-mybot.left .profile_div {
+chat.left .chatCont,
+chat.left .profile_div {
   left: 0;
 }
 
-mybot .chatCont {
+chat .chatCont {
   position: fixed;
   width: 400px;
   height: 400px !important;
@@ -27,7 +27,7 @@ mybot .chatCont {
 display: none;
 }
 
-mybot .close {
+chat .close {
   position: absolute;
   right: 5px;
   margin-top: -60px;
@@ -36,7 +36,7 @@ mybot .close {
   cursor: pointer;
 }
 
-mybot .bot_profile {
+chat .bot_profile {
   position: absolute;
   right: 0;
   margin-top: -45px;
@@ -46,7 +46,7 @@ mybot .bot_profile {
   z-index: 1000;
 }
 
-mybot .bot_p_img {
+chat .bot_p_img {
   width: 80px;
   border-radius: 50%;
   width: 80px;
@@ -55,7 +55,7 @@ mybot .bot_p_img {
   box-shadow: 0 0px 1px 0 rgba(0,0,0,0.16), 0 0px 10px 0 rgba(0,0,0,0.12);
 }
 
-mybot .chatForm {
+chat .chatForm {
   position: absolute;
   bottom: -65px;
 	right: 0;
@@ -64,8 +64,8 @@ mybot .chatForm {
   display: none;
 }
 
-mybot .bot-txt,
-mybot .bot-txt:focus {
+chat .bot-txt,
+chat .bot-txt:focus {
   box-shadow: none;
   border-radius: 0;
   height: 66px;
@@ -74,7 +74,7 @@ mybot .bot-txt:focus {
   border-left: 1px solid #dcdcdc;
 }
 
-mybot .resultDiv .botResult {
+chat .resultDiv .botResult {
   background: #fff;
   color: #000;
   border-radius: 3px;
@@ -91,7 +91,7 @@ mybot .resultDiv .botResult {
   position: relative;
 }
 
-mybot .resultDiv .botResult:before {
+chat .resultDiv .botResult:before {
   content: "";
   position: absolute;
   width: 0;
@@ -103,7 +103,7 @@ mybot .resultDiv .botResult:before {
   margin-top: -12px;
 }
 
-mybot .resultDiv .userEnteredText {
+chat .resultDiv .userEnteredText {
   background: #2884e0;
   float: right;
   color: #ffffff;
@@ -122,7 +122,7 @@ mybot .resultDiv .userEnteredText {
   word-wrap: break-word;
 }
 
-mybot .resultDiv .userEnteredText:before {
+chat .resultDiv .userEnteredText:before {
   content: "";
   width: 0;
   height: 0;
@@ -134,7 +134,7 @@ mybot .resultDiv .userEnteredText:before {
   margin-top: -12px;
 }
 
-mybot .profile_div {
+chat .profile_div {
   position: fixed;
   bottom: 0;
   right: 10px;
@@ -142,14 +142,14 @@ mybot .profile_div {
   cursor: pointer;
 }
 
-mybot .img-profile {
+chat .img-profile {
   width: 65px;
   box-shadow: 0 0px 1px 0 rgba(0,0,0,0.16), 0 0px 10px 0 rgba(0,0,0,0.12);
   background: white;
   border-radius: 50px;
 }
 
-mybot .col-hgt {
+chat .col-hgt {
   height: 100px;
   display: flex;
   align-items: center;
@@ -157,14 +157,14 @@ mybot .col-hgt {
   margin-right: 10px;
 }
 
-mybot .chat-txt {
+chat .chat-txt {
   box-shadow: 0 0px 1px 0 rgba(0,0,0,0.16),0 0px 10px 0 rgba(0,0,0,0.12);
   padding: 15px 15px;
   border-radius: 50px;
 }
 
 /* Spinner start */
-mybot .spinner {
+chat .spinner {
   background: #2884e0;
   width: 70px;
   text-align: center;
@@ -177,7 +177,7 @@ mybot .spinner {
   border-top-left-radius: 0;
 }
 
-mybot .spinner:before {
+chat .spinner:before {
   content: "";
   position: absolute;
   width: 0;
@@ -189,7 +189,7 @@ mybot .spinner:before {
   margin-top: -7px;
 }
 
-mybot .spinner > div {
+chat .spinner > div {
   width: 10px;
   height: 10px;
   background-color: #fff;
@@ -200,12 +200,12 @@ mybot .spinner > div {
   margin-right: 5px;
 }
 
-mybot .spinner .bounce1 {
+chat .spinner .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
-mybot .spinner .bounce2 {
+chat .spinner .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
@@ -228,7 +228,7 @@ mybot .spinner .bounce2 {
 
 
 /* Suggestions */
-mybot .suggestion {
+chat .suggestion {
   background: #fff;
   color: #000;
   border-radius: 3px;
@@ -245,7 +245,7 @@ mybot .suggestion {
   position: relative;
 }
 
-mybot .suggestion:before {
+chat .suggestion:before {
   content: "";
   position: absolute;
   width: 0;
@@ -257,7 +257,7 @@ mybot .suggestion:before {
   margin-top: -12px;
 }
 
-mybot .suggestion .sugg-options {
+chat .suggestion .sugg-options {
   display: block;
   background: #2884e0;
   color: #fff;
@@ -270,13 +270,13 @@ mybot .suggestion .sugg-options {
   font-weight: 300;
 }
 
-mybot .suggestion .sugg-title {
+chat .suggestion .sugg-title {
   font-size: 15px;
   font-weight: 300;
   margin-bottom: 10px;
 }
 
-mybot .suggestion span:last-child {
+chat .suggestion span:last-child {
   margin-bottom: 0;
 }
 /* Suggestions end */
@@ -289,18 +289,18 @@ mybot .suggestion span:last-child {
 
 
 @media screen and (max-width: 500px) {
-  mybot .resultDiv .userEnteredText,
-  mybot .resultDiv .botResult,
-  mybot .suggestion {
+  chat .resultDiv .userEnteredText,
+  chat .resultDiv .botResult,
+  chat .suggestion {
     width: 90%;
     margin-bottom: 20px;
   }
-  mybot .chatCont,
-  mybot .chatForm {
+  chat .chatCont,
+  chat .chatForm {
     width: 100%;
   }
-  mybot .chatCont {
+  chat .chatCont {
     height: 70% !important;
   }
 }
-/* MyBot end */
+/* chat end */

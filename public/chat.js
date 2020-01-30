@@ -44,7 +44,7 @@ function subscribeToChannel(id) {
 
   chat.on('message', (message) => {
     $('.messages').append(`
-      <p class="userEnteredText font-weight-bold">Jean</p><div class="clearfix"></div><p class="botResult">${message.body}</p><div class="clearfix"></div>
+      <p class="userEnteredText font-weight-bold">Jean</p><div class="clearfix"></div><p class="userEnteredText">${message.body}</p><div class="clearfix"></div>
     `)
   })
 }

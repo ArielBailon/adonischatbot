@@ -54,6 +54,7 @@ class Usuario extends BaseModel {
       config: {
         nombre_empresa: {
           type: String,
+          default: 'Mi empresa'
         },
         num_telefono: {
           type: Number,

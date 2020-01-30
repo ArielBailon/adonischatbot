@@ -16,15 +16,15 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form">
+        <form role="form" action="/dashboard/actualizarEmpresa" method="POST">
           <div class="card-body">
             <div class="form-group">
-              <label for="exampleInputEmail1">Nombre de tu empresa</label>
-              <input type="email" class="form-control" placeholder="Mi Empresa">
+              <label for="nombre_empresa">Nombre de tu empresa</label>
+              <input name="nombre_empresa" type="text" class="form-control" placeholder="Mi Empresa" value="{{empresa_config.nombre_empresa}}">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Teléfono</label>
-              <input type="text" class="form-control" placeholder="+59369696969">
+              <label for="num_telefono">Teléfono</label>
+              <input name="num_telefono" type="text" class="form-control" placeholder="+59369696969" value="{{empresa_config.num_telefono}}">
             </div>
             <div class="form-group">
               <div class="form-group">
@@ -32,48 +32,48 @@
                 <div class="form-group">
                   <select name="industria" class="form-control">
                     {{--  if class tipo no guardar  --}}
-                    <option class="noTipo">Seleccionar tipo</option>
-                    <option>Alimentos y Bebidas</option>
-                    <option>Bienes Raíces</option>
-                    <option>Consultoría y Servicios profesionales</option>
-                    <option>Deportes</option>
-                    <option>Diseño y Fotografía</option>
-                    <option>Educación</option>
-                    <option>Eventos y Entretenimiento</option>
-                    <option>Finanzas</option>
-                    <option>Hogar y Decoración</option>
-                    <option>Indumentaria</option>
-                    <option>Industrial</option>
-                    <option>Legal/Contabilidad</option>
-                    <option>Motores</option>
-                    <option>ONG</option>
-                    <option>Publicidad y Marketing</option>
-                    <option>Salud y Estética</option>
-                    <option>Seguridad</option>
-                    <option>Seguros</option>
-                    <option>Software</option>
-                    <option>Servicios</option>
-                    <option>TICs</option>
-                    <option>TV, Prensa y Radio</option>
-                    <option>Viajes y Turismo</option>
-                    <option>Otro</option>
+                    <option {{ (empresa_config.industria == 'Seleccionar Tipo') ? 'selected' : '' }}>Seleccionar Tipo</option>
+                    <option {{ (empresa_config.industria == 'Alimentos y Bebidas') ? 'selected' : '' }}>Alimentos y Bebidas</option>
+                    <option {{ (empresa_config.industria == 'Bienes Raíces') ? 'selected' : '' }}>Bienes Raíces</option>
+                    <option {{ (empresa_config.industria == 'Consultoría y Servicios profesionales') ? 'selected' : '' }}>Consultoría y Servicios profesionales</option>
+                    <option {{ (empresa_config.industria == 'Deportes') ? 'selected' : '' }}>Deportes</option>
+                    <option {{ (empresa_config.industria == 'Diseño y Fotografía') ? 'selected' : '' }}>Diseño y Fotografía</option>
+                    <option {{ (empresa_config.industria == 'Educación') ? 'selected' : '' }}>Educación</option>
+                    <option {{ (empresa_config.industria == 'Eventos y Entretenimiento') ? 'selected' : '' }}>Eventos y Entretenimiento</option>
+                    <option {{ (empresa_config.industria == 'Finanzas') ? 'selected' : '' }}>Finanzas</option>
+                    <option {{ (empresa_config.industria == 'Hogar y Decoración') ? 'selected' : '' }}>Hogar y Decoración</option>
+                    <option {{ (empresa_config.industria == 'Indumentaria') ? 'selected' : '' }}>Indumentaria</option>
+                    <option {{ (empresa_config.industria == 'Industrial') ? 'selected' : '' }}>Industrial</option>
+                    <option {{ (empresa_config.industria == 'Legal/Contabilidad') ? 'selected' : '' }}>Legal/Contabilidad</option>
+                    <option {{ (empresa_config.industria == 'Motores') ? 'selected' : '' }}>Motores</option>
+                    <option {{ (empresa_config.industria == 'ONG') ? 'selected' : '' }}>ONG</option>
+                    <option {{ (empresa_config.industria == 'Publicidad y Marketing') ? 'selected' : '' }}>Publicidad y Marketing</option>
+                    <option {{ (empresa_config.industria == 'Salud y Estética') ? 'selected' : '' }}>Salud y Estética</option>
+                    <option {{ (empresa_config.industria == 'Seguridad') ? 'selected' : '' }}>Seguridad</option>
+                    <option {{ (empresa_config.industria == 'Seguros') ? 'selected' : '' }}>Seguros</option>
+                    <option {{ (empresa_config.industria == 'Software') ? 'selected' : '' }}>Software</option>
+                    <option {{ (empresa_config.industria == 'Servicios') ? 'selected' : '' }}>Servicios</option>
+                    <option {{ (empresa_config.industria == 'TICs') ? 'selected' : '' }}>TICs</option>
+                    <option {{ (empresa_config.industria == 'TV, Prensa y Radio') ? 'selected' : '' }}>TV, Prensa y Radio</option>
+                    <option {{ (empresa_config.industria == 'Viajes y Turismo') ? 'selected' : '' }}>Viajes y Turismo</option>
+                    <option {{ (empresa_config.industria == 'Otro') ? 'selected' : '' }}>Otro</option>
                   </select>
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="cantidadEmpleados">Cantidad de empleados</label>
+              <label for="cant_empresa">Cantidad de empleados</label>
               <div class="form-group">
-                <select name="cantidadEmpleados" class="form-control">
+                <select name="cant_empresa" class="form-control">
                   {{--  if class tipo no guardar  --}}
-                  <option class="noTipo">Seleccionar tipo</option>
-                  <option>1</option>
-                  <option>2 - 5</option>
-                  <option>6 - 20</option>
-                  <option>21 - 50</option>
-                  <option>51 - 250</option>
-                  <option>251 - 1000</option>
-                  <option>+1000</option>
+                  <option {{ (empresa_config.cant_empresa == 'Seleccionar Tipo') ? 'selected' : '' }}>Seleccionar tipo</option>
+                  <option {{ (empresa_config.cant_empresa == '1') ? 'selected' : '' }}>1</option>
+                  <option {{ (empresa_config.cant_empresa == '2 - 5') ? 'selected' : '' }}>2 - 5</option>
+                  <option {{ (empresa_config.cant_empresa == '6 - 20') ? 'selected' : '' }}>6 - 20</option>
+                  <option {{ (empresa_config.cant_empresa == '21 - 50') ? 'selected' : '' }}>21 - 50</option>
+                  <option {{ (empresa_config.cant_empresa == '51 - 250') ? 'selected' : '' }}>51 - 250</option>
+                  <option {{ (empresa_config.cant_empresa == '251 - 1000') ? 'selected' : '' }}>251 - 1000</option>
+                  <option {{ (empresa_config.cant_empresa == '+1000') ? 'selected' : '' }}>+1000</option>
                 </select>
               </div>
             </div>

@@ -25,7 +25,10 @@ class DashboardController {
 
     const empresa = await Usuario.findById(session.get('id_empresa'))
 
-    const usuarios = await Usuario.find({ id_cuenta: session.get('id_empresa') })
+    const usuarios = await Usuario.find({ id_empresa: session.get('id_empresa') })
+
+    // console.log(empresa)
+    // console.log(usuarios)
 
     return view.render('dashboard.usuarios', {empresa, usuarios})
   }
@@ -75,9 +78,33 @@ class DashboardController {
 
     const querySitio = await Bot.findOne( { empresa: session.get('id_empresa') } )
 
+    const empresa = await Usuario.findById( session.get('id_empresa'))
+
+    const empresa_config = empresa.config
+
     const id_bot = querySitio.id
 
-    return view.render('dashboard.empresa', {id_bot})
+    return view.render('dashboard.empresa', {id_bot, empresa_config})
+  }
+
+  async actualizar_empresa ({ view, request, response, session }) {
+    if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
+
+    const body = request.post()
+
+    // console.log(body);
+
+    // Actualizar solo un field de un subdocumento
+    await Usuario.updateOne({ _id:session.get('id_empresa') } , {
+      $set: {
+        'config.industria': body.industria,
+        'config.nombre_empresa': body.nombre_empresa,
+        'config.cant_empresa': body.cant_empresa,
+        'config.num_telefono': body.num_telefono
+    }
+    })
+    // redirect
+    return response.redirect('/dashboard/empresa', false, 301)
   }
 
   async perfil ({ view, response, session }) {

@@ -122,6 +122,22 @@ class ChatController {
     return view.render('/chatcliente', )
   }
 
+  async probar_chat ({ request, session, view }) {
+
+    const querySitios = await Bot.find( { empresa: session.get('id_usuario') } )
+    const dataBot = await Bot.findOne( {_id: session.get('id_bot')})
+
+    const sitio_web = session.get('sitio_bot')
+    const sitios_web = querySitios
+    const nombre_bot = dataBot.nombre
+    const id_bot = dataBot.id
+
+    // console.log(dataBot.configuracion.tipo_industria)
+
+    return view.render('probarChat', { sitio_web, sitios_web, nombre_bot, id_bot })
+
+  }
+
 }
 
 module.exports = ChatController
