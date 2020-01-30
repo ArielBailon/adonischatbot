@@ -21,7 +21,7 @@ class Chat extends BaseModel {
    */
   static get schema() {
     return {
-      id_usuario :{
+      id_empresa :{
         type: mongoose.Schema.Types.ObjectId,
         ref:'usuario'
       },
@@ -29,7 +29,7 @@ class Chat extends BaseModel {
         type: Number,
         default: 0
       },
-      id_asignado: {
+      asignado: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'usuario'
       },

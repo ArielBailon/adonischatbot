@@ -1,40 +1,33 @@
 let ws = null
 
 function startChat(chatId) {
+
   ws = adonis.Ws().connect()
     ws.on('open', () => {
 
       $('.connection-status').addClass('connected')
-      console.log(chatId)
+      // console.log(chatId)
 
-      let clienteEl = document.getElementById("cliente"+chatId)
-
-      console.log(clienteEl);
-
-      clienteEl.classList.add("disabled");
+      // console.log(clienteEl);
 
       subscribeToChannel(chatId)
-      $("#ajaxStart").click(function() {
-        $("#ajaxStart").attr("disabled", true);
+
+      $('#cliente'+chatId).attr('disabled', true)
         $.ajax({
-            url: 'http://localhost:8080/jQueryTest/test.json',
+            url: 'http://127.0.0.1:3333/asignarUsuario',
             data: {
-                action: 'viewRekonInfo'
+                chatId
             },
-            type: 'post',
+            type: 'POST',
             success: function(response){
                 //success process here
-                $("#alertContainer").delay(1000).fadeOut(800);
-
-                $("#ajaxStart").attr("disabled", false);
+                console.log('worked')
             },
-            error: errorhandler,
+            error: console.log('error'),
             dataType: 'json'
         });
-    });
 
    })
-
 
   ws.on('error', () => {
     $('.connection-status').removeClass('connected')

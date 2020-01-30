@@ -7,11 +7,11 @@ const Hash = use('Hash')
 
 class DashboardController {
   async inicio ({ view, response, session }) {
-    if(!session.get('id_usuario')){ return response.redirect('/iniciars', false, 301)}
+    if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
 
-    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
+    const querySitio = await Bot.findOne( { empresa: session.get('id_empresa') } )
 
-    // console.log(session.get('id_usuario'));
+    // console.log(session.get('id_empresa'));
 
     // console.log(querySitio);
 
@@ -21,17 +21,17 @@ class DashboardController {
   }
 
   async usuarios ({ view, response, session }) {
-    if(!session.get('id_usuario')){ return response.redirect('/iniciars', false, 301)}
+    if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
 
-    const empresa = await Usuario.findById(session.get('id_usuario'))
+    const empresa = await Usuario.findById(session.get('id_empresa'))
 
-    const usuarios = await Usuario.find({ id_cuenta: session.get('id_usuario') })
+    const usuarios = await Usuario.find({ id_cuenta: session.get('id_empresa') })
 
     return view.render('dashboard.usuarios', {empresa, usuarios})
   }
 
   async nuevo_usuario ({ view, response, request, session }) {
-    if(!session.get('id_usuario')){ return response.redirect('/iniciars', false, 301)}
+    if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
 
     const body = request.post()
 
@@ -42,7 +42,7 @@ class DashboardController {
       return response.redirect('registro.registro')
     }
 
-    const usuarioLogeado = session.get('id_usuario')
+    const usuarioLogeado = session.get('id_empresa')
 
     const empresa = await Usuario.findById( usuarioLogeado )
 
@@ -71,9 +71,9 @@ class DashboardController {
   }
 
   async empresa ({ view, response, session }) {
-    if(!session.get('id_usuario')){ return response.redirect('/iniciars', false, 301)}
+    if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
 
-    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
+    const querySitio = await Bot.findOne( { empresa: session.get('id_empresa') } )
 
     const id_bot = querySitio.id
 
@@ -81,9 +81,9 @@ class DashboardController {
   }
 
   async perfil ({ view, response, session }) {
-    if(!session.get('id_usuario')){ return response.redirect('/iniciars', false, 301)}
+    if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
 
-    const querySitio = await Bot.findOne( { empresa: session.get('id_usuario') } )
+    const querySitio = await Bot.findOne( { empresa: session.get('id_empresa') } )
 
     const id_bot = querySitio.id
 

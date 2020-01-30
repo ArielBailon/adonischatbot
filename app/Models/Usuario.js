@@ -22,7 +22,7 @@ class Usuario extends BaseModel {
       // Campo de id_cuenta para relacionar por si una cuenta principal crea más usuarios para que administren la misma,
       // si es principal no se llena
       // Tal vez sea mejor crear otro modelo de usuarios que administren cuentas, usuarios secundarios, por los campos que hay que llenar
-      id_cuenta: {
+      id_empresa: {
         type: mongoose.Types.ObjectId
       },
       nombres: {
@@ -48,7 +48,8 @@ class Usuario extends BaseModel {
         type: String
       },
       permisos: {
-        type: String
+        type: String,
+        default: 'Administrador'
       },
       config: {
         nombre_empresa: {

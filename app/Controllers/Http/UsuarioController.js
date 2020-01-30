@@ -7,13 +7,13 @@ const { validate } = use('Validator')
 class UsuarioController {
 
   async inicio ({ view, response, session}) {
-    if(session.get('id_usuario')){response.redirect('/dashboard', false, 301)}
+    if(session.get('id_empresa')){response.redirect('/dashboard', false, 301)}
     return view.render('registro.registro')
   }
 
   async inicios ({ view, response, session }) {
-    if(session.get('id_usuario')){response.redirect('/dashboard', false, 301)}
-    return view.render('registro.iniciarsesion')
+    if(session.get('id_empresa')){response.redirect('/dashboard', false, 301)}
+    return view.render('registro.iniciarSesion')
   }
 
   async registro_bot ({ view, response, session }) {
@@ -26,7 +26,7 @@ class UsuarioController {
 
     // Consulta de la sesión actual creada al registrar un nuevo usuario, para buscar aquel usuario
     //  y relacionar el bot con la empresa mediante id
-    const data = await Usuario.findById(session.get('id_usuario')).populate('usuario', ['id'])
+    const data = await Usuario.findById(session.get('id_empresa')).populate('usuario', ['id'])
 
     try {
       const nuevoBot = new Bot({
@@ -63,7 +63,7 @@ class UsuarioController {
     console.log(body.posicionEmpresa);
 
     try {
-      await Usuario.findByIdAndUpdate(session.get('id_usuario'),
+      await Usuario.findByIdAndUpdate(session.get('id_empresa'),
       {
         $set:{
             config: {
@@ -145,7 +145,7 @@ class UsuarioController {
 
     try {
 
-      session.put('id_usuario', data.id)
+      session.put('id_empresa', data.id)
 
       // console.log(session.all())
 
@@ -167,21 +167,25 @@ class UsuarioController {
       // Encontrar bot mediante id con la relación de campo empresa, empresa = id de cuenta
       const dataBot = await Bot.findOne({$or: [
         {empresa: usuario.id},
-        {empresa: usuario.id_cuenta}
+        {empresa: usuario.id_empresa}
     ]})
 
-      // console.log(dataBot)
 
       const verificar = await Hash.verify(body.contrasena, usuario.contrasena)
       if(verificar){
-        // console.log(usuario.id_cuenta);
+        // console.log(usuario.id_empresa);
 
-        if (usuario.id_cuenta) {
+        // Si el usuario creado es por el admin de una empresa
+        if (usuario.id_empresa) {
           session.put('id_bot', dataBot.id)
-          session.put('id_usuario', usuario.id_cuenta)
-        } else {
-          session.put('id_bot', dataBot.id)
+          session.put('id_empresa', usuario.id_empresa)
           session.put('id_usuario', usuario.id)
+        } else {
+          //Si el usuario creado es una empresa
+          session.put('id_bot', dataBot.id)
+          session.put('id_empresa', usuario.id)
+          session.put('id_usuario', usuario.id)
+
         }
 
         session.put('sitio_bot', dataBot.sitio_web)
