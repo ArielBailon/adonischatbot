@@ -1,40 +1,3 @@
-$(document).ready(function () {
-  var chat =
-    '<div class="chatCont" id="chatCont">' +
-    '<div class="bot_profile">' +
-    '<img src="assets/img/bot2.svg" class="bot_p_img">' +
-    '<div class="close">' +
-    '<i class="fa fa-times" aria-hidden="true"></i>' +
-    '</div>' +
-    '</div><!--bot_profile end-->' +
-    '<form id="guardarChatForm" class="resultDiv messages" action="/guardarChatCliente" method="POST" >' +
-    '<div id="result_div"></div>' +
-    '</form>' +
-    '<div class="chatForm" id="chat-div">' +
-    '<div class="spinner">' +
-    '<div class="bounce1"></div>' +
-    '<div class="bounce2"></div>' +
-    '<div class="bounce3"></div>' +
-    '</div>' +
-    //'<input type="text" id="chat-input" autocomplete="off" placeholder="Escribe un mensaje"'+ 'class="form-control bot-txt"/>'+
-    '<input type="text" id="message" autocomplete="off" placeholder="Escribe un mensaje"' + 'class="form-control bot-txt" autofocus=1/>' +
-    '</div>' +
-    '</div><!--chatCont end-->' +
-
-    '<div class="profile_div">' +
-    '<div class="row">' +
-    '<div class="col-hgt">' +
-    '<img src="assets/img/bot2.svg" class="img-circle img-profile">' +
-    '</div><!--col-hgt end-->' +
-    '<div class="col-hgt">' +
-    '<div class="chat-txt">' +
-    'Escribe ahora!' +
-    '</div>' +
-    '</div><!--col-hgt end-->' +
-    '</div><!--row end-->' +
-    '</div><!--profile_div end-->';
-
-  $("chat").html(chat);
 
   // ------------------------------------------ Toggle chatbot -----------------------------------------------
   $('.profile_div').click(function () {
@@ -142,5 +105,3 @@ $(document).ready(function () {
   function hideSpinner() {
     $('.spinner').hide();
   }
-
-});
