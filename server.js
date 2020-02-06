@@ -22,6 +22,11 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
 
+// corsOptions = {
+//   origin: "Your FrontEnd Website URL",
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
+// app.use(cors(corsOptions));
 
 const {
   Ignitor
