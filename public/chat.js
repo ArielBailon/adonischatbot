@@ -14,7 +14,7 @@ function startChat(chatId) {
 
       $('#cliente'+chatId).attr('disabled', true)
         $.ajax({
-            url: 'http://127.0.0.1:3333/asignarUsuario',
+            url: 'https://chat.tawsa.com/asignarUsuario',
             data: {
                 chatId
             },
@@ -46,6 +46,7 @@ function subscribeToChannel(id) {
     $('.messages').append(`
       <p class="userEnteredText font-weight-bold">Jean</p><div class="clearfix"></div><p class="userEnteredText">${message.body}</p><div class="clearfix"></div>
     `)
+    scrollToBottomOfResults();
   })
 }
 
@@ -58,7 +59,7 @@ $('#message').keyup(function (e) {
 
     // id
       let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'http://127.0.0.1:3333/get_id_chat', true);
+      xhr.open('GET', 'https://chat.tawsa.com/get_id_chats', true);
 
       xhr.onload = function() {
         if (this.status == 200) {
@@ -73,9 +74,13 @@ $('#message').keyup(function (e) {
 
         }
       }
-      xhr.send()
-
+      xhr.send();
     return
   }
 })
 
+//---------------------------------- Scroll to the bottom of the results div -------------------------------
+function scrollToBottomOfResults() {
+  var terminalResultsDiv = document.getElementById('autoScroll');
+  terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
+}

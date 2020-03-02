@@ -71,10 +71,10 @@ Route.get('/leer_respuestas', 'RespuestaChatController.indice')
 
 // Chat - Chat simple
 Route.get('/chats', 'ChatController.inicio')
-Route.get('/chatcliente', 'ChatController.chat_cliente')
-Route.get('chatclienteprueba', 'ChatController.probar_chat')
-Route.get('/crear_chat', 'ChatController.crear_chat')
-Route.get('/get_id_chat', 'ChatController.get_id_chat')
+Route.get('/chatCliente', 'ChatController.chat_cliente')
+Route.get('chatClienteprueba', 'ChatController.probar_chat')
+Route.get('/crearChat', 'ChatController.crear_chat')
+Route.get('/crearIdChat', 'ChatController.get_id_chat')
 Route.post('/asignarUsuario', 'ChatController.asignar_usuario')
 Route.get('/saludoInicialss', 'ChatController.saludo_inicial')
 

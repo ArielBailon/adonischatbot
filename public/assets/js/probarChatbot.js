@@ -114,7 +114,7 @@ $(document).ready(function () {
     chat.on('message', (message) => {
       setTimeout(function () {
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://127.0.0.1:3333/saludoInicialss', true);
+        xhr.open('GET', 'https://chat.tawsa.com/saludoInicialss', true);
 
         xhr.onload = function () {
           if (this.status == 200) {
@@ -153,7 +153,7 @@ $(document).ready(function () {
 
 
       let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'http://127.0.0.1:3333/saludoInicialss', true);
+      xhr.open('GET', 'https://chat.tawsa.com/saludoInicialss', true);
 
       xhr.onload = function () {
         if (this.status == 200) {

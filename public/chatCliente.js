@@ -2,7 +2,7 @@ let ws = null
 
 function crearChat() {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://127.0.0.1:3333/crear_chat', true);
+  xhr.open('GET', 'https://chat.tawsa.com/crear_chats', true);
 
   xhr.onload = function() {
     if (this.status == 200) {
@@ -40,6 +40,7 @@ function subscribeToChannel(id) {
     $('.messages').append(`
      <p class="userEnteredText font-weight-bold">Usuario</p><div class="clearfix"></div><p class="botResult">${message.body}</p><div class="clearfix"></div>
     `)
+    scrollToBottomOfResults()
   })
 }
 
@@ -54,7 +55,7 @@ $('#message').keyup(function (e) {
 
     // id
       let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'http://127.0.0.1:3333/get_id_chat', true);
+      xhr.open('GET', 'https://chat.tawsa.com/get_id_chats', true);
 
       xhr.onload = function() {
         if (this.status == 200) {
@@ -72,3 +73,9 @@ $('#message').keyup(function (e) {
     return
   }
 })
+
+//---------------------------------- Scroll to the bottom of the results div -------------------------------
+function scrollToBottomOfResults() {
+  var terminalResultsDiv = document.getElementById('autoScroll');
+  terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
+}

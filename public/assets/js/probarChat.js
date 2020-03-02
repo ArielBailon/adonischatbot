@@ -50,7 +50,7 @@ $(document).ready(function () {
 
   function crearChat() {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://127.0.0.1:3333/crear_chat', true);
+    xhr.open('GET', 'https://chat.tawsa.com/crear_chat', true);
 
     xhr.onload = function() {
       if (this.status == 200) {
@@ -101,7 +101,7 @@ $(document).ready(function () {
 
       // id
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://127.0.0.1:3333/get_id_chat', true);
+        xhr.open('GET', 'https://chat.tawsa.com/get_id_chat', true);
 
         xhr.onload = function() {
           if (this.status == 200) {

@@ -5,12 +5,12 @@
           wdg.classList.add("chat-box");
           wdg.innerHTML = `<chat><div class="chatCont" id="chatCont">
           <div class="bot_profile">
-          <img src="assets/img/bot2.svg" class="bot_p_img">
+          <img src="https://chat.tawsa.com/assets/img/bot2.svg" class="bot_p_img">
           <div class="close">
           <i class="fa fa-times" aria-hidden="true"></i>
           </div>
           </div><!--bot_profile end-->
-          <form id="guardarChatForm" class="resultDiv messages" action="/guardarChatCliente" method="POST" >
+          <form id="guardarChatForm" class="resultDiv messages" action="#" method="POST" >
           <div id="result_div"></div>
           </form>
           <div class="chatForm" id="chat-div">
@@ -25,7 +25,7 @@
           <div class="profile_div">
           <div class="row">
           <div class="col-hgt">
-          <img src="assets/img/bot2.svg" class="img-circle img-profile">
+          <img src="https://chat.tawsa.com/assets/img/bot2.svg" class="img-circle img-profile">
           </div><!--col-hgt end-->
           <div class="col-hgt">
           <div class="chat-txt">
@@ -39,12 +39,12 @@
           return wdg;
       }
   });
+  $("head").prepend('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>');
   const myWidgetInstance = Widget.create("Prueba de chat-12345");
   const id = `chat-${ Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1) }`;
   document.write(`<div id="${ id }"></div>`);
   document.getElementById(id).appendChild(myWidgetInstance);
-  $("head").prepend('<link rel="stylesheet" href="http://127.0.0.1:3333/assets/css/chat.css">');
-  $("head").prepend('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>');
+  $("head").prepend('<link rel="stylesheet" href="https://chat.tawsa.com/assets/css/chat.css">');
   $("head").prepend('<script type="text/javascript" src="https://unpkg.com/@adonisjs/websocket-client@1.0.9/dist/Ws.browser.js"></script>');
 
   // ------------------------------------------ Toggle chatbot -----------------------------------------------
@@ -61,7 +61,7 @@
 
   function crearChat() {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://127.0.0.1:3333/crear_chat', true);
+    xhr.open('GET', 'https://chat.tawsa.com/crearChat', true);
 
     xhr.onload = function() {
       if (this.status == 200) {
@@ -70,11 +70,11 @@
         subscribeToChannel(this.responseText)
       }
     }
-    xhr.send()
+   xhr.send()
   }
 
   function startChat() {
-    ws = adonis.Ws().connect()
+    ws = adonis.Ws('wss://chat.tawsa.com/').connect()
 
     ws.on('open', () => {
       $('.connection-status').addClass('connected')
@@ -108,26 +108,41 @@
       const message = $(this).val()
       $(this).val('')
 
-      e.preventDefault()
-
       // id
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://127.0.0.1:3333/get_id_chat', true);
-
-        xhr.onload = function() {
-          if (this.status == 200) {
-            // console.log(this.responseText[1]);
-            var id = JSON.parse(this.responseText)[1]
-            // var id = this.responseText;
-            // return this.responseText
-
-            ws.getSubscription('chat:'+id).emit('message', {
-              body: message
-            })
-          }
-        }
-        xhr.send()
-      return
+       //  let xhr = new XMLHttpRequest();
+       //  xhr.open('GET', 'https://chat.tawsa.com/crearIdChat', true);
+       //
+       //  xhr.onload = function() {
+       //    if (this.status == 200) {
+       //      // console.log(this.responseText[1]);
+       //      var id = JSON.parse(this.responseText)[1]
+       //      // var id = this.responseText;
+       //      // return this.responseText
+       //
+       //      ws.getSubscription('chat:'+id).emit('message', {
+       //        body: message
+       //      })
+       //    }
+       //  }
+       // xhr.send()
+       $.ajax({
+            type: "GET",
+            url: "https://chat.tawsa.com/crearIdChat",
+            dataType : 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function(answer) {
+                alert(JSON.parse(answer))
+                     ws.getSubscription('chat:'+answer).emit('message', {
+                       body: message
+                     })
+            },
+            complete: function() {
+            },
+            error: function(jqXHR, errorText, errorThrown) {
+                alert(jqXHR+" - "+errorText+" - "+errorThrown);
+            }
+        });
+              e.preventDefault();
     }
   })
 

@@ -68,7 +68,7 @@ class ChatController {
 
     try {
       const data = request.post()
-      // console.log(data.chatId);
+      console.log(data.chatId);
       const chat = await Chat.find({ id_empresa: session.get('id_empresa'), id_chat: data.chatId })
       // console.log(chat);
 

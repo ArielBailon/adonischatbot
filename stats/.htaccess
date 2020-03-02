@@ -1,0 +1,7 @@
+AuthName "chat.tawsa.com statistics"
+AuthType Basic
+AuthUserFile /home/chat/.stats-htpasswd
+require valid-user
+<Files .stats-htpasswd>
+deny from all
+</Files>
