@@ -1,6 +1,7 @@
 'use strict'
 
 const Usuario = use('App/Models/Usuario')
+const Cliente = use('App/Models/Cliente')
 const Bot = use('App/Models/Bot')
 const Chat = use('App/Models/Chat')
 const GlobalFunc = use('App/Common')
@@ -22,36 +23,44 @@ class ChatController {
     return view.render('/chat', {results: results})
   }
 
-  async crear_chat ({ response, session }) {
-    if(!session.get('id_empresa')){response.redirect('/iniciars', false, 301)}
+  async crear_chat ({ params, response, session }) {
+    //if(!session.get('id_empresa')){response.redirect('/iniciars', false)}
+    let id_empresa = (params.id_empresa) ? params.id_empresa:session.get('id_empresa')
 
     try {
-      const usuario = await Usuario.findById( session.get('id_empresa'))
+      const usuario = await Usuario.findById(id_empresa)
         // Usar para retornar el número de chats creado según usuario para crear chats dinámicos cuando se realize una subscripción a un chat nuevo
-        const results = await Chat.find({ id_empresa: usuario.id })
-        // console.log(results.length)
+        // const results = await Chat.find({ id_empresa : usuario.id })
+        const results = await Chat.find().limit(1).sort({ id_chat: -1})
+        console.log(results)
           const nuevoChat = new Chat({
             id_empresa : usuario.id,
-            id_chat: results.length + 1
+            id_chat: results[0].id_chat + 1
           })
       await nuevoChat.save()
-      return results.length + 1
+      return results[0].id_chat + 1
+      //return session.get('id_empresa');
 
     } catch (err) {
       console.error(err.message)
     }
 
+
   }
 
-  async get_id_chat ({ response, request, session }) {
-    if(!session.get('id_empresa')){response.redirect('/iniciars', false, 301)}
+  async get_id_chat ({ params, response, request, session }) {
+    //if(!session.get('id_empresa')){response.redirect('/iniciars', false)}
+    const body = request.post()
+
+    let id_empresa = (body.token) ? body.token:session.get('id_empresa')
 
     try {
-      const usuario = await Usuario.findById( session.get('id_empresa'))
+      const usuario = await Usuario.findById( id_empresa)
       // Usar para retornar el número de chats creado según usuario para crear chats dinámicos cuando se realize una subscripción a un chat nuevo
       const results = await Chat.find({ id_empresa: usuario.id })
 
-      const dataRetornar = [ usuario.id, results.length ]
+      const prueba = await this.guardar_chat_cliente(body.mensajes)
+      const dataRetornar = [ usuario.id, results.length, prueba]
 
       // console.log(dataRetornar);
 
@@ -60,7 +69,26 @@ class ChatController {
     } catch (err) {
       console.error(err.message)
     }
+  }
 
+  async guardar_chat_cliente (mensajes) {
+    let update = {
+                  chat: {
+                    id_chat : 'default',
+                    mensajes
+                  }
+                }
+    try {
+      let nuevoChatCliente = await Cliente.findOneAndUpdate(
+        { nombres: 'default' },
+        { $set: update },
+        { new: true, upsert: true }
+      );
+      return nuevoChatCliente
+    } catch (err) {
+      console.error(err.message)
+    }
+    return update
   }
 
   async asignar_usuario ({ response, request, session }) {

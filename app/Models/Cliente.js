@@ -41,6 +41,11 @@ class Cliente extends BaseModel {
       calificacion: {
         type: String
       },
+      chat: {
+        id_chat : { type: String },
+        mensajes : {
+          type: String
+        },
       chatbot: {
         id_bot : { type: String },
         mensajes : {
@@ -51,5 +56,7 @@ class Cliente extends BaseModel {
     }
   }
 }
+}
+
 
 module.exports = Cliente.buildModel('Cliente')

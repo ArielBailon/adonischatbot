@@ -1,14 +1,11 @@
-# Webalizer V2.23-08 Incremental Data - 02/28/2020 23:42:56
-2020 2 28 23 42 56
-8578 1457 17 60 34 17 112233722 756 26 0 0 0
-2 1 2782 3 28
+# Webalizer V2.23-08 Incremental Data - 03/04/2020 02:30:59
+2020 3 4 2 30 59
+3423 904 9 47 19 7 22979306 467 11 0 0 0
+2 1 1311 2 4
 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0
-8 0 1606 2 6 4 0 0
-1 0 208 1 1 1 0 0
-10 0 2021 3 9 4 0 0
-0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0
+3390 895 22915483 6 454 6 0 0
+31 9 63823 3 11 3 0 0
+2 0 0 2 2 2 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
@@ -20,65 +17,68 @@
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
-1 0 182 1 1 1 0 0
-4934 912 93641480 14 332 11 0 0
-66 60 3991880 1 2 1 0 0
-79 37 2150676 1 5 2 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
-3479 448 12445669 2 400 2 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
-66 60 3991880 2 0 0
-836 86 5234263 51 0 0
-29 27 1954947 2 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+1 0 0 1 0 0
 0 0 0 0 0 0
-95 37 2063070 5 0 0
+1 0 0 1 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
+2 1 4667 2 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
-136 63 6285774 9 0 0
+2 1 24631 1 0 0
+128 77 425276 1 0 0
+64 37 182923 9 0 0
+39 23 118719 0 0 0
+85 81 430646 1 0 0
 0 0 0 0 0 0
-0 0 0 0 0 0
-0 0 0 0 0 0
-78 37 2149835 4 0 0
-356 59 4776490 29 0 0
-2041 217 2137000 286 0 0
-1606 142 6636225 94 0 0
-3217 687 74992555 225 0 0
-118 42 2011683 49 0 0
+101 4 133148 4 0 0
+1050 190 9685075 92 0 0
+1320 260 8392594 156 0 0
+612 227 3565330 199 0 0
+18 3 16297 0 0 0
+11
 0
-0
-116
-1457
+111
+904
 0
 0
 0
-38
+49
 0
 0
 0
-29
-2
+54
+3
 0
-6478
-0
-0
-27
+2186
 0
 0
-22
-403
+0
+0
+0
+0
+104
 0
 0
 0
@@ -91,301 +91,201 @@
 0
 0
 0
-0
-5
 0
 1
 0
 0
 0
+0
+0
 # -urls- 
-/chatCliente.js
-0 21 0 15396 0 0 0 0
 /assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css
-0 241 0 661980 0 0 0 0
+0 69 0 136290 0 0 0 0
 /assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js
-0 214 0 883596 0 0 0 0
+0 65 0 252456 0 0 0 0
+/get_id_chats
+0 5 0 155 0 0 0 0
 /assets/plugins/daterangepicker/daterangepicker.css
-0 244 0 229770 0 0 0 0
+0 69 0 45954 0 0 0 0
 /assets/plugins/fontawesome-free/css/all.min.css
-0 242 0 1762102 0 0 0 0
+0 69 0 682104 0 0 0 0
 /assets/dist/js/demo.js
-0 230 0 292344 0 0 0 0
+0 65 0 73086 0 0 0 0
+/crearIdChat
+0 11 0 341 0 0 0 0
 /assets/js/instalacion.js
-0 222 0 489259 0 0 0 0
-/.well-known/acme-challenge/ENgT8iEwiDzGr_TdSM4NnMeK3I0YCq6_U-eHaWyixy0
-0 9 0 783 0 0 0 0
+0 304 0 1150773 0 0 0 0
 /assets/plugins/jquery/jquery.min.js
-0 217 0 2203625 0 0 0 0
+0 65 0 528870 0 0 0 0
 /assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css
-0 241 0 308176 0 0 0 0
-/chatbot/apariencia/5e13b5c8cd90542bacea0dba
-0 3 0 11580 0 0 0 0
-/chatbot/actualizarConfiguracion/5e13b5c8cd90542bacea0dba
-0 1 0 4388 0 0 0 0
-/crear_chat
-0 34 0 49 0 0 0 0
+0 69 0 90640 0 0 0 0
 /assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css
-0 241 0 425034 0 0 0 0
+0 69 0 100008 0 0 0 0
 /assets/plugins/moment/moment.min.js
-0 230 0 1279776 0 0 0 0
-/chat.js
-0 65 0 30346 0 0 0 0
+0 65 0 319944 0 0 0 0
+/crear_chatxs
+0 2 0 4 0 0 0 0
 /iniciars
-0 17 0 32029 1 1 0 0
+0 112 0 172610 5 1 0 0
 /assets/plugins/jquery-knob/jquery.knob.min.js
-0 214 0 216080 0 0 0 0
+0 65 0 64824 0 0 0 0
 /assets/plugins/summernote/summernote-bs4.min.js
-0 230 0 3070248 0 0 0 0
+0 65 0 767562 0 0 0 0
 /assets/css/chat.css
-0 169 0 211936 0 0 0 0
+0 319 0 882112 0 0 0 0
 /assets/plugins/sparklines/sparkline.js
-0 231 0 175225 0 0 0 0
+0 65 0 42054 0 0 0 0
 /dashboard/usuarios
-0 5 0 19350 0 1 0 0
+0 1 0 3870 0 0 0 0
 /assets/plugins/summernote/summernote-bs4.css
-0 244 0 652645 0 0 0 0
+0 69 0 111882 0 0 0 0
 /assets/plugins/chart.js/Chart.min.js
-0 231 0 4074746 0 0 0 0
-/assets/fonts/fontawesome-webfont.woff2
-0 7 0 308640 0 0 0 0
-/registro
-0 2 0 3304 1 0 0 0
+0 65 0 940326 0 0 0 0
 /assets/dist/js/pages/dashboard.js
-0 230 0 174271 0 0 0 0
+0 65 0 45462 0 0 0 0
 /assets/plugins/jqvmap/maps/jquery.vmap.usa.js
-0 213 0 1001952 0 0 0 0
+0 66 0 286272 0 0 0 0
 /assets/plugins/jqvmap/jqvmap.min.css
-0 241 0 20842 0 0 0 0
+0 69 0 4291 0 0 0 0
 /dashboard
-0 72 0 324542 1 1 0 0
-/chatr
-0 11 0 31141 0 0 0 0
+0 76 0 343064 0 0 0 0
 /assets/dist/css/adminlte.min.css
-0 242 0 21178666 0 0 0 0
-/chatbot/respuestas/5e13b5c8cd90542bacea0dba
-0 3 0 16131 0 0 0 0
-/dashboard/perfil
-0 3 0 12087 0 0 0 0
+0 69 0 3619446 0 0 0 0
 /assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js
-0 230 0 1365096 0 0 0 0
-/get_id_chat
-0 159 0 4806 0 0 0 0
-/prueba.html
-0 8 0 21 0 0 0 0
+0 65 0 341274 0 0 0 0
 /assets/dist/js/adminlte.js.map
-0 155 0 2094980 0 0 0 0
+0 39 0 209498 0 0 0 0
 /assets/plugins/jqvmap/jquery.vmap.min.js
-0 214 0 465300 0 0 0 0
-/assets/js/probarChatbot.js
-0 12 0 40510 0 0 0 0
+0 65 0 126900 0 0 0 0
 /chatbot/configuracion/5e13b5c8cd90542bacea0dba
-0 21 0 92267 0 0 0 0
+0 3 0 13164 0 0 0 0
 /assets/plugins/bootstrap/js/bootstrap.bundle.min.js
-0 231 0 2044510 0 0 0 0
-/chatcliente
-0 22 0 71690 0 0 0 0
+0 65 0 471810 0 0 0 0
 /assets/img/bot2.svg
-0 184 0 109492 0 0 0 0
-/chatbot/conversacion/5e13b5c8cd90542bacea0dba
-0 5 0 22835 0 0 0 0
+0 302 0 547460 0 0 0 0
+/get_id_chatx
+0 3 0 93 0 0 0 0
 /assets/plugins/jquery-ui/jquery-ui.min.js
-0 215 0 5834387 0 0 0 0
+0 65 0 1522014 0 0 0 0
 /assets/dist/js/adminlte.js
-0 230 0 1281576 0 0 0 0
+0 65 0 320394 0 0 0 0
 /
-0 12 0 54024 9 3 0 0
+0 1 0 4514 2 0 0 0
 /assets/dist/css/adminlte.min.css.map
-0 163 0 38507300 0 0 0 0
-/chats
-0 63 0 209633 0 0 0 0
+0 39 0 3850730 0 0 0 0
 /assets/plugins/fontawesome-free/webfonts/fa-regular-400.woff2
-0 142 0 217344 0 0 0 0
+0 47 0 95088 0 0 0 0
+/crear_chatx
+0 2 0 4 1 0 0 0
 /assets/dist/img/AdminLTELogo.png
-1 216 0 228360 0 0 0 0
+1 59 0 72660 0 0 0 0
+/crearChat
+0 3 0 6 0 0 0 0
 /assets/plugins/daterangepicker/daterangepicker.js
-0 230 0 1576872 0 0 0 0
-/saludoInicialss
-0 19 0 988 0 1 0 0
+0 65 0 394218 0 0 0 0
 /assets/dist/css/custom.css
-0 243 0 69194 0 0 0 0
-/dashboard/empresa
-0 2 0 7870 0 0 0 0
+0 69 0 13314 0 0 0 0
 /assets/plugins/fontawesome-free/webfonts/fa-brands-400.woff2
-0 19 0 376680 0 0 0 0
+0 3 0 0 0 0 0 0
+/crear_chats
+0 7 0 14 0 0 0 0
 /assets/plugins/bootstrap/js/bootstrap.bundle.min.js.map
-0 155 0 6238980 0 0 0 0
+0 39 0 623898 0 0 0 0
 /assets/plugins/fontawesome-free/webfonts/fa-solid-900.woff2
-0 152 0 1666016 0 0 0 0
-/assets/css/font-awesome.min.css
-0 13 0 155000 0 0 0 0
+0 51 0 605824 0 0 0 0
 # End Of Table - urls
 # -sites- (monthly)
-66.249.88.86
-0 8 8 1034386 1 1582164094 0 0
+159.203.163.19
+0 2 1 4667 1 1583137160 0 0
 /iniciars
-186.3.158.86
-0 6 0 1250 2 1580758694 0 0
--
+66.249.88.86
+0 1 1 1513 1 1583242572 0 0
+/iniciars
 3.222.255.247
-0 7 5 61298 1 1580940312 0 0
--
-165.227.191.148
-0 1 0 0 1 1582933376 0 0
-/
-66.249.88.90
-0 13 13 341477 0 0 0 0
+0 2 0 0 1 1583184824 0 0
 -
 186.3.159.224
-0 8194 1236 96209071 7 1582930787 0 0
+0 3411 900 22900750 4 1583256217 0 0
 -
-66.133.109.36
-0 1 1 87 0 0 0 0
--
-172.30.1.165
-0 23 17 1538902 4 1582236855 0 0
--
-181.215.88.72
-0 2 1 1513 1 1582241030 0 0
-/iniciars
-3.14.255.131
-0 1 1 87 0 0 0 0
--
+159.89.36.28
+0 1 0 0 1 1583289059 0 0
+/
 66.249.88.88
-0 8 6 579084 1 1582164094 0 0
--
-34.222.229.130
-0 1 1 87 0 0 0 0
--
-191.96.59.26
-0 2 1 1513 1 1582241279 0 0
+0 3 1 47747 1 1583180662 0 0
 /iniciars
-127.0.0.1
-0 1 0 182 1 1582147426 0 0
--
-104.144.122.246
-0 2 1 1513 1 1582241818 0 0
+66.249.83.192
+0 1 1 1513 1 1583181781 0 0
 /iniciars
-186.33.184.83
-0 307 165 12463185 5 1582399620 0 0
--
-18.194.58.132
-0 1 1 87 0 0 0 0
+64.225.30.117
+0 1 0 0 1 1583283284 0 0
+/
+66.249.83.194
+0 1 0 23116 0 0 0 0
 -
 # End Of Table - sites (monthly)
 # -sites- (daily)
-165.227.191.148
-0 1 0 0 1 1582933376 0 0
+159.89.36.28
+0 1 0 0 1 1583289059 0 0
 /
-186.3.159.224
-0 3478 448 12445669 1 1582930787 0 0
--
+64.225.30.117
+0 1 0 0 1 1583283284 0 0
+/
 # End Of Table - sites (daily)
 # -referrers- 
-https://chat.tawsa.com/chats
-0 1321
-http://chat.tawsa.com/dashboard/usuarios
-0 145
-https://chat.tawsa.com/chatbot/conversacion/5e13b5c8cd90542bacea0dba
-0 28
-https://chat.tawsa.com/assets/css/font-awesome.min.css
+https://dev.solcaribe.com.ec/viajes392-tour-a-bogota-desde-quito.html
 0 3
 https://chat.tawsa.com/assets/plugins/fontawesome-free/css/all.min.css
-0 175
-https://chat.tawsa.com/chatcliente
-0 538
-http://chat.tawsa.com/chatbot/conversacion/5e13b5c8cd90542bacea0dba
-0 128
-https://dev.solcaribe.com.ec/tipo1-paquetes-turisticos/
-0 3
+0 84
 https://chat.tawsa.com/chatbot/configuracion/5e13b5c8cd90542bacea0dba
-0 188
-https://chat.tawsa.com/iniciars
-0 60
-https://chat.tawsa.com/chatr
-0 85
-http://chat.tawsa.com/chatcliente
-0 157
-http://chat.tawsa.com/iniciars
-0 380
-http://chat.tawsa.com/registro
-0 26
-https://dev.solcaribe.com.ec/viajes615-paquete-a-cartagena-desde-ecuador.html
-0 50
-http://chat.tawsa.com/
-0 253
-- (Direct Request)
-0 806
-http://chat.tawsa.com/chatbot/actualizarConfiguracion/5e13b5c8cd90542bacea0dba
-0 29
-https://dev.solcaribe.com.ec/
-0 156
-http://chat.tawsa.com/chats
-0 606
-http://chat.tawsa.com/dashboard/empresa
-0 69
-http://chat.tawsa.com/chatbot/apariencia/5e13b5c8cd90542bacea0dba
-0 69
-http://chat.tawsa.com/assets/css/font-awesome.min.css
-0 4
-https://chat.tawsa.com/chatbot/respuestas/5e13b5c8cd90542bacea0dba
 0 28
-http://chat.tawsa.com/dashboard/perfil
-0 90
+https://chat.tawsa.com/iniciars
+0 130
+https://dev.solcaribe.com.ec/viajes1009-paquete-a-cartagena-desde-ecuador.html
+0 6
+http://chat.tawsa.com/iniciars
+0 59
+https://dev.solcaribe.com.ec/viajes615-paquete-a-cartagena-desde-ecuador.html
+0 7
+- (Direct Request)
+0 312
+https://chat.tawsa.com/dashboard/usuarios
+0 28
+https://dev.solcaribe.com.ec/
+0 111
+https://dev.solcaribe.com.ec/viajes202-tour-a-bogota-desde-quito.html
+0 3
+https://dev.solcaribe.com.ec/marca62-delta-airlines/
+0 209
 http://chat.tawsa.com/dashboard
-0 1252
-http://chat.tawsa.com/chatbot/respuestas/5e13b5c8cd90542bacea0dba
-0 67
+0 173
 http://chat.tawsa.com/assets/plugins/fontawesome-free/css/all.min.css
-0 137
-https://www.netcraft.com/survey/
-0 1
+0 17
 https://chat.tawsa.com/dashboard
-0 814
-http://chat.tawsa.com/chatr
-0 121
+0 1540
+https://dev.solcaribe.com.ec/viajes385-tour-a-bogota-desde-quito.html
+0 6
+https://dev.solcaribe.com.ec/viajes184-cancun-y-riviera-maya-con-copa-airlines-desde-quito.html
+0 3
 https://chat.tawsa.com/
-0 313
-https://chat.tawsa.com/chatbot/apariencia/5e13b5c8cd90542bacea0dba
-0 29
+0 639
 http://chat.tawsa.com/chatbot/configuracion/5e13b5c8cd90542bacea0dba
-0 447
+0 65
 # End Of Table - referrers
 # -agents- 
-Mozilla/4.0 (compatible; Netcraft Web Server Survey)
-0 1
-Mozilla/5.0 (Linux; Android 10; SM-G9600) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.117 Mobile Safari/537.36
-0 29
-Mozilla/5.0 (compatible; Let's Encrypt validation server; +https://www.letsencrypt.org)
+Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
 0 4
-Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) CriOS/61.0.3163.73 Mobile/1
-0 2
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36
-0 3477
-Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36
-0 233
-Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
-0 5
+0 2547
 curl/7.58.0
 0 2
-Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36
-0 836
-WhatsApp/2.20.47 A
-0 1
-Webmin
-0 23
-Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Sa
-0 3
-Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko
-0 2
-acme-tiny
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36
+0 18
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+0 833
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon
 0 6
-Mozilla/5.0 (Linux; Android 7.0; SM-G925W8 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Sa
-0 2
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
-0 3521
-Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36
-0 431
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0
+0 13
 # End Of Table - agents
 # -search strings- 
 # End Of Table - search strings

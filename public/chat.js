@@ -43,14 +43,17 @@ function subscribeToChannel(id) {
   })
 
   chat.on('message', (message) => {
+    /*$('.messages').append(`
+      <p class="userEnteredText font-weight-bold">Jean</p><div class="clearfix"></div><p class="botResult">${message.body}</p><div class="clearfix"></div>
+    `)*/
     $('.messages').append(`
-      <p class="userEnteredText font-weight-bold">Jean</p><div class="clearfix"></div><p class="userEnteredText">${message.body}</p><div class="clearfix"></div>
+    <p class="${message.usuario}">${message.body}</p><div class="clearfix"></div>
     `)
     scrollToBottomOfResults();
   })
 }
 
-$('#message').keyup(function (e) {
+/*$('#message').keyup(function (e) {
   if (e.which === 13) {
     e.preventDefault()
 
@@ -59,11 +62,11 @@ $('#message').keyup(function (e) {
 
     // id
       let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://chat.tawsa.com/get_id_chats', true);
+      xhr.open('GET', 'https://chat.tawsa.com/crearIdChat', true);
 
       xhr.onload = function() {
         if (this.status == 200) {
-          console.log(JSON.parse(this.responseText)[1]);
+          console.log((this.responseText));
           var id = JSON.parse(this.responseText)[1]
           // var id = this.responseText;
           // return this.responseText
@@ -76,6 +79,43 @@ $('#message').keyup(function (e) {
       }
       xhr.send();
     return
+  }
+})*/
+
+$('#message').keyup(function (e) {
+  if (e.which === 13) {
+    e.preventDefault()
+
+    const message = $(this).val()
+    $(this).val('')
+
+    var mensajes = [];
+    $('.botResult, .userEnteredText').each(function(){
+      let msj = $(this).html();
+      let usuario = ($(this).attr('class') == 'userEnteredText')?'Vendedor':'Cliente';
+      mensajes.push({usuario: usuario, mensaje: msj});
+    });
+    mensajes.push({usuario: 'Cliente', mensaje: message});
+
+    //let mensajes = $("#guardarChatForm").html();
+     $.ajax({
+          type: "POST",
+          url: "https://chat.tawsa.com/crearIdChat",
+          data: {token: '5e13b20ab1a1d03b78c03f42', mensajes: JSON.stringify(mensajes), id_chat: '1'},
+          success: function(answer) {
+              alert(answer);
+              console.log(answer);
+              ws.getSubscription('chat:'+answer[1]).emit('message', {
+                usuario: 'botResult',
+                body: message
+              })
+          },
+          error: function(jqXHR, errorText, errorThrown) {
+            console.log(jqXHR);
+              console.log(jqXHR+" - "+errorText+" - "+errorThrown);
+          }
+      });
+            e.preventDefault();
   }
 })
 

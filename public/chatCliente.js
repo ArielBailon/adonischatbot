@@ -2,7 +2,7 @@ let ws = null
 
 function crearChat() {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://chat.tawsa.com/crear_chats', true);
+  xhr.open('GET', 'https://chat.tawsa.com/crearChat', true);
 
   xhr.onload = function() {
     if (this.status == 200) {
@@ -55,7 +55,7 @@ $('#message').keyup(function (e) {
 
     // id
       let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://chat.tawsa.com/get_id_chats', true);
+      xhr.open('GET', 'https://chat.tawsa.com/crearIdChat', true);
 
       xhr.onload = function() {
         if (this.status == 200) {

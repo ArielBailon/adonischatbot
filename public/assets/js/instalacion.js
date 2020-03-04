@@ -131,7 +131,7 @@
             dataType : 'json',
             contentType: 'application/json; charset=utf-8',
             success: function(answer) {
-                alert(JSON.parse(answer))
+                alert(answer)
                      ws.getSubscription('chat:'+answer).emit('message', {
                        body: message
                      })

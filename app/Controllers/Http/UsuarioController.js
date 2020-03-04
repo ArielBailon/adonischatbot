@@ -85,7 +85,7 @@ class UsuarioController {
 
   async cerrar_sesion({ session, view }){
     session.clear()
-    return view.render('registro.iniciarsesion')
+    return view.render('registro.iniciarSesion')
   }
 
   async crear_usuario ({ request, response, view, session }) {
