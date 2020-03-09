@@ -1,0 +1,28 @@
+{
+"data": [
+{
+"_id": "5e626ba64d06a97a508e5f0c",
+"pertenece": "5e13b20ab1a1d03b78c03f42",
+"nombre": "Papas 2",
+"correo": "cliente0@gmail.com",
+"telefono": 994283082,
+"asignado": "0",
+"estado": "0",
+"created_at": "2020-03-06T15:26:30.555Z",
+"updated_at": "2020-03-06T15:26:30.555Z",
+"__v": 0
+},
+{
+"_id": "5e626ba64d06a97a508e5f0d",
+"pertenece": "5e13b20ab1a1d03b78c03f42",
+"nombre": "Papas",
+"correo": "cliente1@gmail.com",
+"telefono": 994283082,
+"asignado": "0",
+"estado": "0",
+"created_at": "2020-03-06T15:26:30.596Z",
+"updated_at": "2020-03-06T15:26:30.596Z",
+"__v": 0
+}
+]
+}

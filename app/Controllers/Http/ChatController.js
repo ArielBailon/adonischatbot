@@ -10,18 +10,29 @@ const Helper = use('App/Controllers/Http/HelperController')
 class ChatController {
 
   async inicio ({ response, request, view, session}) {
-    if(!session.get('id_empresa')){response.redirect('/iniciars', false, 301)}
+    if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
 
     const usuario =  await Usuario.findById( session.get('id_empresa') )
 
     const results = await Chat.find({ id_empresa: usuario.id })
 
     // results.push(usuario.nombres)
-
     // console.log(usuario.nombres)
 
-    return view.render('/chat', {results: results})
+    return view.render('/chat', {results: results, id_usuario: session.get('id_usuario')})
   }
+
+  async prueba ({ response, request, view, session}) {
+    //if(!session.get('id_empresa')){ return response.redirect('/iniciars', false, 301)}
+    //return response.send("Hola mundo " + session.get('id_empresa'));
+    return view.render('prueba');
+  }
+
+  async vista_chat ({ params, response, request, view, session}) {
+      //return response.send("Hola mundo " + params.token_1 + " 2: " + params.token_2);
+      return view.render('/chatbot/popup_chat')
+  }
+
 
   async crear_chat ({ params, response, session }) {
     //if(!session.get('id_empresa')){response.redirect('/iniciars', false)}
@@ -32,13 +43,13 @@ class ChatController {
         // Usar para retornar el número de chats creado según usuario para crear chats dinámicos cuando se realize una subscripción a un chat nuevo
         // const results = await Chat.find({ id_empresa : usuario.id })
         const results = await Chat.find().limit(1).sort({ id_chat: -1})
-        console.log(results)
+        let id_chat = (results.length > 0)?results[0].id_chat + 1 : 1
           const nuevoChat = new Chat({
             id_empresa : usuario.id,
-            id_chat: results[0].id_chat + 1
+            id_chat: id_chat
           })
       await nuevoChat.save()
-      return results[0].id_chat + 1
+      return id_chat
       //return session.get('id_empresa');
 
     } catch (err) {
@@ -59,7 +70,7 @@ class ChatController {
       // Usar para retornar el número de chats creado según usuario para crear chats dinámicos cuando se realize una subscripción a un chat nuevo
       const results = await Chat.find({ id_empresa: usuario.id })
 
-      const prueba = await this.guardar_chat_cliente(body.mensajes)
+      const prueba = await this.guardar_chat_cliente(body.mensajes, body.id_chat)
       const dataRetornar = [ usuario.id, results.length, prueba]
 
       // console.log(dataRetornar);
@@ -71,16 +82,15 @@ class ChatController {
     }
   }
 
-  async guardar_chat_cliente (mensajes) {
+  async guardar_chat_cliente (mensajes, id_chat) {
     let update = {
                   chat: {
-                    id_chat : 'default',
                     mensajes
                   }
                 }
     try {
       let nuevoChatCliente = await Cliente.findOneAndUpdate(
-        { nombres: 'default' },
+        { id_cliente: id_chat },
         { $set: update },
         { new: true, upsert: true }
       );
@@ -92,23 +102,22 @@ class ChatController {
   }
 
   async asignar_usuario ({ response, request, session }) {
-    if(!session.get('id_empresa')){response.redirect('/iniciars', false, 301)}
-
+    //if(!session.get('id_empresa')){response.redirect('/iniciars', false, 301)}
     try {
       const data = request.post()
-      console.log(data.chatId);
-      const chat = await Chat.find({ id_empresa: session.get('id_empresa'), id_chat: data.chatId })
+      let id_empresa = (data.token) ? data.token:session.get('id_empresa')
+
+      const chat = await Chat.find({ id_empresa: id_empresa, id_chat: data.chatId })
+      const clientes = await Cliente.find({ id_cliente: data.chatId })
       // console.log(chat);
 
       chat[0].asignado = session.get('id_usuario')
       // return dataRetornar
-
       // console.log(session.all());
-
       // console.log(chat);
 
       await chat[0].save()
-
+      return clientes[0].chat.mensajes
     } catch (err) {
       console.error(err.message)
     }

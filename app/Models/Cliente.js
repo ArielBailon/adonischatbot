@@ -23,6 +23,9 @@ class Cliente extends BaseModel {
         type: mongoose.Schema.Types.ObjectId,
         ref:'usuario'
       },
+      id_cliente: {
+        type: String,
+      },
       nombres: {
         type: String,
       },
@@ -42,7 +45,6 @@ class Cliente extends BaseModel {
         type: String
       },
       chat: {
-        id_chat : { type: String },
         mensajes : {
           type: String
         },

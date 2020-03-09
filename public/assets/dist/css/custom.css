@@ -120,3 +120,83 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* Chat */
+.botResult{
+  background: #2884e0;
+  float: right;
+  color: #ffffff;
+  border-radius: 3px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  width: 300px;
+  box-shadow: 0 0px 1px 0 rgba(0,0,0,0.16), 0 0px 10px 0 rgba(0,0,0,0.12);
+  border-top-right-radius: 0;
+  position: relative;
+  left: -6px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  /*width: 100%;*/
+  word-wrap: break-word;
+}
+.botResult:before{
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 0px solid rgba(0, 0, 0, 0);
+  border-bottom: 15px solid rgba(0, 0, 0, 0);
+  border-left: 15px solid #2884e0;
+  position: absolute;
+  right: -15px;
+  margin-top: -12px;
+}
+.userEnteredText{
+  background: #fff;
+  color: #000;
+  border-radius: 3px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  width: 300px;
+  float: left;
+  box-shadow: 0 0px 1px 0 rgba(0,0,0,0.16), 0 0px 10px 0 rgba(0,0,0,0.12);
+  border-top-left-radius: 0;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  /*width: 100%;*/
+  position: relative;
+}
+.userEnteredText:before{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 0px solid rgba(0, 0, 0, 0);
+  border-bottom: 15px solid rgba(0, 0, 0, 0);
+  border-right: 15px solid #fff;
+  left: -15px;
+  margin-top: -12px;
+}
+.force-width {
+  width: 200px !important;
+}
+
+.connected{
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin-top: 5px;
+  background: #5cb85c;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.disconnected{
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin-top: 5px;
+  background: red;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}

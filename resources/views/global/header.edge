@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
@@ -29,10 +31,10 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   {{--  jquery  --}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  {{--  Color picker  --}}
-  <script src="/assets/js/jscolor.js"></script>
   {{--  Custom css  --}}
   <link rel="stylesheet" href="/assets/dist/css/custom.css">
+  {{-- Select --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
 
 
 </head>
@@ -54,7 +56,7 @@
           <a onclick="window.location.href = '/chatbot/configuracion/{{id_bot}}'" class="nav-link border-nav pointer">Chatbot</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
-          <a href="#" class="nav-link border-nav">Clientes</a>
+          <a href="/cliente/gestion-de-cliente" class="nav-link border-nav">Clientes</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block ">
           <a href="/chats" class="nav-link border-nav">Responder Chats</a>
@@ -140,9 +142,11 @@
     <aside class="main-sidebar sidebar-light-primary">
       <!-- Brand Logo -->
       <a href="/dashboard" class="brand-link">
-        <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <!--<img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">-->
+        <img src="/assets/img/logo-sidebar-2.png" alt="Business Chat" class="elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-bold brand-color">TelandCRM</span>
+        <!--<span class="brand-text font-weight-bold brand-color">TelandCRM</span>-->
       </a>
 
       <!-- Sidebar -->

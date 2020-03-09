@@ -17,6 +17,7 @@
   "private": true,
   "dependencies": {
     "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/antl": "^2.0.7",
     "@adonisjs/auth": "^3.0.7",
     "@adonisjs/bodyparser": "^2.0.5",
     "@adonisjs/cors": "^1.0.7",
@@ -28,6 +29,7 @@
     "@adonisjs/shield": "^1.0.8",
     "@adonisjs/validator": "^5.0.6",
     "@adonisjs/websocket": "^1.0.12",
+    "adonis-antl": "^1.0.5",
     "adonis-mongoose-model": "^3.2.0",
     "bootstrap-colorpicker": "^3.2.0",
     "jquery": "^3.4.1",

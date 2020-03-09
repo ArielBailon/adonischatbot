@@ -1,16 +1,58 @@
+<html>
 
-    <h2>{{ data }}</h2>
-    @set('items', ['Recorrer array A', 'Recorrer array B', 'Recorrer array C'])
-    @each(item in items)
-        <option value="{{item.toLowerCase()}}">{{item}}</option>
-    @endeach
+<head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <link rel="stylesheet" href="https://chat.tawsa.com/assets/css/chat.css">
+  <link rel="stylesheet" href="https://chat.tawsa.com/assets/plugins/fontawesome-free/css/all.min.css">
+  <script type="text/javascript" src="https://unpkg.com/@adonisjs/websocket-client@1.0.9/dist/Ws.browser.js"></script>
+  <script type="text/javascript" src="https://chat.tawsa.com/assets/chat_instalacion/5e615c30542bea3118de7b99/5e615cd6542bea3118de7b91.js"></script>
+</head>
 
-    @set('ab', 'Definir variables')
-    {{ab}}
-    <br>
-    @if('hola' == 'hola')
-      Metodo logico
-    @else
-      Hola
-    @endif
-
+<body>
+  <div id="chat-5e615c30542bea3118de7b99">
+    <div class="chat-box">
+      <chat>
+        <div class="chatCont" id="chatCont">
+          <div class="bot_profile">
+            <img src="https://chat.tawsa.com/assets/img/bot2.svg" class="bot_p_img">
+            <div class="close">
+              <!--<i class="fa fa-times" aria-hidden="true"></i>-->
+              X
+            </div>
+          </div>
+          <!--bot_profile end-->
+          <div id="guardarChatForm" class="resultDiv messages">
+            <div id="result_div"></div>
+          </div>
+          <div class="chatForm" id="chat-div">
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+            <input type="text" id="message" autocomplete="off" placeholder="Escribe un mensaje" class="form-control bot-txt" />
+          </div>
+        </div>
+        <!--chatCont end-->
+        <div class="profile_div" id="profile_div">
+          <div class="row">
+            <div class="col-hgt">
+              <img src="https://chat.tawsa.com/assets/img/bot2.svg" class="img-circle img-profile">
+            </div>
+            <!--col-hgt end-->
+            <div class="col-hgt">
+              <div class="chat-txt">
+                Escribe ahora!
+              </div>
+            </div>
+            <!--col-hgt end-->
+          </div>
+          <!--row end-->
+        </div>
+        <!--profile_div end-->
+      </chat>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 (function() {
   var responseText;
   const Widget = Object.create({
@@ -43,20 +44,14 @@
   $("head").prepend('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>');
   const myWidgetInstance = Widget.create("Prueba de chat-12345");
   const id = `chat-${ Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1) }`;
-  document.write(`<div id="${ id }"></div>`);
+  document.write(`<div id="${ id }" name="Riden"></div>`);
   document.getElementById(id).appendChild(myWidgetInstance);
   $("head").prepend('<link rel="stylesheet" href="https://chat.tawsa.com/assets/css/chat.css">');
   $("head").prepend('<script type="text/javascript" src="https://unpkg.com/@adonisjs/websocket-client@1.0.9/dist/Ws.browser.js"></script>');
 
   // ------------------------------------------ Toggle chatbot -----------------------------------------------
   $('.profile_div').click(function () {
-    alert(localStorage.getItem("responseText"));
-    if(localStorage.getItem("responseText") ==  null){
-      alert("entro");
-      startChat()
-    }else{
-      startChatSesion(localStorage.getItem("responseText"))
-    }
+    startChat()
     $('.profile_div').toggle();
     $('.chatCont').toggle();
     $('.bot_profile').toggle();
@@ -68,22 +63,21 @@
 
   function crearChat() {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://chat.tawsa.com/crearChat/5e13b20ab1a1d03b78c03f42/', true);
+    xhr.open('GET', 'https://chat.tawsa.com/crearChat/5e615c30542bea3118de7b99/', true);
 
     xhr.onload = function(variable) {
       responseText = this.responseText;
 
-      localStorage.setItem("responseText", responseText);
       if (this.status == 200) {
         // console.log(this.responseText);
         // var id = this.responseText;
         subscribeToChannel(this.responseText)
       }
-      $.each(['Hola en que puedo ayudarte'], function( index, value ) {
+      /*$.each(['Hola en que puedo ayudarte'], function( index, value ) {
         $('.messages').append(`
         <p class="botResult">${value}</p><div class="clearfix"></div>
         `)
-      });
+      });*/
     }
    xhr.send()
   }
@@ -114,7 +108,6 @@
               url: 'https://chat.tawsa.com/asignarUsuario',
               data: {
                   chatId: chatId,
-                  token: '5e13b20ab1a1d03b78c03f42'
               },
               type: 'POST',
               success: function(response){
@@ -171,30 +164,22 @@
       });
       mensajes.push({usuario: 'Cliente', mensaje: message});
       //let mensajes = $("#guardarChatForm").html();
-      if(localStorage.getItem("responseText") ==  null){
-        $.ajax({
-             type: "POST",
-             url: "https://chat.tawsa.com/crearIdChat",
-             data: {token: '5e13b20ab1a1d03b78c03f42', mensajes: JSON.stringify(mensajes) , id_chat: responseText},
-             success: function(answer) {
-                 alert(answer);
-                 console.log(answer);
-                 ws.getSubscription('chat:'+answer[1]).emit('message', {
-                   usuario: 'userEnteredText',
-                   body: message
-                 })
-             },
-             error: function(jqXHR, errorText, errorThrown) {
-               console.log(jqXHR);
-                 console.log(jqXHR+" - "+errorText+" - "+errorThrown);
-             }
-         });
-      }else{
-        ws.getSubscription('chat:'+localStorage.getItem("responseText")).emit('message', {
-          usuario: 'userEnteredText',
-          body: message
-        })
-      }
+      $.ajax({
+           type: "POST",
+           url: "https://chat.tawsa.com/crearIdChat",
+           data: {token: '5e615c30542bea3118de7b99', mensajes: JSON.stringify(mensajes) , id_chat: responseText},
+           success: function(answer) {
+               console.log(answer);
+               ws.getSubscription('chat:'+answer[1]).emit('message', {
+                 usuario: 'userEnteredText',
+                 body: message
+               })
+           },
+           error: function(jqXHR, errorText, errorThrown) {
+             console.log(jqXHR);
+               console.log(jqXHR+" - "+errorText+" - "+errorThrown);
+           }
+       });
               e.preventDefault();
     }
   })
@@ -204,7 +189,7 @@
     $('.chatCont').toggle();
     $('.bot_profile').toggle();
     $('.chatForm').toggle();
-    $('#guardarChatForm').submit();
+    //$('#guardarChatForm').submit();
   });
 
   //---------------------------------- Scroll to the bottom of the results div -------------------------------
@@ -221,7 +206,5 @@
   function hideSpinner() {
     $('.spinner').hide();
   }
-
-
 
 })();

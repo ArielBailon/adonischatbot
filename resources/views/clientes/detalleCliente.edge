@@ -1,0 +1,216 @@
+@include('global.header')
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <p>Gestión de cliente -> Detalle de cliente</p>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active">Clientes</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- Main content -->
+  <section class="content">
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card card-primary infoprincipal">
+          <div class="card-header usuario">
+            <div class="perfil-usuario">
+              <div class="avatar">
+                <i class="fas fa-user-circle fa-3x float-left"></i>
+                <h3 class="card-title ml-2 mt-1">Jean</h3><br>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <br>
+            <div class="email">
+              <div class="container">
+                <i class="far fa-envelope float-left mb-4"></i>
+                <p class="ml-4">ariel.1995@hotmail.es</p>
+              </div>
+            </div>
+
+            <div class="telefono">
+              <div class="container">
+                <i class="fas fa-phone-alt"></i>
+                <p class="ml-4">+59688946164</p>
+              </div>
+            </div>
+            <div class="whatsapp">
+              <div class="container">
+                <i class="fab fa-whatsapp"></i>
+                <p>Contactar</p>
+
+              </div>
+            </div>
+            <div class="fecha">
+              <i class="far fa-calendar-alt"></i>
+              <p>fecha deseada?</p>
+            </div>
+            <div class="estado">
+              <i class="far fa-calendar-check"></i>
+              <p>Estado - Sin actividad</p>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="ubicacion">
+              <strong>Ubicación</strong>
+              <p>Quito, Pichincha</p>
+            </div>
+            <hr>
+
+            <div class="primer-contacto">
+              <strong>Primer contacto</strong>
+              <p>fecha y hora</p>
+            </div>
+            <hr>
+
+            <div class="sitio">
+              <strong>Sitio</strong>
+              <p>Sol Caribe</p>
+            </div>
+            <hr>
+
+            <div class="generado">
+              <strong>Generado en</strong>
+              <p>link de referencia de cliente</p>
+            </div>
+            <hr>
+
+            <div class="origen">
+              <strong>Origen</strong>
+              <p>Origen de cliente</p>
+            </div>
+            <hr>
+
+            <div class="Medio">
+              <strong>Medio</strong>
+              <p>Medio</p>
+            </div>
+            <hr>
+
+            <div class="ip">
+              <strong>Dirección IP</strong>
+              <p>192.0.0.1</p>
+            </div>
+            <hr>
+
+            <div class="metodo-entrada">
+              <strong>Método de entrada</strong>
+              <p>Chatbot</p>
+            </div>
+            <hr>
+
+            <div class="parametros-adicionales">
+              <strong>Parámetros adicionales</strong>
+              <p>tags, preguntas adicionales, o final</p>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+
+      </div><!-- /.col-3 -->
+
+      <div class="col-md-6">
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Estado, Asignado</h3>
+          </div>
+          <div class="card-header">
+            <h3 class="card-title">Notas</h3>
+          </div>
+          <!-- /.card-header -->
+
+          <div class="card-body">
+            <div class="col">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Telefono</th>
+                  <th>Asignado</th>
+                  <th>Fecha</th>
+                  <th>Clasificación</th>
+                  <th>Estado</th>
+                  <th>Origen</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th></th>
+                  <th>Nombres</th>
+                  <th>Correo</th>
+                  <th>Telefono</th>
+                  <th>Asignado</th>
+                  <th>Fecha</th>
+                  <th>Clasificación</th>
+                  <th>Estado</th>
+                  <th>Origen</th>
+                </tr>
+              </tfoot>
+            </table>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div><!-- /.card -->
+
+      </div><!-- /.col-9 -->
+
+      <div class="col-md-3">
+
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Conversación</h3>
+          </div>
+          <!-- /.card-header -->
+              <div class="card-body scroll" id="autoScroll">
+                <div class="messages">
+                  <p class="userEnteredText force-width">de 5 en 5</p><div class="clearfix"></div>
+
+                  <p class="userEnteredText force-width">xd</p><div class="clearfix"></div>
+
+                  <p class="botResult force-width">Hola</p><div class="clearfix"></div>
+
+                  <p class="botResult force-width">prueba</p><div class="clearfix"></div>
+
+                  <p class="userEnteredText force-width">prueba 2</p><div class="clearfix"></div>
+
+                  <p class="botResult force-width">prueba 3</p><div class="clearfix"></div>
+
+                  <p class="botResult force-width">prueba</p><div class="clearfix"></div>
+
+                  <p class="botResult force-width">prueba</p><div class="clearfix"></div>
+
+                  <p class="botResult force-width">preuba</p><div class="clearfix"></div>
+
+                  <p class="userEnteredText force-width">baja</p><div class="clearfix"></div>
+
+                  <p class="userEnteredText force-width">o no baja</p><div class="clearfix"></div>
+
+                  <p class="userEnteredTex force-widtht">sí, baja</p><div class="clearfix"></div>
+                </div>
+            </div>
+          <!-- /.card-body -->
+
+      </div><!-- /.col-3 -->
+
+    </div><!-- /.row -->
+  </section>
+  <!-- /.content -->
+</div>
+@include('global.footer')

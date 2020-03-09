@@ -79,9 +79,23 @@ Route.get('/crearIdChat', 'ChatController.get_id_chat')
 Route.post('/crearIdChat', 'ChatController.get_id_chat')
 Route.post('/asignarUsuario', 'ChatController.asignar_usuario')
 Route.get('/saludoInicialss', 'ChatController.saludo_inicial')
+Route.get('/popup_chat/:token_1/:token_2', 'ChatController.vista_chat')
+Route.get('/prueba', 'ChatController.prueba')
 
-// CLiente
-Route.post('guardarChatCliente', 'ClienteController.guardar_chat_cliente')
+
+// Cliente
+Route.group(() =>{
+  Route.get('detalle-cliente', 'ClienteController.detalle_cliente')
+
+  Route.get('gestion-de-cliente', 'ClienteController.gestion_cliente')
+  Route.post('ajax_clientes', 'ClienteController.ajax_gestion_cliente')
+  Route.get('obtener-clientes', 'ClienteController.get_clientes')
+
+
+  /*Route.post('configuracion', 'RidenController.configuracion_post')
+  Route.get('login', 'RidenController.login')*/
+}).prefix('cliente')
+Route.get('gdc/:cantidad/:cliente', 'ClienteController.insertar_multiples_clientes')
 
 
 // Módulo chatbot

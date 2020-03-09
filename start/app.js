@@ -22,7 +22,8 @@ const providers = [
   'lucid-mongo/providers/LucidMongoProvider',
   'adonis-mongoose-model/providers/MongooseProvider',
   '@adonisjs/websocket/providers/WsProvider',
-  '@adonisjs/validator/providers/ValidatorProvider'
+  '@adonisjs/validator/providers/ValidatorProvider',
+  '@adonisjs/antl/providers/AntlProvider'
 ]
 
 /*

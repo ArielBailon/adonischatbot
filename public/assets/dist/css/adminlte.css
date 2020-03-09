@@ -19499,7 +19499,7 @@ html.maximized-card {
   background: #e9ecef;
   display: -ms-flexbox;
   display: flex;
-  height: 100vh;
+  /*height: 100vh;*/
   -ms-flex-pack: center;
   justify-content: center;
 }

@@ -1,0 +1,208 @@
+@include('global.header')
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Clientes</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active">Clientes</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- Main content -->
+  <section class="content">
+
+    <div class="row">
+      <div class="col-md-9 col-sm-12 col-lg-10">
+
+        <div class="card card-primary">
+          <div class="card-body">
+            <div class="row" style="margin-bottom: 15px; margin-left: 1px;">
+              <ul class="nav nav-pills" style="background: #f3f3f3;border-radius: 0.25rem;border: 0 solid #333;">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Total</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Nuevo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">En progreso</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Con venta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Sin venta</a>
+                </li>
+              </ul>
+            </div><!-- /. row -->
+            <div class="row">
+              <div class="col">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">Todo</button>
+                  <button type="button" class="btn btn-default">Asignar</button>
+                  <button type="button" class="btn btn-default">Eliminar</button>
+                </div>
+              </div>
+              <div class="col">
+                <select class="form-control js-data-example-ajax" style="width: 100%;" data-select2-id="1" tabindex="-1"
+                  aria-hidden="true">
+                  <option selected="selected" data-select2-id="3">Todos los sitios</option>
+                  <option data-select2-id="76">Riden Bot</option>
+                  <option data-select2-id="77">Jean Bot</option>
+                  <option data-select2-id="78">Ariel Bot</option>
+                </select>
+              </div>
+              <div class="col">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">Nuevo Cliente</button>
+                  <button type="button" class="btn btn-default">Exportar</button>
+                  <button type="button" class="btn btn-default">Buscar</button>
+                </div>
+              </div>
+
+            </div><!-- /. row -->
+          </div>
+        </div><!-- /.card card-primary-->
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Clientes</h3>
+          </div>
+          <!-- /.card-header -->
+
+          <div class="card-body">
+            <div class="col">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Telefono</th>
+                  <th>Asignado</th>
+                  <th>Fecha</th>
+                  <th>Clasificación</th>
+                  <th>Estado</th>
+                  <th>Origen</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th></th>
+                  <th>Nombres</th>
+                  <th>Correo</th>
+                  <th>Telefono</th>
+                  <th>Asignado</th>
+                  <th>Fecha</th>
+                  <th>Clasificación</th>
+                  <th>Estado</th>
+                  <th>Origen</th>
+                </tr>
+              </tfoot>
+
+              <!--<tbody>
+                    each(value in data)
+                    <tr>
+                        <td>value.nombre}}</td>
+                        <td>value.correo}}</td>
+                        <td>value.telefono}}</td>
+                        <td>value.asignado</td>
+                        <td>value.fecha_contacto</td>
+                        <td>value.clasificacion</td>
+                        <td>value.estado</td>
+                        <td>value.origen</td>
+                    </tr>
+                    endeach
+                </tbody>   -->
+            </table>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div><!-- /.card -->
+
+      </div><!-- /.col-9 -->
+
+      <div class="col-md-3 col-sm-12 col-lg-2">
+        @include('global/clientes/filtroGestionCliente')
+      </div><!-- /.col-3 -->
+
+    </div><!-- /.row -->
+  </section>
+  <!-- /.content -->
+</div>
+@include('global.footer')
+
+
+<script>
+  $(document).ready(function () {
+    $('#example1').DataTable({
+      "scrollX": true,
+      "scrollCollapse": true,
+      "scrollResize": true,
+      "bLengthChange": false,
+      "bFilter": false,
+      'processing': true,
+      'serverSide': true,
+      //'serverMethod': 'get',
+      "ajax": {
+        "url": "/cliente/ajax_clientes",
+        //"dataSrc": "data",
+        "type": "POST"
+      },
+      'columnDefs': [{
+         'targets': 0,
+         'searchable': false,
+         'orderable': false,
+         'className': 'dt-body-center',
+         'render': function (data, type, full, meta){
+             return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+         }
+      }],
+      "columns": [
+        {
+          "data": "Check"
+        },
+        {
+          "data": "nombres",
+          render : function(data, type, row) {
+              return '<span class="mycus-class2">'+data+'</span>'
+          }
+        },
+        {
+          "data": "correo"
+        },
+        {
+          "data": "telefono"
+        },
+        {
+          "data": "asigando"
+        },
+        {
+          "data": "fecha_contacto"
+        },
+        {
+          "data": "clasificacion"
+        },
+        {
+          "data": "estado"
+        },
+        {
+          "data": "origen"
+        }
+      ]
+
+    });
+  });
+
+</script>
